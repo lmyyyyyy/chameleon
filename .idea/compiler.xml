@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="chameleon" />
+        <module name="chameleon-common" />
+        <module name="chameleon-config-web" />
+        <module name="chameleon-core" />
+        <module name="chameleon-simple" />
+        <module name="chameleon-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="chameleon" target="1.5" />
+      <module name="chameleon-common" target="1.5" />
+      <module name="chameleon-config-web" target="1.5" />
+      <module name="chameleon-core" target="1.5" />
+      <module name="chameleon-parent" target="1.5" />
+      <module name="chameleon-simple" target="1.5" />
+      <module name="chameleon-web" target="1.5" />
+      <module name="chameleonconfigweb" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
