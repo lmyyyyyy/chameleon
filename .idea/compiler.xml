@@ -15,14 +15,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="chameleon" target="1.5" />
-      <module name="chameleon-common" target="1.5" />
-      <module name="chameleon-config-web" target="1.5" />
-      <module name="chameleon-core" target="1.5" />
-      <module name="chameleon-parent" target="1.5" />
-      <module name="chameleon-simple" target="1.5" />
-      <module name="chameleon-web" target="1.5" />
-      <module name="chameleonconfigweb" target="1.5" />
+      <module name="chameleon-common" target="1.8" />
+      <module name="chameleon-config-web" target="1.8" />
+      <module name="chameleon-core" target="1.8" />
+      <module name="chameleon-parent" target="1.8" />
+      <module name="chameleon-simple" target="1.8" />
+      <module name="chameleon-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
