@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * @author liumingyu
@@ -68,6 +69,24 @@ public class Site implements Serializable {
         return this;
     }
 
+    public Task buildTask() {
+        return new Task() {
+            @Override
+            public Site getSite() {
+                return Site.this;
+            }
+
+            @Override
+            public String getUUID() {
+                String uuid = Site.this.domain;
+                if (uuid == null) {
+                    uuid = UUID.randomUUID().toString();
+                }
+                return uuid;
+            }
+        };
+    }
+
     public String getDomain() {
         return domain;
     }
@@ -106,6 +125,10 @@ public class Site implements Serializable {
 
     public Map<String, Map<String, String>> getAllCookies() {
         return cookies;
+    }
+
+    public Map<String, String> getCookies() {
+        return defaultCookies;
     }
 
     public Site setCookies(Map<String, Map<String, String>> cookies) {

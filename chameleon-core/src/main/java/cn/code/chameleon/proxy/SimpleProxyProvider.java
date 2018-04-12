@@ -1,5 +1,6 @@
 package cn.code.chameleon.proxy;
 
+import cn.code.chameleon.carrier.Task;
 import com.google.common.collect.Lists;
 
 import java.util.Collections;
@@ -34,7 +35,7 @@ public class SimpleProxyProvider implements ProxyProvider {
     }
 
     @Override
-    public Proxy getProxy() {
+    public Proxy getProxy(Task task) {
         return proxies.get(incrForLoop());
     }
 

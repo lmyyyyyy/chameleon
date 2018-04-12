@@ -25,7 +25,7 @@ public class Request implements Serializable {
 
     private Map<String, Object> extras;
 
-    private Long priority;
+    private long priority;
 
     private boolean binaryContent;
 
@@ -101,11 +101,11 @@ public class Request implements Serializable {
         return this;
     }
 
-    public Long getPriority() {
+    public long getPriority() {
         return priority;
     }
 
-    public Request setPriority(Long priority) {
+    public Request setPriority(long priority) {
         this.priority = priority;
         return this;
     }

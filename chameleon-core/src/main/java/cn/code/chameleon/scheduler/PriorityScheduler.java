@@ -12,7 +12,7 @@ import java.util.concurrent.PriorityBlockingQueue;
  * @author liumingyu
  * @create 2018-04-09 下午5:15
  */
-public class PriorityScheduler extends DuplicateRemoveScheduler implements MonitorScheduler {
+public class PriorityScheduler extends DuplicateRemoveScheduler implements MonitorableScheduler {
 
     public static final int INIT_CAPACITY = 8;
 

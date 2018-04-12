@@ -12,23 +12,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * url and html utils.
- *
- * @author code4crafter@gmail.com <br>
- * @since 0.1.0
- */
+
 public class UrlUtils {
 
-    /**
-     * canonicalizeUrl
-     * <br>
-     * Borrowed from Jsoup.
-     *
-     * @param url url
-     * @param refer refer
-     * @return canonicalizeUrl
-     */
     public static String canonicalizeUrl(String url, String refer) {
         URL base;
         try {

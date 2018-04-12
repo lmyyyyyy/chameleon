@@ -40,4 +40,9 @@ public class HttpConstant {
 
         public static final String USER_AGENT = "User-Agent";
     }
+
+    public static abstract class Charset {
+
+        public static final String DEFAULT_CHARSET = "UTF-8";
+    }
 }
