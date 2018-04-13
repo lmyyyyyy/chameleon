@@ -15,4 +15,10 @@ public class Json extends PlainText {
     public Json(String text) {
         super(text);
     }
+
+    @Override
+    public Selectable jsonPath(String jsonPath) {
+        JsonPathSelector jsonPathSelector = new JsonPathSelector(jsonPath);
+        return selectList(jsonPathSelector, getSourceTexts());
+    }
 }

@@ -2,10 +2,13 @@ package cn.code.chameleon.selector;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author liumingyu
@@ -20,9 +23,6 @@ public class Html extends HtmlNode implements Serializable {
     private static boolean DISABLE_HTML_ENTITY_ESCAPE;
 
     private Document document;
-
-    public Html() {
-    }
 
     public Html(String text, String url) {
         try {
@@ -52,6 +52,29 @@ public class Html extends HtmlNode implements Serializable {
 
     public Document getDocument() {
         return document;
+    }
+
+    @Override
+    public List<Element> getElements() {
+        return Collections.<Element>singletonList(getDocument());
+    }
+
+    public String selectDocument(Selector selector) {
+        if (selector instanceof ElementSelector) {
+            ElementSelector elementSelector = (ElementSelector) selector;
+            return elementSelector.select(getDocument());
+        } else {
+            return selector.select(getFirstSourceText());
+        }
+    }
+
+    public List<String> selectDocumentForList(Selector selector) {
+        if (selector instanceof ElementSelector) {
+            ElementSelector elementSelector = (ElementSelector) selector;
+            return elementSelector.selectList(getDocument());
+        } else {
+            return selector.selectList(getFirstSourceText());
+        }
     }
 
 }

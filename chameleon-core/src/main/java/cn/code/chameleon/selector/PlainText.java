@@ -23,4 +23,38 @@ public class PlainText extends AbstractSelectable {
     public static PlainText create(String text) {
         return new PlainText(text);
     }
+
+    @Override
+    protected List<String> getSourceTexts() {
+        return sourceTexts;
+    }
+
+    @Override
+    public Selectable $(String selector) {
+        throw new UnsupportedOperationException("$ can not apply to PlainText");
+    }
+
+    @Override
+    public Selectable $(String selector, String attrName) {
+        throw new UnsupportedOperationException("$ can not apply to PlainText");
+    }
+
+    @Override
+    public Selectable links() {
+        throw new UnsupportedOperationException("Links can not apply to PlainText");
+    }
+
+    @Override
+    public Selectable smartContent() {
+        throw new UnsupportedOperationException("SmartContent can not apply to PlainText");
+    }
+
+    @Override
+    public List<Selectable> nodes() {
+        List<Selectable> selectables = new ArrayList<>(sourceTexts.size());
+        for (String str : getSourceTexts()) {
+            selectables.add(PlainText.create(str));
+        }
+        return selectables;
+    }
 }
