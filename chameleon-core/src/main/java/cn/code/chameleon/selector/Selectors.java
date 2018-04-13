@@ -25,4 +25,16 @@ public abstract class Selectors {
     public static CssSelector $(String expr, String attrName) {
         return new CssSelector(expr, attrName);
     }
+
+    public static XpathSelector xpathSelector(String expr) {
+        return new XpathSelector(expr);
+    }
+
+    public static AndSelector andSelector(Selector... selectors) {
+        return new AndSelector(selectors);
+    }
+
+    public static OrSelector orSelector(Selector... selectors) {
+        return new OrSelector(selectors);
+    }
 }

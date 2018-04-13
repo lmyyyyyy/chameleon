@@ -50,6 +50,11 @@ public class PlainText extends AbstractSelectable {
     }
 
     @Override
+    public Selectable xpath(String xpath) {
+        throw new UnsupportedOperationException("Xpath can not apply to PlainText");
+    }
+
+    @Override
     public List<Selectable> nodes() {
         List<Selectable> selectables = new ArrayList<>(sourceTexts.size());
         for (String str : getSourceTexts()) {

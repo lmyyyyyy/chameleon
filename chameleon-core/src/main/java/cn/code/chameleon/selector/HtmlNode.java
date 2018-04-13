@@ -106,6 +106,12 @@ public class HtmlNode extends AbstractSelectable {
     }
 
     @Override
+    public Selectable xpath(String xpath) {
+        XpathSelector xpathSelector = Selectors.xpathSelector(xpath);
+        return selectElements(xpathSelector);
+    }
+
+    @Override
     public List<Selectable> nodes() {
         List<Selectable> selectables = new ArrayList<>();
         for (Element element : getElements()) {

@@ -26,6 +26,8 @@ public interface Selectable {
 
     Selectable replace(String regex, String replacement);
 
+    Selectable xpath(String xpath);
+
     Selectable jsonPath(String jsonPath);
 
     Selectable select(Selector selector);
