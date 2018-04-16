@@ -51,8 +51,21 @@ public class PriorityScheduler extends DuplicateRemoveScheduler implements Monit
     }
 
     @Override
+    public synchronized Request peek(Task task) {
+        Request request = maxPriorityQueue.peek();
+        if (request != null) {
+            return request;
+        }
+        request = noPriorityQueue.peek();
+        if (request != null) {
+            return request;
+        }
+        return minPriorityQueue.peek();
+    }
+
+    @Override
     public int getLeftRequestsCount(Task task) {
-        return noPriorityQueue.size();
+        return maxPriorityQueue.size() + noPriorityQueue.size() + minPriorityQueue.size();
     }
 
     @Override

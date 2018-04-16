@@ -20,6 +20,11 @@ public class QueueScheduler extends DuplicateRemoveScheduler implements Monitora
     }
 
     @Override
+    public Request peek(Task task) {
+        return requests.peek();
+    }
+
+    @Override
     public void pushWhenNoDuplicate(Request request, Task task) {
         requests.add(request);
     }

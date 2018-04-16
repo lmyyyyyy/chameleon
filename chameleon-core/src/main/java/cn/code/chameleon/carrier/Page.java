@@ -50,6 +50,7 @@ public class Page implements Serializable {
 
     public static Page fail() {
         Page page = new Page();
+        page.setDownloadSuccess(false);
         return page;
     }
 

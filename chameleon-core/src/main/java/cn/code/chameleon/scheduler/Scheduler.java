@@ -12,4 +12,6 @@ public interface Scheduler {
     void push(Request request, Task task);
 
     Request poll(Task task);
+
+    Request peek(Task task);
 }

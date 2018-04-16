@@ -42,7 +42,7 @@ public class Site implements Serializable {
 
     private Set<Integer> acceptStatusCode = DEFAULT_STATUS_CODE_SET;
 
-    private Map<String, String> heads = new HashMap<>();
+    private Map<String, String> headers = new HashMap<>();
 
     private boolean useGzip = true;
 
@@ -194,12 +194,17 @@ public class Site implements Serializable {
         return this;
     }
 
-    public Map<String, String> getHeads() {
-        return heads;
+    public Map<String, String> getHeaders() {
+        return headers;
     }
 
-    public Site setHeads(Map<String, String> heads) {
-        this.heads = heads;
+    public Site setHeaders(Map<String, String> headers) {
+        this.headers = headers;
+        return this;
+    }
+
+    public Site addHeader(String name, String value) {
+        headers.put(name, value);
         return this;
     }
 
@@ -244,7 +249,7 @@ public class Site implements Serializable {
         if (cookies != null ? !cookies.equals(site.cookies) : site.cookies != null) return false;
         if (acceptStatusCode != null ? !acceptStatusCode.equals(site.acceptStatusCode) : site.acceptStatusCode != null)
             return false;
-        return heads.equals(site.heads);
+        return headers.equals(site.headers);
     }
 
     @Override
@@ -260,7 +265,7 @@ public class Site implements Serializable {
         result = 31 * result + retrySleepTime;
         result = 31 * result + timeOut;
         result = 31 * result + (acceptStatusCode != null ? acceptStatusCode.hashCode() : 0);
-        result = 31 * result + heads.hashCode();
+        result = 31 * result + headers.hashCode();
         result = 31 * result + (useGzip ? 1 : 0);
         result = 31 * result + (disableCookies ? 1 : 0);
         return result;
@@ -280,7 +285,7 @@ public class Site implements Serializable {
                 ", retrySleepTime=" + retrySleepTime +
                 ", timeOut=" + timeOut +
                 ", acceptStatusCode=" + acceptStatusCode +
-                ", heads=" + heads +
+                ", headers=" + headers +
                 ", useGzip=" + useGzip +
                 ", disableCookies=" + disableCookies +
                 '}';

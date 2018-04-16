@@ -56,8 +56,8 @@ public class HttpUriRequestConverter {
 
     public HttpUriRequest convertHttpUriRequest(Request request, Site site, Proxy proxy) {
         RequestBuilder requestBuilder = selectRequestMethod(request).setUri(UrlUtils.fixIllegalCharacterInUrl(request.getUrl()));
-        if (request.getHeaders() != null) {
-            for (Map.Entry<String, String> entry : request.getHeaders().entrySet()) {
+        if (site.getHeaders() != null) {
+            for (Map.Entry<String, String> entry : site.getHeaders().entrySet()) {
                 requestBuilder.addHeader(entry.getKey(), entry.getValue());
             }
         }

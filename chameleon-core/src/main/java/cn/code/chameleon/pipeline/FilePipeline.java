@@ -34,9 +34,11 @@ public class FilePipeline extends FilePersistent implements Pipeline {
 
     @Override
     public void process(Results results, Task task) {
-        String path = this.path + PATH_SPLIT + task.getUUID() + PATH_SPLIT;
+        //todo 对每个结果生成一个随机目录 String path = this.path + PATH_SPLIT + task.getUUID() + PATH_SPLIT;
+        String path = this.path + PATH_SPLIT;
         try {
-            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(getFile(path + DigestUtils.md5Hex(results.getRequest().getUrl()) + ".html")), Charset.defaultCharset()));
+            //todo 对文件名进行加密 PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(getFile(path + DigestUtils.md5Hex(results.getRequest().getUrl()) + ".html")), Charset.defaultCharset()));
+            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(getFile(path + results.getRequest().getUrl() + ".html")), Charset.defaultCharset()));
             printWriter.println("url:\t" + results.getRequest().getUrl());
             for (Map.Entry<String, Object> entry : results.getAll().entrySet()) {
                 if (entry.getValue() instanceof Iterable) {

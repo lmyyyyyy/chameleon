@@ -19,15 +19,15 @@ public class Request implements Serializable {
 
     private String method;
 
-    private Map<String, String> cookies = new ConcurrentHashMap<>();
+    private Map<String, String> cookies = new HashMap<>();
 
-    private Map<String, String> headers = new ConcurrentHashMap<>();
+    private Map<String, String> headers = new HashMap<>();
 
     private Map<String, Object> extras;
 
     private long priority;
 
-    private boolean binaryContent;
+    private boolean binaryContent = false;
 
     private String charset;
 
@@ -65,6 +65,16 @@ public class Request implements Serializable {
 
     public Request setCookies(Map<String, String> cookies) {
         this.cookies = cookies;
+        return this;
+    }
+
+    public Request addCookie(String key, String value) {
+        cookies.put(key, value);
+        return this;
+    }
+
+    public Request addHeader(String name, String value) {
+        headers.put(name, value);
         return this;
     }
 

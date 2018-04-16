@@ -23,7 +23,7 @@ public class BloomFilterDuplicateRemover implements DuplicateRemover {
     private final BloomFilter<CharSequence> bloomFilter;
 
     public BloomFilterDuplicateRemover(int expectedCounts) {
-        this(expectedCounts, 0.0);
+        this(expectedCounts, 0.1);
     }
 
     public BloomFilterDuplicateRemover(int expectedCounts, double fpp) {

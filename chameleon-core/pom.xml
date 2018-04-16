@@ -72,5 +72,9 @@
             <artifactId>xsoup</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.dreamhead</groupId>
+            <artifactId>moco-core</artifactId>
+        </dependency>
     </dependencies>
 </project>
