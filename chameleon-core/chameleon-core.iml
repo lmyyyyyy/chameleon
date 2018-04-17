@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -26,5 +27,22 @@
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.10.3" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.28" level="project" />
+    <orderEntry type="library" name="Maven: com.jayway.jsonpath:json-path:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: net.minidev:json-smart:2.3" level="project" />
+    <orderEntry type="library" name="Maven: net.minidev:accessors-smart:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.ow2.asm:asm:5.0.4" level="project" />
+    <orderEntry type="library" name="Maven: us.codecraft:xsoup:0.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.assertj:assertj-core:1.5.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.github.dreamhead:moco-core:0.11.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.netty:netty-codec-http:4.0.36.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.netty:netty-codec:4.0.36.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.netty:netty-transport:4.0.36.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.netty:netty-handler:4.0.36.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.netty:netty-buffer:4.0.36.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.netty:netty-common:4.0.36.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.freemarker:freemarker:2.3.23" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.7.4" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.4" level="project" />
   </component>
 </module>

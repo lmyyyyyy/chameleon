@@ -2,6 +2,7 @@ package cn.code.chameleon.downloader;
 
 import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Request;
+import cn.code.chameleon.carrier.Task;
 
 /**
  * @author liumingyu
@@ -15,7 +16,7 @@ public interface Downloader {
      * @param request
      * @return
      */
-    Page download(Request request);
+    Page download(Request request, Task task);
 
     /**
      * 设置线程数
