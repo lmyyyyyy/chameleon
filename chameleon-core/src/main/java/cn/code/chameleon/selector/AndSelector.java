@@ -23,16 +23,13 @@ public class AndSelector implements Selector {
 
     @Override
     public String select(String text) {
-        if (text == null) {
-            return null;
-        }
         for (Selector selector : selectors) {
-            String result = selector.select(text);
-            if (result != null) {
-                return result;
+            if (text == null) {
+                return null;
             }
+            text = selector.select(text);
         }
-        return null;
+        return text;
     }
 
     @Override

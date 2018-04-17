@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author liumingyu
  * @create 2018-04-14 下午3:09
  */
-public abstract class SpiderMonitor implements SpiderListener {
+public class SpiderMonitor implements SpiderListener {
 
     private final AtomicLong successCount = new AtomicLong(0);
 
@@ -23,22 +23,27 @@ public abstract class SpiderMonitor implements SpiderListener {
     @Override
     public void onSuccess(Request request) {
         successCount.incrementAndGet();
+        //System.out.println("成功爬取 : " + getSuccessCount());
     }
 
     @Override
     public void onError(Request request) {
         errorUrls.add(request.getUrl());
         errorCount.incrementAndGet();
+        //System.out.println("失败爬取 : " + getErrorCount());
     }
 
+    @Override
     public AtomicLong getErrorCount() {
         return errorCount;
     }
 
+    @Override
     public AtomicLong getSuccessCount() {
         return successCount;
     }
 
+    @Override
     public Set<String> getErrorUrls() {
         return errorUrls;
     }

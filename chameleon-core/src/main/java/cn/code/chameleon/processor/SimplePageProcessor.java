@@ -27,7 +27,6 @@ public class SimplePageProcessor implements PageProcessor {
         page.putField("title", page.getHtml().xpath("//title"));
         page.putField("content", page.getHtml().smartContent());
         page.putField("html", page.getHtml().toString());
-
     }
 
     @Override

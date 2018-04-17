@@ -154,14 +154,14 @@ public class Request implements Serializable {
 
         Request request = (Request) o;
 
-        if (!url.equals(request.url)) return false;
-        return method.equals(request.method);
+        if (url != null ? !url.equals(request.url) : request.url != null) return false;
+        return method != null ? method.equals(request.method) : request.method == null;
     }
 
     @Override
     public int hashCode() {
-        int result = url.hashCode();
-        result = 31 * result + method.hashCode();
+        int result = url != null ? url.hashCode() : 0;
+        result = 31 * result + (method != null ? method.hashCode() : 0);
         return result;
     }
 

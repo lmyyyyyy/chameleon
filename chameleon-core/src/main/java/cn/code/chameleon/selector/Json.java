@@ -1,5 +1,7 @@
 package cn.code.chameleon.selector;
 
+import us.codecraft.xsoup.XTokenQueue;
+
 import java.util.List;
 
 /**
@@ -20,5 +22,15 @@ public class Json extends PlainText {
     public Selectable jsonPath(String jsonPath) {
         JsonPathSelector jsonPathSelector = new JsonPathSelector(jsonPath);
         return selectList(jsonPathSelector, getSourceTexts());
+    }
+
+    public Json removePadding(String padding) {
+        String text = getFirstSourceText();
+        XTokenQueue tokenQueue = new XTokenQueue(text);
+        tokenQueue.consumeWhitespace();
+        tokenQueue.consume(padding);
+        tokenQueue.consumeWhitespace();
+        String chompBalanced = tokenQueue.chompBalancedNotInQuotes('(', ')');
+        return new Json(chompBalanced);
     }
 }

@@ -38,7 +38,7 @@ public class FilePipeline extends FilePersistent implements Pipeline {
         String path = this.path + PATH_SPLIT;
         try {
             //todo 对文件名进行加密 PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(getFile(path + DigestUtils.md5Hex(results.getRequest().getUrl()) + ".html")), Charset.defaultCharset()));
-            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(getFile(path + results.getRequest().getUrl() + ".html")), Charset.defaultCharset()));
+            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(getFile(path + results.getRequest().getUrl() + ".txt")), Charset.defaultCharset()));
             printWriter.println("url:\t" + results.getRequest().getUrl());
             for (Map.Entry<String, Object> entry : results.getAll().entrySet()) {
                 if (entry.getValue() instanceof Iterable) {

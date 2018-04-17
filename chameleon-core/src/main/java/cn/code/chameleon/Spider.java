@@ -1,4 +1,4 @@
-package cn.code.chameleon.chameleon;
+package cn.code.chameleon;
 
 import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Request;
@@ -195,6 +195,9 @@ public class Spider implements Runnable, Task {
     }
 
     public Spider addSpiderListener(SpiderListener spiderListener) {
+        if (this.spiderListeners == null) {
+            spiderListeners = new ArrayList<>();
+        }
         this.spiderListeners.add(spiderListener);
         return this;
     }

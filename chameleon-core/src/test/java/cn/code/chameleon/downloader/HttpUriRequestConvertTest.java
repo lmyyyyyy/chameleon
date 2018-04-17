@@ -4,7 +4,6 @@ import cn.code.chameleon.carrier.Request;
 import cn.code.chameleon.carrier.Site;
 import cn.code.chameleon.utils.UrlUtils;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.protocol.HttpClientContext;
 import org.junit.Test;
 
 /**
