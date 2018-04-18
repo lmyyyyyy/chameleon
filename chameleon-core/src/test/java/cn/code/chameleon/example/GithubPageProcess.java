@@ -6,6 +6,7 @@ import cn.code.chameleon.carrier.Site;
 import cn.code.chameleon.monitor.SpiderMonitor;
 import cn.code.chameleon.pipeline.FilePipeline;
 import cn.code.chameleon.processor.PageProcessor;
+import cn.code.chameleon.scheduler.FileCachQueueSchduler;
 
 /**
  * @author liumingyu
@@ -33,6 +34,6 @@ public class GithubPageProcess implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new GithubPageProcess()).addUrls("https://github.com/lmyyyyyy/chameleon").addSpiderListener(new SpiderMonitor()).addPipeline(new FilePipeline()).thread(5).run();
+        Spider.create(new GithubPageProcess()).setScheduler(new FileCachQueueSchduler()).addUrls("https://github.com/lmyyyyyy/chameleon").addSpiderListener(new SpiderMonitor()).addPipeline(new FilePipeline()).thread(5).run();
     }
 }
