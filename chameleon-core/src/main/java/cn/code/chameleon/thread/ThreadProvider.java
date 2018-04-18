@@ -1,11 +1,14 @@
 package cn.code.chameleon.thread;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -15,6 +18,22 @@ import java.util.concurrent.TimeUnit;
  * @create 2018-01-14 下午4:39
  */
 public class ThreadProvider {
+
+    /**
+     * 自定义延时任务调度 自定义线程名
+     *
+     * @param coreThreadSize
+     * @param threadNameFormat
+     * @return
+     */
+    public static ScheduledExecutorService createSchedulePoolWithFixQueue(int coreThreadSize, String threadNameFormat) {
+        return new ScheduledThreadPoolExecutor(coreThreadSize,
+                new BasicThreadFactory
+                        .Builder()
+                        .namingPattern(threadNameFormat)
+                        .daemon(true)
+                        .build());
+    }
 
     /**
      * 自定义线程池(有界队列 + 自定义线程名),默认使用abort策略
