@@ -83,6 +83,13 @@ public class UrlUtils {
         }
     }
 
+    public static String getPath(String url) {
+        String domain = getDomain(url);
+        url = removeProtocol(url);
+        String path = url.replace(domain, "");
+        return path;
+    }
+
     public static List<Request> convertToRequests(Collection<String> urls) {
         List<Request> requestList = new ArrayList<Request>(urls.size());
         for (String url : urls) {

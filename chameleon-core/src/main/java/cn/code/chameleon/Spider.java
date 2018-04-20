@@ -12,6 +12,7 @@ import cn.code.chameleon.pipeline.ConsolePipeline;
 import cn.code.chameleon.pipeline.Pipeline;
 import cn.code.chameleon.pipeline.ResultsPipeline;
 import cn.code.chameleon.processor.PageProcessor;
+import cn.code.chameleon.robots.RobotsServer;
 import cn.code.chameleon.scheduler.QueueScheduler;
 import cn.code.chameleon.scheduler.Scheduler;
 import cn.code.chameleon.thread.CountableThreadPool;
@@ -78,6 +79,8 @@ public class Spider implements Runnable, Task {
 
     protected boolean destroyWhenExit = true;
 
+    protected boolean ignoreUA = true;
+
     private ReentrantLock newUrlLock = new ReentrantLock();
 
     private Condition newUrlCondition = newUrlLock.newCondition();
@@ -89,6 +92,8 @@ public class Spider implements Runnable, Task {
     private int emptySleepTime = 30000;
 
     private List<SpiderListener> spiderListeners;
+
+    private RobotsServer robotsServer = new RobotsServer();
 
     public Spider(PageProcessor pageProcessor) {
         this.pageProcessor = pageProcessor;
@@ -250,6 +255,16 @@ public class Spider implements Runnable, Task {
         return this;
     }
 
+    public boolean isIgnoreUA() {
+        return ignoreUA;
+    }
+
+    public Spider setIgnoreUA(boolean ignoreUA) {
+        this.ignoreUA = ignoreUA;
+        robotsServer.setIgnoreUA(ignoreUA);
+        return this;
+    }
+
     public boolean isDestroyWhenExit() {
         return destroyWhenExit;
     }
@@ -356,6 +371,10 @@ public class Spider implements Runnable, Task {
     }
 
     private void processRequest(Request request) {
+        if (!robotsServer.allow(request, this)) {
+            LOGGER.warn("The current site is not allowed to crawl the url: {}", request.getUrl());
+            return;
+        }
         Page page = downloader.download(request, this);
         if (page.isDownloadSuccess()) {
             onDownloadSuccess(request, page);
