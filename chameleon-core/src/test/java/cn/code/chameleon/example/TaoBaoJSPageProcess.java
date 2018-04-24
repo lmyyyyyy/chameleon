@@ -10,7 +10,7 @@ import cn.code.chameleon.processor.PageProcessor;
  * @author liumingyu
  * @create 2018-04-21 下午10:00
  */
-public class TaoBaoPageProcess implements PageProcessor {
+public class TaoBaoJSPageProcess implements PageProcessor {
 
     private Site site = Site.init()
             .setCycleRetryTimes(3)
@@ -42,9 +42,10 @@ public class TaoBaoPageProcess implements PageProcessor {
     }
 
     public static void main(String[] args) {
+
         PhantomJSDownloader phantomDownloader =
                 new PhantomJSDownloader("/Users/liumingyu/data/chameleon/phantomjs-2.1.1-macosx/bin/phantomjs", "/Users/liumingyu/data/chameleon/crawl.js").setRetryTimes(3);
-        Spider.create(new TaoBaoPageProcess())
+        Spider.create(new TaoBaoJSPageProcess())
                 .setDownload(phantomDownloader)
                 //.addUrls("http://s.taobao.com/search?q=%B6%AC%D7%B0&sort=sale-desc")
                 .addUrls("https://item.taobao.com/item.htm?spm=a230r.1.14.9.3488289bKM7PUD&id=563197332711&ns=1&abbucket=3#detail")

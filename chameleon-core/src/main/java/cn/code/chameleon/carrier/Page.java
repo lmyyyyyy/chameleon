@@ -21,7 +21,7 @@ public class Page implements Serializable {
 
     private static final long serialVersionUID = 3842932539140632584L;
 
-    private Request request;
+    private volatile Request request;
 
     private Results results = new Results();
 
