@@ -3,13 +3,9 @@ package cn.code.chameleon.example;
 import cn.code.chameleon.Spider;
 import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Site;
-import cn.code.chameleon.downloader.HttpClientDownloader;
 import cn.code.chameleon.downloader.PhantomJSDownloader;
-import cn.code.chameleon.downloader.SeleniumDownloader;
 import cn.code.chameleon.entity.AnswerInfo;
 import cn.code.chameleon.processor.PageProcessor;
-import cn.code.chameleon.proxy.Proxy;
-import cn.code.chameleon.proxy.SimpleProxyProvider;
 import cn.code.chameleon.selector.Html;
 
 import java.util.ArrayList;
