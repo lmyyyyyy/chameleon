@@ -48,6 +48,8 @@ public class Site implements Serializable {
 
     private boolean disableCookies;
 
+    private boolean obeyRobots;
+
     static {
         DEFAULT_STATUS_CODE_SET.add(HttpConstant.StatusCode.CODE_200);
     }
@@ -224,7 +226,15 @@ public class Site implements Serializable {
     public Site setDisableCookies(boolean disableCookies) {
         this.disableCookies = disableCookies;
         return this;
+    }
 
+    public boolean isObeyRobots() {
+        return obeyRobots;
+    }
+
+    public Site setObeyRobots(boolean obeyRobots) {
+        this.obeyRobots = obeyRobots;
+        return this;
     }
 
     @Override

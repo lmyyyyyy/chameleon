@@ -3,9 +3,12 @@ package cn.code.chameleon.example;
 import cn.code.chameleon.Spider;
 import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Site;
+import cn.code.chameleon.downloader.HttpClientDownloader;
 import cn.code.chameleon.monitor.SpiderMonitor;
 import cn.code.chameleon.pipeline.FilePipeline;
 import cn.code.chameleon.processor.PageProcessor;
+import cn.code.chameleon.proxy.Proxy;
+import cn.code.chameleon.proxy.SimpleProxyProvider;
 
 /**
  * @author liumingyu
@@ -32,7 +35,9 @@ public class ZhihuPageProcess implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new ZhihuPageProcess()).thread(10).addPipeline(new FilePipeline()).addUrls("https://www.zhihu.com/").addSpiderListener(new SpiderMonitor()).run();
+        HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
+        httpClientDownloader.setProxyProvider(SimpleProxyProvider.store(new Proxy("1.196.161.172", 9999, "17611030819", "a532033837")));
+        Spider.create(new ZhihuPageProcess()).setDownload(httpClientDownloader).thread(10).addUrls("https://www.zhihu.com/search?q=java&type=content").addSpiderListener(new SpiderMonitor()).run();
 
     }
 }

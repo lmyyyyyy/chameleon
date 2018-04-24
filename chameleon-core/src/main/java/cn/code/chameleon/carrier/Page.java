@@ -21,7 +21,7 @@ public class Page implements Serializable {
 
     private static final long serialVersionUID = 3842932539140632584L;
 
-    private Request request;
+    private volatile Request request;
 
     private Results results = new Results();
 
@@ -145,6 +145,7 @@ public class Page implements Serializable {
 
     public void addTargetRequests(List<String> requests) {
         for (String s : requests) {
+            System.out.println("添加Url: " + s);
             if (StringUtils.isBlank(s) || s.equals("#") || s.startsWith("javascript:")) {
                 continue;
             }
