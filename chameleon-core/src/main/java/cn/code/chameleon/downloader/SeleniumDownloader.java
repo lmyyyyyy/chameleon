@@ -6,8 +6,8 @@ import cn.code.chameleon.carrier.Site;
 import cn.code.chameleon.carrier.Task;
 import cn.code.chameleon.selector.Html;
 import cn.code.chameleon.selector.PlainText;
+import cn.code.chameleon.selenium.SeleniumAction;
 import cn.code.chameleon.selenium.WebDriverPool;
-import cn.code.chameleon.utils.WindowUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +29,8 @@ public class SeleniumDownloader implements Downloader, Closeable {
 
     private volatile WebDriverPool webDriverPool;
 
+    private SeleniumAction action;
+
     private int sleepTime = 0;
 
     private int poolSize = 1;
@@ -42,12 +44,24 @@ public class SeleniumDownloader implements Downloader, Closeable {
         System.getProperties().setProperty("webdriver.chrome.driver", chromeDriverPath);
     }
 
+    public SeleniumDownloader(SeleniumAction seleniumAction) {
+        this.action = seleniumAction;
+    }
+
     private void checkInit() {
         if (webDriverPool == null) {
             synchronized (this) {
                 webDriverPool = new WebDriverPool(poolSize);
             }
         }
+    }
+
+    public SeleniumAction getAction() {
+        return action;
+    }
+
+    public void setAction(SeleniumAction action) {
+        this.action = action;
     }
 
     public int getSleepTime() {
@@ -99,7 +113,13 @@ public class SeleniumDownloader implements Downloader, Closeable {
             }
         }
         manage.window().maximize();
-        WindowUtil.loadAll(webDriver);
+        if (action != null) {
+            action.execute(webDriver);
+        }
+        SeleniumAction reqAction = (SeleniumAction) request.getExtra("action");
+        if (reqAction != null) {
+            reqAction.execute(webDriver);
+        }
         WebElement webElement = webDriver.findElement(By.xpath("/html"));
         String content = webElement.getAttribute("outerHTML");
 
