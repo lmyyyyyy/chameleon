@@ -5,7 +5,10 @@ import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Site;
 import cn.code.chameleon.downloader.PhantomJSDownloader;
 import cn.code.chameleon.entity.AnswerInfo;
+import cn.code.chameleon.pipeline.ConsolePipeline;
+import cn.code.chameleon.pipeline.FilePipeline;
 import cn.code.chameleon.processor.PageProcessor;
+import cn.code.chameleon.scheduler.FileCachQueueSchduler;
 import cn.code.chameleon.selector.Html;
 
 import java.util.ArrayList;
@@ -62,7 +65,8 @@ public class ZhihuPageProcessor implements PageProcessor {
 
     public static void main(String[] args) {
         PhantomJSDownloader phantomDownloader =
-                new PhantomJSDownloader("/Users/liumingyu/data/chameleon/phantomjs-2.1.1-macosx/bin/phantomjs", "/Users/liumingyu/data/chameleon/crawl.js").setRetryTimes(3);
-        Spider.create(new ZhihuPageProcessor()).setDownload(phantomDownloader).addUrls("https://www.zhihu.com/question/264395357").thread(5).run();
+                new PhantomJSDownloader("/Users/liumingyu/data/chameleon/phantomjs-2.1.1-macosx/bin/phantomjs"
+                        , "/Users/liumingyu/data/chameleon/crawl.js").setRetryTimes(3);
+        Spider.create(new ZhihuPageProcessor()).setDownload(phantomDownloader).addPipeline(new ConsolePipeline()).addPipeline(new FilePipeline()).setScheduler(new FileCachQueueSchduler()).addUrls("https://www.zhihu.com/question/264395357").thread(5).run();
     }
 }
