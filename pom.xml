@@ -14,9 +14,20 @@
         <module>chameleon-common</module>
         <module>chameleon-config-web</module>
         <module>chameleon-web</module>
-        <module>chameleon-config-web</module>
     </modules>
-
+    <properties>
+        <argLine>-Dfile.encoding=UTF-8</argLine>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <java.version>1.8</java.version>
+    </properties>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.1.RELEASE</version>
+        <relativePath/>
+    </parent>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -103,6 +114,7 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>

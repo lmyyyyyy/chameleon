@@ -6,7 +6,6 @@ import cn.code.chameleon.carrier.Site;
 import cn.code.chameleon.pipeline.ConsolePipeline;
 import cn.code.chameleon.pipeline.FilePipeline;
 import cn.code.chameleon.processor.PageProcessor;
-import cn.code.chameleon.scheduler.FileCachQueueSchduler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,6 +23,9 @@ public class XICIDAILIPageProcessor implements PageProcessor {
     @Override
     public void process(Page page) {
         if (page.getRequest().getUrl().matches("http://www\\.xicidaili\\.com/articles/")) {
+            page.setJump(true);
+        }
+        if (page.getRequest().getUrl().matches("/articles/[\\d]*")) {
             page.setJump(true);
         }
         page.addTargetRequests(page.getHtml().links().regex("http[s]?://www\\.xicidaili\\.com/[\\w]+/").all());
