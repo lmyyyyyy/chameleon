@@ -21,12 +21,16 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.builders.ResponseMessageBuilder;
 import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.service.Header;
 import springfox.documentation.service.ResponseMessage;
 import springfox.documentation.spi.DocumentationType;
@@ -56,7 +60,7 @@ import static com.google.common.collect.Sets.newHashSet;
 @ConfigurationProperties(prefix = "app")
 @MapperScan(basePackages = "cn.code.chameleon.mapper")
 @SpringBootApplication
-public class Application {
+public class Application extends WebMvcConfigurerAdapter {
 
     private static String LANGUAGE = "language";
 
@@ -100,18 +104,27 @@ public class Application {
         return slr;
     }
 
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+
     @Bean
     public Docket petApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .enable(swaggerEnabled)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("cn.code.chameleon.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .pathMapping("/")
                 .directModelSubstitute(LocalDate.class, String.class)
                 .genericModelSubstitutes(ResponseEntity.class)
-                .apiInfo(ApiInfo.DEFAULT)
+                .apiInfo(getApiInfo())
                 .produces(newHashSet(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .useDefaultResponseMessages(false)
                 .globalResponseMessage(RequestMethod.GET, responseMessages())
@@ -119,6 +132,15 @@ public class Application {
                 .globalResponseMessage(RequestMethod.DELETE, responseMessages())
                 .globalResponseMessage(RequestMethod.PATCH, responseMessages())
                 .globalResponseMessage(RequestMethod.PUT, responseMessages());
+    }
+
+    private ApiInfo getApiInfo() {
+        return new ApiInfoBuilder()
+                .title("chameleon")
+                .termsOfServiceUrl("www.chameleon.com")
+                .contact(new Contact("liumingyu", "https://github.com/lmyyyyyy/chameleon", "532033837@qq.com"))
+                .version("v0.1.0")
+                .build();
     }
 
     private List<ResponseMessage> responseMessages() {

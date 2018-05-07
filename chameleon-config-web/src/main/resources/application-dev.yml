@@ -11,7 +11,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
+      url: jdbc:mysql://127.0.0.1:3306/chameleon?useUnicode=true&characterEncoding=utf8
       username: root
       password: root
       initialSize: 1
@@ -41,3 +41,4 @@ spring:
   redis:
     host: localhost
     port: 6379
+
