@@ -1,4 +1,4 @@
-package cn.code.chameleon.Utils;
+package cn.code.chameleon.utils;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;

@@ -1,4 +1,4 @@
-package cn.code.chameleon.Utils;
+package cn.code.chameleon.utils;
 
 
 import cn.code.chameleon.entity.ImageRegion;

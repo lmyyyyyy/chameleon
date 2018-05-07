@@ -1,8 +1,8 @@
 package cn.code.chameleon.example;
 
 import cn.code.chameleon.Spider;
-import cn.code.chameleon.Utils.ImageUtil;
-import cn.code.chameleon.Utils.TesseractOcrUtil;
+import cn.code.chameleon.utils.ImageUtil;
+import cn.code.chameleon.utils.TesseractOcrUtil;
 import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Site;
 import cn.code.chameleon.downloader.SeleniumDownloader;
