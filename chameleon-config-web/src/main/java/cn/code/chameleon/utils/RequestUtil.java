@@ -23,7 +23,7 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static Long getCurrentUserId() throws ChameleonException {
+    public static Long getCurrentUserId() {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getId() == null) {
             LOGGER.error("未获取到当前用户ID,或当前用户未登录");
@@ -38,7 +38,7 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static String getCurrentUserName() throws ChameleonException {
+    public static String getCurrentUserName() {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getName() == null) {
             LOGGER.error("未获取到当前用户姓名,或当前用户未登录");
@@ -53,7 +53,7 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static String getCurrentUserEmail() throws ChameleonException {
+    public static String getCurrentUserEmail() {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getEmail() == null) {
             LOGGER.error("未获取到当前用户邮箱,或当前用户未登录");
@@ -68,7 +68,7 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static Integer getCurrentUserStatus() throws ChameleonException {
+    public static Integer getCurrentUserStatus() {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getStatus() == null) {
             LOGGER.error("未获取到当前用户状态,或当前用户未登录");
@@ -83,7 +83,7 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static User getCurrentUser() throws ChameleonException {
+    public static User getCurrentUser() {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getStatus() == null) {
             LOGGER.error("未获取到当前用户,或当前用户未登录");
@@ -99,7 +99,7 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static String getToken(HttpServletRequest request) throws ChameleonException {
+    public static String getToken(HttpServletRequest request) {
         String token = null;
         Cookie[] cookie = request.getCookies();
         if (cookie == null) {

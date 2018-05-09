@@ -15,10 +15,8 @@ import cn.code.chameleon.utils.EncryptUtil;
 import cn.code.chameleon.utils.JsonUtils;
 import cn.code.chameleon.utils.RandomUtil;
 import cn.code.chameleon.utils.RegexUtils;
-import cn.code.chameleon.utils.RequestUtil;
 import cn.code.chameleon.utils.UserContext;
 import cn.code.chameleon.utils.ValidateUtil;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +25,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
@@ -215,6 +215,7 @@ public class UserServiceImpl implements UserService {
      * @return
      * @throws ChameleonException
      */
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class, ChameleonException.class})
     @Override
     public String login(String account, String password, HttpServletRequest request, HttpServletResponse response) throws ChameleonException {
         UserExample example = new UserExample();
@@ -242,38 +243,4 @@ public class UserServiceImpl implements UserService {
         return token;
     }
 
-    /**
-     * 注销
-     *
-     * @param request
-     * @throws ChameleonException
-     */
-    @Override
-    public void logout(HttpServletRequest request) throws ChameleonException {
-        String token = RequestUtil.getToken(request);
-        if (token == null || "".equals(token)) {
-            return ;
-        }
-        this.logout(token);
-    }
-
-    /**
-     * 注销
-     *
-     * @param token
-     * @throws ChameleonException
-     */
-    @Override
-    public void logout(String token) throws ChameleonException {
-        String json = redisClient.get(Constants.USER_TOKEN_KEY + ":" + token);
-        if (StringUtils.isBlank(json)) {
-            throw new ChameleonException(ResultCodeEnum.TOKEN_IS_OUT_TIME);
-        }
-        redisClient.delete(Constants.USER_TOKEN_KEY + ":" + token);
-        User user = JsonUtils.jsonToPojo(json, User.class);
-        user.setStatus(UserStatusEnum.OFFLINE.getCode());
-        userMapper.updateByPrimaryKeySelective(user);
-
-        UserContext.removeCurrentUser();
-    }
 }

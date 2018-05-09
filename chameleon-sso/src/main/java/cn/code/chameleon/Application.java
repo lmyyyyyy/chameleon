@@ -128,9 +128,9 @@ public class Application extends WebMvcConfigurerAdapter {
     @Bean
     public LocaleResolver localeResolver() {
         CookieLocaleResolver slr = new CookieLocaleResolver();
+        slr.setCookieName(LANGUAGE);
         slr.setDefaultLocale(Locale.CHINA);
         slr.setCookieMaxAge(3600);
-        slr.setCookieName(LANGUAGE);
         return slr;
     }
 

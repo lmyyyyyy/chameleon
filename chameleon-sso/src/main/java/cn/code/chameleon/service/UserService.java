@@ -24,8 +24,4 @@ public interface UserService {
 
     String login(String account, String password, HttpServletRequest request, HttpServletResponse response) throws ChameleonException;
 
-    void logout(HttpServletRequest request) throws ChameleonException;
-
-    void logout(String token) throws ChameleonException;
-
 }
