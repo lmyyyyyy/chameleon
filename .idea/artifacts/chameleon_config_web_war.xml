@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="chameleon-config-web:war">
+    <output-path>$PROJECT_DIR$/chameleon-config-web/target</output-path>
+    <root id="archive" name="chameleon-config-web-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="chameleon-config-web:war exploded" />
+    </root>
+  </artifact>
+</component>

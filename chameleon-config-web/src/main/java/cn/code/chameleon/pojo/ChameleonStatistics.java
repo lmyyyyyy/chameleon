@@ -19,9 +19,9 @@ public class ChameleonStatistics {
 
     private Date updateTime;
 
-    private Byte isDelete;
+    private Boolean isDelete;
 
-    public ChameleonStatistics(Long id, Long taskId, Long crawlCount, Integer stopCount, Long errorCount, Long runHours, Date createTime, Date updateTime, Byte isDelete) {
+    public ChameleonStatistics(Long id, Long taskId, Long crawlCount, Integer stopCount, Long errorCount, Long runHours, Date createTime, Date updateTime, Boolean isDelete) {
         this.id = id;
         this.taskId = taskId;
         this.crawlCount = crawlCount;
@@ -101,11 +101,11 @@ public class ChameleonStatistics {
         this.updateTime = updateTime;
     }
 
-    public Byte getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
     }
 }

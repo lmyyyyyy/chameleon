@@ -53,10 +53,10 @@ public class UnifiedResponse {
         this.data = data;
     }
 
-    public boolean isSuccess() {
+   /* public boolean isSuccess() {
         return this.status == ResultCodeInterface.SUCCESS_CODE;
     }
-
+*/
     public int getStatus() {
         return status;
     }

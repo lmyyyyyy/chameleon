@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="warn">
+    <properties>
+        <property name="LOG_HOME">/logs</property>
+    </properties>
+    <appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{yyyy/MM/dd HH:mm:ss.SSS} %t [%p] %c{1} (%F:%L) %msg%n" />
+        </Console>
+
+        <XMDFile name="serviceAppender" fileName="service.log" includeLocation="true" xmdFilePath="${LOG_HOME}"/>
+        <XMDFile name="sqlAppender" fileName="sql.log" includeLocation="true" xmdFilePath="${LOG_HOME}"/>
+        <!--可选配置：ERROR日志、WARN日志单独输出到一个文件-->
+        <XMDFile name="errorAppender" fileName="error.log" includeLocation="true" xmdFilePath="${LOG_HOME}">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+        </XMDFile>
+        <XMDFile name="warnAppender" fileName="warn.log" includeLocation="true" xmdFilePath="${LOG_HOME}">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </XMDFile>
+
+        <XMDFile name="serviceOpLogAppender" fileName="serviceOpLog.log" includeLocation="true" xmdFilePath="${LOG_HOME}"/>
+        <XMDFile name="serviceOpLogErrorAppender" fileName="serviceErrorOpLog.log" includeLocation="true" xmdFilePath="${LOG_HOME}"/>
+        <XMDFile name="mapperOpLogAppender" fileName="mapperOpLog.log" includeLocation="true" xmdFilePath="${LOG_HOME}"/>
+        <XMDFile name="mapperOpLogErrorAppender" fileName="mapperErrorOpLog.log" includeLocation="true" xmdFilePath="${LOG_HOME}"/>
+
+    </appenders>
+
+    <loggers>
+        <Logger name="java.sql.Connection" level="warn" additivity="false">
+            <AppenderRef ref="sqlAppender"/>
+            <AppenderRef ref="warnAppender" />
+            <AppenderRef ref="errorAppender" />
+        </Logger>
+        <Logger name="java.sql.PreparedStatement" level="warn" additivity="false">
+            <AppenderRef ref="sqlAppender"/>
+            <AppenderRef ref="warnAppender" />
+            <AppenderRef ref="errorAppender" />
+        </Logger>
+
+        <!--<Logger name="com.running.business.monitor.aspect.ServiceAspect" level="info">
+            <AppenderRef ref="console" />
+            <appenderRef ref="serviceOpLogAppender"/>
+        </Logger>
+
+        <Logger name="com.running.business.monitor.aspect.ServiceAspect" level="error">
+            <AppenderRef ref="console" />
+            <appenderRef ref="serviceOpLogErrorAppender"/>
+        </Logger>
+
+        <Logger name="com.running.business.monitor.aspect.MapperAspect" level="error">
+            <AppenderRef ref="console" />
+            <appenderRef ref="mapperOpLogErrorAppender"/>
+        </Logger>
+
+
+        <Logger name="com.running.business.monitor.aspect.MapperAspect" level="info">
+            <AppenderRef ref="console" />
+            <appenderRef ref="mapperOpLogAppender"/>
+        </Logger>
+-->
+        <Root level="info">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="serviceAppender" />
+            <AppenderRef ref="warnAppender" />
+            <AppenderRef ref="errorAppender" />
+        </Root>
+    </loggers>
+</configuration>

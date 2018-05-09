@@ -15,9 +15,9 @@ public class RoleRelationFunction {
 
     private Long operatorId;
 
-    private Byte isDelete;
+    private Boolean isDelete;
 
-    public RoleRelationFunction(Long id, Long roleId, Long functionId, Date createTime, Date updateTime, Long operatorId, Byte isDelete) {
+    public RoleRelationFunction(Long id, Long roleId, Long functionId, Date createTime, Date updateTime, Long operatorId, Boolean isDelete) {
         this.id = id;
         this.roleId = roleId;
         this.functionId = functionId;
@@ -79,11 +79,11 @@ public class RoleRelationFunction {
         this.operatorId = operatorId;
     }
 
-    public Byte getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
     }
 }
