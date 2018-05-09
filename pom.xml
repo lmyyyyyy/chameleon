@@ -14,6 +14,7 @@
         <module>chameleon-common</module>
         <module>chameleon-config-web</module>
         <module>chameleon-web</module>
+        <module>chameleon-sso</module>
     </modules>
     <properties>
         <argLine>-Dfile.encoding=UTF-8</argLine>
@@ -33,7 +34,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.11</version>
+                <version>4.12</version>
                 <scope>test</scope>
             </dependency>
             <dependency>

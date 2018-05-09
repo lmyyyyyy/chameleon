@@ -29,9 +29,9 @@ public class ChameleonTask {
 
     private Date updateTime;
 
-    private Byte isDelete;
+    private Boolean isDelete;
 
-    public ChameleonTask(Long id, Long templateId, String jobName, String jobGroup, String triggerName, String triggerGroup, String expression, Integer status, Byte needSync, String description, Long operatorId, Date createTime, Date updateTime, Byte isDelete) {
+    public ChameleonTask(Long id, Long templateId, String jobName, String jobGroup, String triggerName, String triggerGroup, String expression, Integer status, Byte needSync, String description, Long operatorId, Date createTime, Date updateTime, Boolean isDelete) {
         this.id = id;
         this.templateId = templateId;
         this.jobName = jobName;
@@ -156,11 +156,11 @@ public class ChameleonTask {
         this.updateTime = updateTime;
     }
 
-    public Byte getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
     }
 }

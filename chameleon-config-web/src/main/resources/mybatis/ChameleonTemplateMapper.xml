@@ -9,7 +9,7 @@
       <arg column="operator_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="is_delete" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="is_delete" jdbcType="BIT" javaType="java.lang.Boolean" />
     </constructor>
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="cn.code.chameleon.pojo.ChameleonTemplate" >
@@ -20,7 +20,7 @@
       <arg column="operator_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="is_delete" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="is_delete" jdbcType="BIT" javaType="java.lang.Boolean" />
       <arg column="template_config" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
@@ -142,7 +142,7 @@
       is_delete, template_config)
     values (#{id,jdbcType=BIGINT}, #{templateUrl,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{operatorId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{isDelete,jdbcType=TINYINT}, #{templateConfig,jdbcType=LONGVARCHAR})
+      #{isDelete,jdbcType=BIT}, #{templateConfig,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.code.chameleon.pojo.ChameleonTemplate" >
     insert into chameleon_template
@@ -192,7 +192,7 @@
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="isDelete != null" >
-        #{isDelete,jdbcType=TINYINT},
+        #{isDelete,jdbcType=BIT},
       </if>
       <if test="templateConfig != null" >
         #{templateConfig,jdbcType=LONGVARCHAR},
@@ -227,7 +227,7 @@
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.isDelete != null" >
-        is_delete = #{record.isDelete,jdbcType=TINYINT},
+        is_delete = #{record.isDelete,jdbcType=BIT},
       </if>
       <if test="record.templateConfig != null" >
         template_config = #{record.templateConfig,jdbcType=LONGVARCHAR},
@@ -245,7 +245,7 @@
       operator_id = #{record.operatorId,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      is_delete = #{record.isDelete,jdbcType=TINYINT},
+      is_delete = #{record.isDelete,jdbcType=BIT},
       template_config = #{record.templateConfig,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -259,7 +259,7 @@
       operator_id = #{record.operatorId,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      is_delete = #{record.isDelete,jdbcType=TINYINT}
+      is_delete = #{record.isDelete,jdbcType=BIT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -283,7 +283,7 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="isDelete != null" >
-        is_delete = #{isDelete,jdbcType=TINYINT},
+        is_delete = #{isDelete,jdbcType=BIT},
       </if>
       <if test="templateConfig != null" >
         template_config = #{templateConfig,jdbcType=LONGVARCHAR},
@@ -298,7 +298,7 @@
       operator_id = #{operatorId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      is_delete = #{isDelete,jdbcType=TINYINT},
+      is_delete = #{isDelete,jdbcType=BIT},
       template_config = #{templateConfig,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -309,7 +309,7 @@
       operator_id = #{operatorId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      is_delete = #{isDelete,jdbcType=TINYINT}
+      is_delete = #{isDelete,jdbcType=BIT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

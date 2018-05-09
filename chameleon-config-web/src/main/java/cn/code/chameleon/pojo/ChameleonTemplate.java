@@ -15,11 +15,11 @@ public class ChameleonTemplate {
 
     private Date updateTime;
 
-    private Byte isDelete;
+    private Boolean isDelete;
 
     private String templateConfig;
 
-    public ChameleonTemplate(Long id, String templateUrl, String description, Long operatorId, Date createTime, Date updateTime, Byte isDelete, String templateConfig) {
+    public ChameleonTemplate(Long id, String templateUrl, String description, Long operatorId, Date createTime, Date updateTime, Boolean isDelete, String templateConfig) {
         this.id = id;
         this.templateUrl = templateUrl;
         this.description = description;
@@ -82,11 +82,11 @@ public class ChameleonTemplate {
         this.updateTime = updateTime;
     }
 
-    public Byte getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
     }
 

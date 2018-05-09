@@ -17,9 +17,9 @@ public class User {
 
     private Date updateTime;
 
-    private Byte isDelete;
+    private Boolean isDelete;
 
-    public User(Long id, String email, String password, String name, Integer status, Date createTime, Date updateTime, Byte isDelete) {
+    public User(Long id, String email, String password, String name, Integer status, Date createTime, Date updateTime, Boolean isDelete) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -90,11 +90,11 @@ public class User {
         this.updateTime = updateTime;
     }
 
-    public Byte getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
     }
 }

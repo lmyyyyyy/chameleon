@@ -15,9 +15,9 @@ public class UserRelationRole {
 
     private Long operatorId;
 
-    private Byte isDelete;
+    private Boolean isDelete;
 
-    public UserRelationRole(Long id, Long userId, Long roleId, Date createTime, Date updateTime, Long operatorId, Byte isDelete) {
+    public UserRelationRole(Long id, Long userId, Long roleId, Date createTime, Date updateTime, Long operatorId, Boolean isDelete) {
         this.id = id;
         this.userId = userId;
         this.roleId = roleId;
@@ -79,11 +79,11 @@ public class UserRelationRole {
         this.operatorId = operatorId;
     }
 
-    public Byte getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
     }
 }

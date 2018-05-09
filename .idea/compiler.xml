@@ -11,6 +11,7 @@
         <module name="chameleon-config-web" />
         <module name="chameleon-core" />
         <module name="chameleon-simple" />
+        <module name="chameleon-sso" />
         <module name="chameleon-web" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="chameleon-core" target="1.8" />
       <module name="chameleon-parent" target="1.8" />
       <module name="chameleon-simple" target="1.8" />
+      <module name="chameleon-sso" target="1.8" />
       <module name="chameleon-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>

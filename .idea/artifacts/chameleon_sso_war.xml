@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="chameleon-sso:war">
+    <output-path>$PROJECT_DIR$/chameleon-sso/target</output-path>
+    <root id="archive" name="chameleon-sso-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="chameleon-sso:war exploded" />
+    </root>
+  </artifact>
+</component>

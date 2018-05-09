@@ -20,7 +20,6 @@
 
 *.out
 target
-/.idea/
 bin
 .project
 .classpath

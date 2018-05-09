@@ -13,11 +13,11 @@ public class Function {
 
     private Date updateTime;
 
-    private Byte isDelete;
+    private Boolean isDelete;
 
     private String extendField;
 
-    public Function(Long id, String code, String description, Date createTime, Date updateTime, Byte isDelete, String extendField) {
+    public Function(Long id, String code, String description, Date createTime, Date updateTime, Boolean isDelete, String extendField) {
         this.id = id;
         this.code = code;
         this.description = description;
@@ -71,11 +71,11 @@ public class Function {
         this.updateTime = updateTime;
     }
 
-    public Byte getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
     }
 
