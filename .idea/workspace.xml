@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0f3b205-ed16-48b0-b5a5-29c19caa7b79" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-common/src/main/java/cn/code/chameleon/common/PageData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/RedisClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/RedisClientSingle.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/utils/ConvertUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/utils/CookieUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/vo/RoleVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/vo/UserVO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/FunctionServiceImple.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/FunctionServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chameleon-sso/src/main/java/cn/code/chameleon/utils/RequestUtil.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/utils/RequestUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/chameleon_sso_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/chameleon_sso_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/Application.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/FunctionController.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/FunctionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/RoleController.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/RoleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/UserController.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/enums/ResultCodeEnum.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/enums/ResultCodeEnum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/FunctionService.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/FunctionService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/RoleService.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/RoleService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/UserService.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/RoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-sso/src/main/java/cn/code/chameleon/Application.java" afterPath="$PROJECT_DIR$/chameleon-sso/src/main/java/cn/code/chameleon/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-sso/src/main/java/cn/code/chameleon/service/UserService.java" afterPath="$PROJECT_DIR$/chameleon-sso/src/main/java/cn/code/chameleon/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-sso/src/main/java/cn/code/chameleon/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/chameleon-sso/src/main/java/cn/code/chameleon/service/impl/UserServiceImpl.java" />
-    </list>
+    <list default="true" id="c0f3b205-ed16-48b0-b5a5-29c19caa7b79" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/chameleon-core/target/" />
@@ -73,8 +48,8 @@
       <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="105" column="34" lean-forward="true" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
+            <state relative-caret-position="290">
+              <caret line="113" column="36" lean-forward="false" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -902,7 +877,7 @@
       <workItem from="1525829239809" duration="64000" />
       <workItem from="1525829448362" duration="505000" />
       <workItem from="1525830012496" duration="446000" />
-      <workItem from="1525830480664" duration="39406000" />
+      <workItem from="1525830480664" duration="39504000" />
     </task>
     <servers />
   </component>
@@ -939,10 +914,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="536532000" />
+    <option name="totallyTimeSpent" value="536630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1393" height="848" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.5029762" order="7" side_tool="true" content_ui="tabs" />
@@ -960,12 +936,12 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35458168" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35458168" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.49702382" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33333334" sideWeight="0.49702382" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27017024" sideWeight="0.47270307" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27017024" sideWeight="0.47270307" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1500,8 +1476,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="105" column="34" lean-forward="true" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
+        <state relative-caret-position="290">
+          <caret line="113" column="36" lean-forward="false" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
           <folding />
         </state>
       </provider>

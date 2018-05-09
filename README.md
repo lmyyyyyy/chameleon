@@ -8,3 +8,4 @@
 * chameleon-common : 公共工具包,不对内核开放
 * chameleon-config-web : 定制化爬虫配置管理后台
 * chameleon-web : 自定义搜索平台
+* chameleon-sso : 单点登录
