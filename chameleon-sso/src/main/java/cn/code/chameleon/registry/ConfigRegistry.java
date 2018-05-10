@@ -34,6 +34,7 @@ public class ConfigRegistry implements InitializingBean, BeanFactoryAware {
 
     @Override
     public void afterPropertiesSet() throws Exception {
+        LOGGER.info("{} 启动, 开始检查注册所有配置项", LOG_PREFIX);
         String seconds = redisClient.get(Constants.TIME_INTERVAL);
         if (seconds == null || "".equals(seconds)) {
             redisClient.set(Constants.TIME_INTERVAL, String.valueOf(Constants.TIME_INTERVAL_SECONDS));
@@ -58,6 +59,6 @@ public class ConfigRegistry implements InitializingBean, BeanFactoryAware {
         if (mapper_to_db_switch == null || "".equals(mapper_to_db_switch)) {
             redisClient.set(Constants.MAPPER_LOG_SINGLE_TO_DB_KEY, String.valueOf(Constants.MAPPER_LOG_SINGLE_TO_DB));
         }
-        LOGGER.info("{} 注册成功!", LOG_PREFIX);
+        LOGGER.info("{} 检查注册所有配置项成功!", LOG_PREFIX);
     }
 }

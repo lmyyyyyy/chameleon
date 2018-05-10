@@ -104,7 +104,7 @@ public class RequestUtil {
         String token = null;
         Cookie[] cookie = request.getCookies();
         if (cookie == null) {
-            throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
+            return null;
         }
         for (int i = 0; i < cookie.length; i++) {
             Cookie cook = cookie[i];
@@ -113,7 +113,7 @@ public class RequestUtil {
             }
         }
         if (token == null || "".equals(token)) {
-            throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
+            return null;
         }
         return token;
     }

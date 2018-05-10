@@ -1,5 +1,6 @@
 package cn.code.chameleon;
 
+import cn.code.chameleon.interceptor.LoginInterceptor;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import lombok.Setter;
@@ -23,6 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
@@ -73,13 +75,34 @@ public class Application extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+        System.out.println(
+                "                           _ooOoo_\n" +
+                        "                          o8888888o\n" +
+                        "                          88\" . \"88\n" +
+                        "                          (| -_- |)\n" +
+                        "                          O\\  =  /O\n" +
+                        "                       ____/`---'\\____\n" +
+                        "                     .'  \\\\|     |//  `.\n" +
+                        "                    /  \\\\|||  :  |||//  \\\n" +
+                        "                   /  _||||| -:- |||||-  \\\n" +
+                        "                   |   | \\\\\\  -  /// |   |\n" +
+                        "                   | \\_|  ''\\---/''  |   |\n" +
+                        "                   \\  .-\\__  `-`  ___/-. /\n" +
+                        "                 ___`. .'  /--.--\\  `. . __\n" +
+                        "              .\"\" '<  `.___\\_<|>_/___.'  >'\"\".\n" +
+                        "             | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |\n" +
+                        "             \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /\n" +
+                        "        ======`-.____`-.___\\_____/___.-`____.-'======\n" +
+                        "                           `=---='\n" +
+                        "        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n" +
+                        "                     佛祖保佑       永无BUG");
     }
 
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
         return configurableEmbeddedServletContainer -> {
-            ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/static/401.html");
             ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/static/404.html");
+            ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/static/401.html");
             ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/static/500.html");
             configurableEmbeddedServletContainer.addErrorPages(error401Page, error404Page, error500Page);
         };
@@ -109,12 +132,20 @@ public class Application extends WebMvcConfigurerAdapter {
     }
 
     @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/api/**");
+    }
+
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
 
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
     }
 
     @Bean
