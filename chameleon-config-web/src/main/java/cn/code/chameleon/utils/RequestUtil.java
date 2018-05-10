@@ -1,6 +1,7 @@
 package cn.code.chameleon.utils;
 
 import cn.code.chameleon.dto.UserDTO;
+import cn.code.chameleon.enums.ResultCodeEnum;
 import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.pojo.User;
 import org.slf4j.Logger;
@@ -23,11 +24,11 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static Long getCurrentUserId() {
+    public static Long getCurrentUserId() throws ChameleonException {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getId() == null) {
             LOGGER.error("未获取到当前用户ID,或当前用户未登录");
-            return -1L;
+            throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
         }
         return currentUser.getId();
     }
@@ -38,11 +39,11 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static String getCurrentUserName() {
+    public static String getCurrentUserName() throws ChameleonException {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getName() == null) {
             LOGGER.error("未获取到当前用户姓名,或当前用户未登录");
-            return null;
+            throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
         }
         return currentUser.getName();
     }
@@ -53,11 +54,11 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static String getCurrentUserEmail() {
+    public static String getCurrentUserEmail() throws ChameleonException {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getEmail() == null) {
             LOGGER.error("未获取到当前用户邮箱,或当前用户未登录");
-            return null;
+            throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
         }
         return currentUser.getEmail();
     }
@@ -68,11 +69,11 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static Integer getCurrentUserStatus() {
+    public static Integer getCurrentUserStatus() throws ChameleonException {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getStatus() == null) {
             LOGGER.error("未获取到当前用户状态,或当前用户未登录");
-            return -1;
+            throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
         }
         return currentUser.getStatus();
     }
@@ -83,11 +84,11 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static User getCurrentUser() {
+    public static User getCurrentUser() throws ChameleonException {
         UserDTO currentUser = UserContext.getCurrentUser();
         if (currentUser == null || currentUser.getStatus() == null) {
             LOGGER.error("未获取到当前用户,或当前用户未登录");
-            return null;
+            throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
         }
         return ConvertUtil.convertDTO2User(currentUser);
     }
@@ -99,11 +100,11 @@ public class RequestUtil {
      * @return
      * @throws ChameleonException
      */
-    public static String getToken(HttpServletRequest request) {
+    public static String getToken(HttpServletRequest request) throws ChameleonException {
         String token = null;
         Cookie[] cookie = request.getCookies();
         if (cookie == null) {
-            return null;
+            throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
         }
         for (int i = 0; i < cookie.length; i++) {
             Cookie cook = cookie[i];
@@ -112,7 +113,7 @@ public class RequestUtil {
             }
         }
         if (token == null || "".equals(token)) {
-            return null;
+            throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
         }
         return token;
     }

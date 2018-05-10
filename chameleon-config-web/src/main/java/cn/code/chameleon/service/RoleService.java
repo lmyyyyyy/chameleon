@@ -2,6 +2,7 @@ package cn.code.chameleon.service;
 
 import cn.code.chameleon.common.PageData;
 import cn.code.chameleon.exception.ChameleonException;
+import cn.code.chameleon.pojo.Function;
 import cn.code.chameleon.pojo.Role;
 import cn.code.chameleon.vo.RoleVO;
 
@@ -25,5 +26,7 @@ public interface RoleService {
     PageData<RoleVO> pageRoles(String keyword, Integer page, Integer size, String orderField, String orderType) throws ChameleonException;
 
     List<Role> queryRolesByIds(Set<Long> roleIds) throws ChameleonException;
+
+    List<Function> queryFunctionsByRoleIds(Set<Long> roleIds) throws ChameleonException;
 
 }

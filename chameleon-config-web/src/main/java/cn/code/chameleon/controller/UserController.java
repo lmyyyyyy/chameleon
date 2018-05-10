@@ -56,6 +56,75 @@ public class UserController {
     }
 
     /**
+     * 根据用户ID分页查询与之绑定的角色列表
+     *
+     * @param id
+     * @param page
+     * @param size
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/{id}/roles", method = RequestMethod.GET)
+    @ApiOperation(value = "根据用户ID分页查询与之绑定的角色列表(刘明宇)", notes = "根据用户ID分页查询与之绑定的角色列表", response = UnifiedResponse.class)
+    public UnifiedResponse pageRolesByUserId(@PathVariable("id") Long id,
+                                             @RequestParam(value = "page", required = false, defaultValue = "1") Integer page,
+                                             @RequestParam(value = "size", required = false, defaultValue = "20") Integer size) throws Exception {
+        LOGGER.info("{} 根据用户ID = {} 分页查询与之绑定的角色列表", LOG_PREFIX, id);
+        return new UnifiedResponse(userService.pageRolesByUserId(id, page, size));
+    }
+
+    /**
+     * 验证账号有效性 true:可用; false:不可用
+     *
+     * @param email
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    @ApiOperation(value = "验证账号有效性(刘明宇)", notes = "验证账号有效性", response = UnifiedResponse.class)
+    public UnifiedResponse checkAccount(@RequestParam("email") String email) throws Exception {
+        LOGGER.info("{} 验证账号 {} 有效性", LOG_PREFIX, email);
+        return new UnifiedResponse(userService.checkAccount(email));
+    }
+
+    /**
+     * 检查当前账号的旧密码是否匹配
+     *
+     * @param password
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/password", method = RequestMethod.GET)
+    @ApiOperation(value = "检查当前账号的旧密码是否匹配(刘明宇)", notes = "检查当前账号的旧密码是否匹配", response = UnifiedResponse.class)
+    public UnifiedResponse checkAccountAndPassword(@RequestParam("password") String password) throws Exception {
+        String account = RequestUtil.getCurrentUserEmail();
+        LOGGER.info("{} 检查当前账号 {} 的旧密码 {} 是否匹配", LOG_PREFIX, account, password);
+        return new UnifiedResponse(userService.checkAccountAndPassword(account, password));
+    }
+
+    /**
+     * 创建用户
+     *
+     * @param user
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    @ApiOperation(value = "创建用户(刘明宇)", notes = "创建用户", response = UnifiedResponse.class)
+    public UnifiedResponse saveUser(@RequestBody User user, HttpServletRequest request) throws Exception {
+        Long operatorId = RequestUtil.getCurrentUserId();
+        LOGGER.info("{} operatorId = {} 创建用户 user = {}", LOG_PREFIX, operatorId, user);
+        try {
+            userService.saveUser(user);
+        } catch (ChameleonException e) {
+            LOGGER.error("{} operatorId = {} 创建用户 user = {} 失败", LOG_PREFIX, operatorId, user);
+            return new UnifiedResponse(e.getCode(), e.getMessage());
+        }
+        return new UnifiedResponse();
+    }
+
+    /**
      * 更新用户
      *
      * @param user
@@ -66,11 +135,37 @@ public class UserController {
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ApiOperation(value = "更新用户(刘明宇)", notes = "更新用户", response = UnifiedResponse.class)
     public UnifiedResponse updateUser(@RequestBody User user, HttpServletRequest request) throws Exception {
-        LOGGER.info("{} 更新用户 user = {}", LOG_PREFIX, user);
+        Long operatorId = RequestUtil.getCurrentUserId();
+        LOGGER.info("{} operatorId = {} 更新用户 user = {}", LOG_PREFIX, operatorId, user);
         try {
             userService.updateUser(user);
         } catch (ChameleonException e) {
-            LOGGER.error("{} 更新用户 user = {} 失败", LOG_PREFIX, user, e);
+            LOGGER.error("{} operatorId = {} 更新用户 user = {} 失败", LOG_PREFIX, operatorId, user, e);
+            return new UnifiedResponse(e.getCode(), e.getMessage());
+        }
+        return new UnifiedResponse();
+    }
+
+    /**
+     * 当前用户修改密码
+     *
+     * @param oldPassword
+     * @param newPassword
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/password", method = RequestMethod.PUT)
+    @ApiOperation(value = "当前用户修改密码(刘明宇)", notes = "当前用户修改密码", response = UnifiedResponse.class)
+    public UnifiedResponse updatePassword(@RequestParam("oldPassword") String oldPassword,
+                                          @RequestParam("newPassword") String newPassword,
+                                          HttpServletRequest request) throws Exception {
+        User user = RequestUtil.getCurrentUser();
+        LOGGER.info("{} 当前用户 {} 修改密码", LOG_PREFIX, user.getEmail());
+        try {
+            userService.updatePassword(user, oldPassword, newPassword);
+        } catch (ChameleonException e) {
+            LOGGER.error("{} 当前用户 {} 修改密码失败", LOG_PREFIX, user.getEmail(), e);
             return new UnifiedResponse(e.getCode(), e.getMessage());
         }
         return new UnifiedResponse();
@@ -85,9 +180,9 @@ public class UserController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除用户(刘明宇)", notes = "删除用户", response = UnifiedResponse.class)
-    public UnifiedResponse deleteUserById(@PathVariable("id") Long id, HttpServletRequest request) {
-        LOGGER.info("{} 删除用户id = {}", LOG_PREFIX, id);
+    public UnifiedResponse deleteUserById(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
         Long operatorId = RequestUtil.getCurrentUserId();
+        LOGGER.info("{} operatorId = {} 删除用户id = {}", LOG_PREFIX, operatorId, id);
         try {
             userService.deleteUserById(id, operatorId);
         } catch (ChameleonException e) {
@@ -153,5 +248,31 @@ public class UserController {
         return new UnifiedResponse();
     }
 
+    /**
+     * 根据用户ID查询功能列表
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/{id}/functions", method = RequestMethod.GET)
+    @ApiOperation(value = "根据用户ID查询功能列表(刘明宇)", notes = "根据用户ID查询功能列表", response = UnifiedResponse.class)
+    public UnifiedResponse queryFunctionsByUserId(@PathVariable("id") Long id) throws Exception {
+        LOGGER.info("{} 根据用户ID = {} 查询功能列表", LOG_PREFIX, id);
+        return new UnifiedResponse(userService.queryFunctionsByUserId(id));
+    }
 
+    /**
+     * 根据用户ID查询功能码列表
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/{id}/function/codes", method = RequestMethod.GET)
+    @ApiOperation(value = "根据用户ID查询功能码列表(刘明宇)", notes = "根据用户ID查询功能码列表", response = UnifiedResponse.class)
+    public UnifiedResponse queryFunctionCodesByUserId(@PathVariable("id") Long id) throws Exception {
+        LOGGER.info("{} 根据用户ID = {} 查询功能码列表", LOG_PREFIX, id);
+        return new UnifiedResponse(userService.queryFunctionCodesByUserId(id));
+    }
 }

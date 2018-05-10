@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.code.chameleon.monitor.mapper.MapperLogMapper" >
+  <resultMap id="BaseResultMap" type="cn.code.chameleon.monitor.pojo.MapperLog" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="serivce_log_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="target_table_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="operate_type" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="influence_row" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="invoke_status" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="add_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="time_cost" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.code.chameleon.monitor.pojo.MapperLogWithBLOBs" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="serivce_log_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="target_table_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="operate_type" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="influence_row" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="invoke_status" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="add_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="time_cost" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="method_name" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+      <arg column="method_param" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+      <arg column="sql_statement" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+      <arg column="error_message" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, serivce_log_id, target_table_name, operate_type, influence_row, invoke_status, 
+    add_time, update_time, time_cost
+  </sql>
+  <sql id="Blob_Column_List" >
+    method_name, method_param, sql_statement, error_message
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.code.chameleon.monitor.pojo.MapperLogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from mapper_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.code.chameleon.monitor.pojo.MapperLogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mapper_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from mapper_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from mapper_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.code.chameleon.monitor.pojo.MapperLogExample" >
+    delete from mapper_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.code.chameleon.monitor.pojo.MapperLogWithBLOBs" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into mapper_log (id, serivce_log_id, target_table_name, 
+      operate_type, influence_row, invoke_status, 
+      add_time, update_time, time_cost, 
+      method_name, method_param, sql_statement, 
+      error_message)
+    values (#{id,jdbcType=BIGINT}, #{serivceLogId,jdbcType=BIGINT}, #{targetTableName,jdbcType=VARCHAR}, 
+      #{operateType,jdbcType=TINYINT}, #{influenceRow,jdbcType=INTEGER}, #{invokeStatus,jdbcType=TINYINT}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{timeCost,jdbcType=BIGINT}, 
+      #{methodName,jdbcType=LONGVARCHAR}, #{methodParam,jdbcType=LONGVARCHAR}, #{sqlStatement,jdbcType=LONGVARCHAR}, 
+      #{errorMessage,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.code.chameleon.monitor.pojo.MapperLogWithBLOBs" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into mapper_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="serivceLogId != null" >
+        serivce_log_id,
+      </if>
+      <if test="targetTableName != null" >
+        target_table_name,
+      </if>
+      <if test="operateType != null" >
+        operate_type,
+      </if>
+      <if test="influenceRow != null" >
+        influence_row,
+      </if>
+      <if test="invokeStatus != null" >
+        invoke_status,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="timeCost != null" >
+        time_cost,
+      </if>
+      <if test="methodName != null" >
+        method_name,
+      </if>
+      <if test="methodParam != null" >
+        method_param,
+      </if>
+      <if test="sqlStatement != null" >
+        sql_statement,
+      </if>
+      <if test="errorMessage != null" >
+        error_message,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="serivceLogId != null" >
+        #{serivceLogId,jdbcType=BIGINT},
+      </if>
+      <if test="targetTableName != null" >
+        #{targetTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="operateType != null" >
+        #{operateType,jdbcType=TINYINT},
+      </if>
+      <if test="influenceRow != null" >
+        #{influenceRow,jdbcType=INTEGER},
+      </if>
+      <if test="invokeStatus != null" >
+        #{invokeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeCost != null" >
+        #{timeCost,jdbcType=BIGINT},
+      </if>
+      <if test="methodName != null" >
+        #{methodName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="methodParam != null" >
+        #{methodParam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sqlStatement != null" >
+        #{sqlStatement,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="errorMessage != null" >
+        #{errorMessage,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.code.chameleon.monitor.pojo.MapperLogExample" resultType="java.lang.Integer" >
+    select count(*) from mapper_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mapper_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.serivceLogId != null" >
+        serivce_log_id = #{record.serivceLogId,jdbcType=BIGINT},
+      </if>
+      <if test="record.targetTableName != null" >
+        target_table_name = #{record.targetTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operateType != null" >
+        operate_type = #{record.operateType,jdbcType=TINYINT},
+      </if>
+      <if test="record.influenceRow != null" >
+        influence_row = #{record.influenceRow,jdbcType=INTEGER},
+      </if>
+      <if test="record.invokeStatus != null" >
+        invoke_status = #{record.invokeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.addTime != null" >
+        add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.timeCost != null" >
+        time_cost = #{record.timeCost,jdbcType=BIGINT},
+      </if>
+      <if test="record.methodName != null" >
+        method_name = #{record.methodName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.methodParam != null" >
+        method_param = #{record.methodParam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sqlStatement != null" >
+        sql_statement = #{record.sqlStatement,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.errorMessage != null" >
+        error_message = #{record.errorMessage,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update mapper_log
+    set id = #{record.id,jdbcType=BIGINT},
+      serivce_log_id = #{record.serivceLogId,jdbcType=BIGINT},
+      target_table_name = #{record.targetTableName,jdbcType=VARCHAR},
+      operate_type = #{record.operateType,jdbcType=TINYINT},
+      influence_row = #{record.influenceRow,jdbcType=INTEGER},
+      invoke_status = #{record.invokeStatus,jdbcType=TINYINT},
+      add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      time_cost = #{record.timeCost,jdbcType=BIGINT},
+      method_name = #{record.methodName,jdbcType=LONGVARCHAR},
+      method_param = #{record.methodParam,jdbcType=LONGVARCHAR},
+      sql_statement = #{record.sqlStatement,jdbcType=LONGVARCHAR},
+      error_message = #{record.errorMessage,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mapper_log
+    set id = #{record.id,jdbcType=BIGINT},
+      serivce_log_id = #{record.serivceLogId,jdbcType=BIGINT},
+      target_table_name = #{record.targetTableName,jdbcType=VARCHAR},
+      operate_type = #{record.operateType,jdbcType=TINYINT},
+      influence_row = #{record.influenceRow,jdbcType=INTEGER},
+      invoke_status = #{record.invokeStatus,jdbcType=TINYINT},
+      add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      time_cost = #{record.timeCost,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.code.chameleon.monitor.pojo.MapperLogWithBLOBs" >
+    update mapper_log
+    <set >
+      <if test="serivceLogId != null" >
+        serivce_log_id = #{serivceLogId,jdbcType=BIGINT},
+      </if>
+      <if test="targetTableName != null" >
+        target_table_name = #{targetTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="operateType != null" >
+        operate_type = #{operateType,jdbcType=TINYINT},
+      </if>
+      <if test="influenceRow != null" >
+        influence_row = #{influenceRow,jdbcType=INTEGER},
+      </if>
+      <if test="invokeStatus != null" >
+        invoke_status = #{invokeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeCost != null" >
+        time_cost = #{timeCost,jdbcType=BIGINT},
+      </if>
+      <if test="methodName != null" >
+        method_name = #{methodName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="methodParam != null" >
+        method_param = #{methodParam,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sqlStatement != null" >
+        sql_statement = #{sqlStatement,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="errorMessage != null" >
+        error_message = #{errorMessage,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.code.chameleon.monitor.pojo.MapperLogWithBLOBs" >
+    update mapper_log
+    set serivce_log_id = #{serivceLogId,jdbcType=BIGINT},
+      target_table_name = #{targetTableName,jdbcType=VARCHAR},
+      operate_type = #{operateType,jdbcType=TINYINT},
+      influence_row = #{influenceRow,jdbcType=INTEGER},
+      invoke_status = #{invokeStatus,jdbcType=TINYINT},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      time_cost = #{timeCost,jdbcType=BIGINT},
+      method_name = #{methodName,jdbcType=LONGVARCHAR},
+      method_param = #{methodParam,jdbcType=LONGVARCHAR},
+      sql_statement = #{sqlStatement,jdbcType=LONGVARCHAR},
+      error_message = #{errorMessage,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.code.chameleon.monitor.pojo.MapperLog" >
+    update mapper_log
+    set serivce_log_id = #{serivceLogId,jdbcType=BIGINT},
+      target_table_name = #{targetTableName,jdbcType=VARCHAR},
+      operate_type = #{operateType,jdbcType=TINYINT},
+      influence_row = #{influenceRow,jdbcType=INTEGER},
+      invoke_status = #{invokeStatus,jdbcType=TINYINT},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      time_cost = #{timeCost,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <insert id="batchInsert">
+    insert into mapper_log (method_name,
+    target_table_name, operate_type, influence_row,
+    invoke_status, add_time, update_time,
+    method_param, sql_statement, error_message,time_cost,
+    serivce_log_id
+    )
+    values
+    <foreach collection="list" item="item" separator=",">(
+      #{item.methodName,jdbcType=VARCHAR},
+      #{item.targetTableName,jdbcType=VARCHAR}, #{item.operateType,jdbcType=TINYINT}, #{item.influenceRow,jdbcType=INTEGER},
+      #{item.invokeStatus,jdbcType=TINYINT}, #{item.addTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
+      #{item.methodParam,jdbcType=LONGVARCHAR}, #{item.sqlStatement,jdbcType=LONGVARCHAR},
+      #{item.errorMessage,jdbcType=LONGVARCHAR},
+      #{item.timeCost,jdbcType=BIGINT},
+      <if test="item.parent != null and item.parent.id != null">
+        #{item.parent.id}
+      </if>
+      <if test="item.parent == null or item.parent.id == null">
+        0
+      </if>
+      )
+    </foreach>
+  </insert>
+</mapper>

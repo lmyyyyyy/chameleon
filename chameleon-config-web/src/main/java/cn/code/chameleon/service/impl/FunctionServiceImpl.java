@@ -173,6 +173,27 @@ public class FunctionServiceImpl implements FunctionService {
     }
 
     /**
+     * 检查角色和功能是否存在绑定关系 true:存在; false:不存在
+     *
+     * @param roleId
+     * @param functionId
+     * @return
+     * @throws ChameleonException
+     */
+    public boolean checkRoleRelationFunction(Long roleId, Long functionId) throws ChameleonException {
+        RoleRelationFunctionExample example = new RoleRelationFunctionExample();
+        RoleRelationFunctionExample.Criteria criteria = example.createCriteria();
+        criteria.andIsDeleteEqualTo(false);
+        criteria.andRoleIdEqualTo(roleId);
+        criteria.andFunctionIdEqualTo(functionId);
+        List<RoleRelationFunction> roleRelationFunctions = roleRelationFunctionMapper.selectByExample(example);
+        if (roleRelationFunctions == null || roleRelationFunctions.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * 保存角色与功能的绑定关系
      *
      * @param roleId
@@ -182,6 +203,9 @@ public class FunctionServiceImpl implements FunctionService {
      */
     @Override
     public void saveRoleRelationFunction(Long roleId, Long functionId, Long operatorId) throws ChameleonException {
+        if (checkRoleRelationFunction(roleId, functionId)) {
+            return;
+        }
         RoleRelationFunction roleRelationFunction = new RoleRelationFunction();
         roleRelationFunction.setRoleId(roleId);
         roleRelationFunction.setFunctionId(functionId);
@@ -375,4 +399,71 @@ public class FunctionServiceImpl implements FunctionService {
 
         return new PageData<>(pageInfo.getTotal(), roles);
     }
+
+    /**
+     * 根据角色ID集合查询功能列表
+     *
+     * @param roleIds
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public List<Function> queryFunctionsByRoleIds(Set<Long> roleIds) throws ChameleonException {
+        if (roleIds == null || roleIds.isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<Function> functions = new ArrayList<>();
+        for (Long roleId : roleIds) {
+            if (roleId == null || roleId <= 0) {
+                continue;
+            }
+            List<Function> temps = queryFunctionsByRoleId(roleId);
+            if (temps == null || temps.isEmpty()) {
+                continue;
+            }
+            functions.addAll(temps);
+        }
+        return functions;
+    }
+
+    /**
+     * 根据角色ID查询功能列表
+     *
+     * @param roleId
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public List<Function> queryFunctionsByRoleId(Long roleId) throws ChameleonException {
+        RoleRelationFunctionExample example = new RoleRelationFunctionExample();
+        RoleRelationFunctionExample.Criteria criteria = example.createCriteria();
+        criteria.andRoleIdEqualTo(roleId);
+        criteria.andIsDeleteEqualTo(false);
+        List<RoleRelationFunction> roleRelationFunctions = roleRelationFunctionMapper.selectByExample(example);
+        if (roleRelationFunctions == null || roleRelationFunctions.isEmpty()) {
+            return new ArrayList<>();
+        }
+        Set<Long> functionIds = roleRelationFunctions.stream().map(roleRelationFunction -> roleRelationFunction.getFunctionId()).collect(Collectors.toSet());
+
+        return this.queryFunctionsByIds(functionIds);
+    }
+
+    /**
+     * 根据角色ID查询绑定的功能码列表
+     *
+     * @param roleId
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public List<String> queryFunctionCodesByRoleId(Long roleId) throws ChameleonException {
+        List<Function> functions = this.queryFunctionsByRoleId(roleId);
+        if (functions == null || functions.isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<String> functionCodes = functions.stream().map(function -> function.getCode()).collect(Collectors.toList());
+        return functionCodes;
+    }
+
+
 }

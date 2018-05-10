@@ -41,4 +41,10 @@ public interface FunctionService {
     PageData<Function> pageFunctionsByRoleId(Long roleId, Integer page, Integer size) throws ChameleonException;
 
     PageData<Role> pageRolesByFunctionId(Long functionId, Integer page, Integer size) throws ChameleonException;
+
+    List<Function> queryFunctionsByRoleIds(Set<Long> roleIds) throws ChameleonException;
+
+    List<Function> queryFunctionsByRoleId(Long roleId) throws ChameleonException;
+
+    List<String> queryFunctionCodesByRoleId(Long roleId) throws ChameleonException;
 }

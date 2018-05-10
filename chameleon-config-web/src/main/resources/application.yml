@@ -24,7 +24,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true #驼峰转换
   mapper-locations: mybatis/*Mapper.xml
-  typeAliasesPackage: cn.code.chameleon.pojo
+  typeAliasesPackage: cn.code.chameleon.pojo , cn.code.chameleon.monitor.pojo
 
 pagehelper:
   helperDialect: mysql

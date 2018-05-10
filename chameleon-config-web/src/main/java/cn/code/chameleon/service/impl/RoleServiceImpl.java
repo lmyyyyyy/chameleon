@@ -4,6 +4,7 @@ import cn.code.chameleon.common.PageData;
 import cn.code.chameleon.enums.ResultCodeEnum;
 import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.mapper.RoleMapper;
+import cn.code.chameleon.pojo.Function;
 import cn.code.chameleon.pojo.Role;
 import cn.code.chameleon.pojo.RoleExample;
 import cn.code.chameleon.service.FunctionService;
@@ -178,6 +179,18 @@ public class RoleServiceImpl implements RoleService {
             roles.add(role);
         }
         return roles;
+    }
+
+    /**
+     * 根据角色ID集合查询功能集合
+     *
+     * @param roleIds
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public List<Function> queryFunctionsByRoleIds(Set<Long> roleIds) throws ChameleonException {
+        return functionService.queryFunctionsByRoleIds(roleIds);
     }
 
     /**
