@@ -6,6 +6,7 @@ import cn.code.chameleon.enums.UserStatusEnum;
 import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.mapper.UserMapper;
 import cn.code.chameleon.mapper.UserRelationRoleMapper;
+import cn.code.chameleon.pojo.Function;
 import cn.code.chameleon.pojo.Role;
 import cn.code.chameleon.pojo.User;
 import cn.code.chameleon.pojo.UserExample;
@@ -15,6 +16,8 @@ import cn.code.chameleon.service.RedisClient;
 import cn.code.chameleon.service.RoleService;
 import cn.code.chameleon.service.UserService;
 import cn.code.chameleon.utils.Constants;
+import cn.code.chameleon.utils.ConvertUtil;
+import cn.code.chameleon.utils.EncryptUtil;
 import cn.code.chameleon.utils.JsonUtils;
 import cn.code.chameleon.utils.RequestUtil;
 import cn.code.chameleon.utils.UserContext;
@@ -30,6 +33,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -53,9 +57,84 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RedisClient redisClient;
 
+    /**
+     * 检查账号是否可用 true:可用;false:不可用
+     *
+     * @param account
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public boolean checkAccount(String account) throws ChameleonException {
+        if (account == null || "".equals(account)) {
+            throw new ChameleonException(ResultCodeEnum.USER_ACCOUNT_PATTERN_ERROR);
+        }
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andEmailEqualTo(account);
+        criteria.andIsDeleteEqualTo(false);
+        List<User> users = userMapper.selectByExample(example);
+        if (users == null || users.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 验证账号密码是否匹配 true:匹配; false:不匹配
+     *
+     * @param account
+     * @param password
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public boolean checkAccountAndPassword(String account, String password) throws ChameleonException {
+        if (account == null || "".equals(account)) {
+            throw new ChameleonException(ResultCodeEnum.USER_ACCOUNT_PATTERN_ERROR);
+        }
+        if (password == null || "".equals(password)) {
+            throw new ChameleonException(ResultCodeEnum.USER_PASSWORD_LEN_ERROR);
+        }
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andIsDeleteEqualTo(false);
+        criteria.andEmailEqualTo(account);
+        criteria.andPasswordEqualTo(EncryptUtil.md5Digest(password));
+        List<User> users = userMapper.selectByExample(example);
+        if (users == null || users.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 创建用户
+     *
+     * @param user
+     * @throws ChameleonException
+     */
     @Override
     public void saveUser(User user) throws ChameleonException {
-
+        if (user == null) {
+            throw new ChameleonException(ResultCodeEnum.USER_DATA_EMPTY);
+        }
+        if (!checkAccount(user.getEmail())) {
+            throw new ChameleonException(ResultCodeEnum.USER_ACCOUNT_HAS_EXISTED);
+        }
+        if (user.getPassword() == null || "".equals(user.getPassword()) || user.getPassword().length() < 6 || user.getPassword().length() > 18) {
+            throw new ChameleonException(ResultCodeEnum.USER_PASSWORD_LEN_ERROR);
+        }
+        String password = EncryptUtil.md5Digest(user.getPassword());
+        if (password == null || "".equals(password)) {
+            throw new ChameleonException(ResultCodeEnum.USER_PASSWORD_MD5_FAILED);
+        }
+        user.setPassword(password);
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
+        user.setIsDelete(false);
+        user.setStatus(UserStatusEnum.OFFLINE.getCode());
+        userMapper.insert(user);
     }
 
     /**
@@ -69,6 +148,40 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new ChameleonException(ResultCodeEnum.USER_DATA_EMPTY);
         }
+        if (user.getPassword() != null && !"".equals(user.getPassword())) {
+            user.setPassword(EncryptUtil.md5Digest(user.getPassword()));
+        }
+        user.setUpdateTime(new Date());
+        userMapper.updateByPrimaryKeySelective(user);
+        User me = RequestUtil.getCurrentUser();
+        if (me.getId().equals(user.getId())) {
+            UserContext.removeCurrentUser();
+            user.setPassword(null);
+            UserContext.setCurrentUser(ConvertUtil.converUser2DTO(user));
+        }
+    }
+
+    /**
+     * 更新当前用户密码
+     *
+     * @param user
+     * @param oldPassword
+     * @param newPassword
+     * @throws ChameleonException
+     */
+    @Override
+    public void updatePassword(User user, String oldPassword, String newPassword) throws ChameleonException {
+        if (newPassword == null || "".equals(newPassword) || newPassword.length() < 6 || newPassword.length() > 18) {
+            throw new ChameleonException(ResultCodeEnum.USER_PASSWORD_LEN_ERROR);
+        }
+        if (!checkAccountAndPassword(user.getEmail(), oldPassword)) {
+            throw new ChameleonException(ResultCodeEnum.USER_ACCOUNT_PASSWORD_ERROR);
+        }
+        String password = EncryptUtil.md5Digest(newPassword);
+        if (password == null || "".equals(password)) {
+            throw new ChameleonException(ResultCodeEnum.USER_PASSWORD_MD5_FAILED);
+        }
+        user.setPassword(password);
         user.setUpdateTime(new Date());
         userMapper.updateByPrimaryKeySelective(user);
     }
@@ -184,6 +297,27 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 检查用户和角色是否已经存在绑定关系 true:存在; false:不存在
+     *
+     * @param userId
+     * @param roleId
+     * @return
+     * @throws ChameleonException
+     */
+    public boolean checkUserRelationRole(Long userId, Long roleId) throws ChameleonException {
+        UserRelationRoleExample example = new UserRelationRoleExample();
+        UserRelationRoleExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(userId);
+        criteria.andRoleIdEqualTo(roleId);
+        criteria.andIsDeleteEqualTo(false);
+        List<UserRelationRole> userRelationRoles = userRelationRoleMapper.selectByExample(example);
+        if (userRelationRoles == null || userRelationRoles.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * 绑定用户和角色的关系
      *
      * @param userId
@@ -193,6 +327,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void saveUserRelationRole(Long userId, Long roleId, Long operatorId) throws ChameleonException {
+        if (checkUserRelationRole(userId, roleId)) {
+            return ;
+        }
         UserRelationRole userRelationRole = new UserRelationRole();
         userRelationRole.setUserId(userId);
         userRelationRole.setRoleId(roleId);
@@ -382,5 +519,60 @@ public class UserServiceImpl implements UserService {
 
         List<Role> roles = roleService.queryRolesByIds(roleIds);
         return new PageData<>(pageInfo.getTotal(), roles);
+    }
+
+    /**
+     * 根据用户ID查询绑定的角色ID集合
+     *
+     * @param userId
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public Set<Long> queryRoleIdsByUserId(Long userId) throws ChameleonException {
+        UserRelationRoleExample example = new UserRelationRoleExample();
+        UserRelationRoleExample.Criteria criteria = example.createCriteria();
+        criteria.andIsDeleteEqualTo(false);
+        criteria.andUserIdEqualTo(userId);
+        List<UserRelationRole> userRelationRoles = userRelationRoleMapper.selectByExample(example);
+        if (userRelationRoles == null || userRelationRoles.isEmpty()) {
+            return new HashSet<>();
+        }
+        Set<Long> roleIds = userRelationRoles.stream().map(userRelationRole -> userRelationRole.getRoleId()).collect(Collectors.toSet());
+        return roleIds;
+    }
+
+    /**
+     * 根据用户ID查询绑定的功能列表
+     *
+     * @param userId
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public List<Function> queryFunctionsByUserId(Long userId) throws ChameleonException {
+        Set<Long> roleId = this.queryRoleIdsByUserId(userId);
+        if (roleId == null || roleId.isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<Function> functions = roleService.queryFunctionsByRoleIds(roleId);
+        return functions;
+    }
+
+    /**
+     * 根据用户ID查询功能码集合
+     *
+     * @param userId
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public List<String> queryFunctionCodesByUserId(Long userId) throws ChameleonException {
+        List<Function> functions = this.queryFunctionsByUserId(userId);
+        if (functions == null || functions.isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<String> functionCodes = functions.stream().map(function -> function.getCode()).collect(Collectors.toList());
+        return functionCodes;
     }
 }

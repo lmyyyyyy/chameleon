@@ -2,6 +2,7 @@ package cn.code.chameleon.service;
 
 import cn.code.chameleon.common.PageData;
 import cn.code.chameleon.exception.ChameleonException;
+import cn.code.chameleon.pojo.Function;
 import cn.code.chameleon.pojo.Role;
 import cn.code.chameleon.pojo.User;
 
@@ -15,9 +16,15 @@ import java.util.Set;
  */
 public interface UserService {
 
+    boolean checkAccount(String account) throws ChameleonException;
+
+    boolean checkAccountAndPassword(String account, String password) throws ChameleonException;
+
     void saveUser(User user) throws ChameleonException;
 
     void updateUser(User user) throws ChameleonException;
+
+    void updatePassword(User user, String oldPassword, String newPassword) throws ChameleonException;
 
     void deleteUserById(Long id, Long operatorId) throws ChameleonException;
 
@@ -44,5 +51,11 @@ public interface UserService {
     PageData<User> pageUsersByRoleId(Long roleId, Integer page, Integer size) throws ChameleonException;
 
     PageData<Role> pageRolesByUserId(Long userId, Integer page, Integer size) throws ChameleonException;
+
+    Set<Long> queryRoleIdsByUserId(Long userId) throws ChameleonException;
+
+    List<Function> queryFunctionsByUserId(Long userId) throws ChameleonException;
+
+    List<String> queryFunctionCodesByUserId(Long userId) throws ChameleonException;
 
 }

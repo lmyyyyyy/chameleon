@@ -17,7 +17,7 @@
 *.zip
 *.tar.gz
 *.rar
-
+/data/
 *.out
 target
 bin

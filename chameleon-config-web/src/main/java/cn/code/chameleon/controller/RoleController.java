@@ -307,11 +307,25 @@ public class RoleController {
      * @throws Exception
      */
     @RequestMapping(value = "/{id}/functions", method = RequestMethod.GET)
-    @ApiOperation(value = "更具角色ID分页查询绑定的功能列表(刘明宇)", notes = "更具角色ID分页查询绑定的功能列表", response = UnifiedResponse.class)
+    @ApiOperation(value = "根据角色ID分页查询绑定的功能列表(刘明宇)", notes = "更具角色ID分页查询绑定的功能列表", response = UnifiedResponse.class)
     public UnifiedResponse pageFunctionsByRoleId(@PathVariable("id") Long id,
                                                  @RequestParam(value = "page", required = false, defaultValue = "1") Integer page,
                                                  @RequestParam(value = "size", required = false, defaultValue = "20") Integer size) throws Exception {
         LOGGER.info("{} 根据角色ID = {} 分页查询绑定的功能列表 page = {}, size = {}", LOG_PREFIX, id, page, size);
         return new UnifiedResponse(functionService.pageFunctionsByRoleId(id, page, size));
+    }
+
+    /**
+     * 根据角色ID查询功能码列表
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/{id}/function/codes", method = RequestMethod.GET)
+    @ApiOperation(value = "根据角色ID查询功能码列表(刘明宇)", notes = "根据角色ID查询功能码列表", response = UnifiedResponse.class)
+    public UnifiedResponse queryFunctionsByRoleId(@PathVariable("id") Long id) throws Exception {
+        LOGGER.info("{} 根据角色ID = {} 查询功能码列表", LOG_PREFIX, id);
+        return new UnifiedResponse(functionService.queryFunctionCodesByRoleId(id));
     }
 }

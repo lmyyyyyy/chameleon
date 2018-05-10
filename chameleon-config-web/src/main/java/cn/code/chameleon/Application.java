@@ -60,9 +60,9 @@ import static com.google.common.collect.Sets.newHashSet;
 @EnableRedisHttpSession
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "app")
-@MapperScan(basePackages = "cn.code.chameleon.mapper")
-@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service"})
-@EntityScan(basePackages = "cn.code.chameleon.pojo")
+@MapperScan({"cn.code.chameleon.mapper", "cn.code.chameleon.monitor.mapper"})
+@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.monitor"})
+@EntityScan({"cn.code.chameleon.pojo", "cn.code.chameleon.monitor.pojo"})
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
 

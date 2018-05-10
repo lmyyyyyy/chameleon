@@ -126,7 +126,7 @@ public class FunctionController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "根据功能ID删除所有角色绑定关系(刘明宇)", notes = "根据功能ID删除所有角色绑定关系", response = UnifiedResponse.class)
-    public UnifiedResponse deleteRoleRelationFunctionByFunctionId(@PathVariable("id") Long id, HttpServletRequest request) {
+    public UnifiedResponse deleteRoleRelationFunctionByFunctionId(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
         Long operatorId = RequestUtil.getCurrentUserId();
         LOGGER.info("{} 根据功能ID = {} 删除所有的角色绑定关系", LOG_PREFIX, id);
         try {

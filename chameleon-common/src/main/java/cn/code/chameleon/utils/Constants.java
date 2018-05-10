@@ -35,4 +35,54 @@ public class Constants {
      * threadLocal副本key
      */
     public static final String USER_KEY = "CHAMELEON_USER";
+
+    /**
+     * 是否打印日志key
+     */
+    public static final String METHOD_LOG_PRINT_SWITCH_KEY = "METHOD_LOG_PRINT_SWITCH";
+
+    /**
+     * 是否打印日志
+     */
+    public static final Boolean METHOD_LOG_PRINT_SWITCH = true;
+
+    /**
+     * 是否记录sql key
+     */
+    public static final String RECORD_SQL_SWITCH_KEY = "RECORD_SQL_SWITCH";
+
+    /**
+     * 是否记录sql
+     */
+    public static final Boolean RECORD_SQL_SWITCH = true;
+
+    /**
+     * 日志是否入库key
+     */
+    public static final String LOG_TO_DB_KEY = "LOG_TO_DB";
+
+    /**
+     * 日志是否入库
+     */
+    public static final Boolean LOG_TO_DB = true;
+
+    /**
+     * mapper是否独立存储key
+     */
+    public static final String MAPPER_LOG_SINGLE_TO_DB_KEY = "MAPPER_LOG_TO_DB";
+
+    /**
+     * mapper是否独立存储
+     */
+    public static final Boolean MAPPER_LOG_SINGLE_TO_DB = true;
+
+    /**
+     * 是否清除service栈
+     */
+    public static final Boolean IS_CLEAR_SERVICE_LOG_LIST = true;
+
+    /**
+     * 是否递归记录一个线程中的所有方法
+     */
+    public static final Boolean SERVICE_LOG_RECURSION_SWITCH = true;
 }
