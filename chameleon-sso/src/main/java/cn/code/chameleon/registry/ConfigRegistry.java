@@ -59,6 +59,11 @@ public class ConfigRegistry implements InitializingBean, BeanFactoryAware {
         if (mapper_to_db_switch == null || "".equals(mapper_to_db_switch)) {
             redisClient.set(Constants.MAPPER_LOG_SINGLE_TO_DB_KEY, String.valueOf(Constants.MAPPER_LOG_SINGLE_TO_DB));
         }
+
+        String sso_token_expire = redisClient.get(Constants.SSO_TOKEN_EXPIRE_KEY);
+        if (sso_token_expire == null || "".equals(sso_token_expire)) {
+            redisClient.set(Constants.SSO_TOKEN_EXPIRE_KEY, String.valueOf(Constants.SSO_TOKEN_EXPIRE));
+        }
         LOGGER.info("{} 检查注册所有配置项成功!", LOG_PREFIX);
     }
 }

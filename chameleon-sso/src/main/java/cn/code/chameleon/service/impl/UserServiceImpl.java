@@ -233,9 +233,18 @@ public class UserServiceImpl implements UserService {
         String token = UUID.randomUUID().toString();
         user.setPassword(null);
 
+        long sso_token_expire = Constants.SSO_TOKEN_EXPIRE;
+
+        String temp = redisClient.get(Constants.SSO_TOKEN_EXPIRE_KEY);
+        if (temp != null && !"".equals(temp)) {
+            if (RegexUtils.checkDigit(temp)) {
+                sso_token_expire = Long.valueOf(temp);
+            }
+        }
+
         redisClient.set(Constants.USER_TOKEN_KEY + ":" + token,
                 JsonUtils.toJsonStrWithEmptyDefault(user),
-                Constants.SSO_TOKEN_EXPIRE,
+                sso_token_expire,
                 TimeUnit.SECONDS);
         CookieUtil.setCookie(request, response, Constants.TOKEN_COOKIE, token);
 

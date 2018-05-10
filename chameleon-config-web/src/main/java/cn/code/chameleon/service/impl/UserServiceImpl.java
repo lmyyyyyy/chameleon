@@ -187,6 +187,24 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 启用/禁用用户
+     *
+     * @param userId
+     * @param operatorId
+     * @throws ChameleonException
+     */
+    @Override
+    public void updateUserEnableStatus(Long userId, Long operatorId) throws ChameleonException {
+        User user = userMapper.selectByPrimaryKey(userId);
+        if (user == null) {
+            throw new ChameleonException(ResultCodeEnum.USER_NOT_EXIST);
+        }
+        user.setStatus(user.getStatus().equals(UserStatusEnum.DISABLED.getCode()) ? UserStatusEnum.OFFLINE.getCode() : UserStatusEnum.DISABLED.getCode());
+        user.setUpdateTime(new Date());
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    /**
      * 根据id删除用户
      *
      * @param id
@@ -328,7 +346,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUserRelationRole(Long userId, Long roleId, Long operatorId) throws ChameleonException {
         if (checkUserRelationRole(userId, roleId)) {
-            return ;
+            return;
         }
         UserRelationRole userRelationRole = new UserRelationRole();
         userRelationRole.setUserId(userId);

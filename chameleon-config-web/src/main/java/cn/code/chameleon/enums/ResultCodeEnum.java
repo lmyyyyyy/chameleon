@@ -16,6 +16,7 @@ public enum ResultCodeEnum implements ResultCodeInterface {
     USER_ACCOUNT_PATTERN_ERROR(1005, "账号格式错误"),
     USER_ACCOUNT_HAS_EXISTED(1006, "账号已经存在"),
     USER_PASSWORD_MD5_FAILED(1007, "密码加密失败,请重试或更换密码"),
+    USER_NOT_EXIST(1008, "用户不存在"),
 
     ROLE_DATA_EMPTY(2001, "角色对象不能为空"),
     ROLE_NAME_EMPTY(2002, "角色名称不能为空"),

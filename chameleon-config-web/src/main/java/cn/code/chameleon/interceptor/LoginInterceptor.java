@@ -96,6 +96,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                 forbidden(response, HttpServletResponse.SC_UNAUTHORIZED, "当前用户与服务端缓存的用户不匹配");
                 return false;
             }
+            UserContext.removeCurrentUser();
             UserContext.setCurrentUser(ConvertUtil.converUser2DTO(user));
 
             LOGGER.info("获取SSO用户信息为{}", user);

@@ -172,6 +172,28 @@ public class UserController {
     }
 
     /**
+     * 启用或禁用用户
+     *
+     * @param id
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/{id}/status", method = RequestMethod.PUT)
+    @ApiOperation(value = "启用或禁用用户(刘明宇)", notes = "启用或禁用用户", response = UnifiedResponse.class)
+    public UnifiedResponse updateUserEnableStatus(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
+        Long operatorId = RequestUtil.getCurrentUserId();
+        LOGGER.info("{} operatorId = {} 启用／禁用 用户 id = {}", LOG_PREFIX, operatorId, id);
+        try {
+            userService.updateUserEnableStatus(id, operatorId);
+        } catch (ChameleonException e) {
+            LOGGER.error("{} 启用／禁用用户失败 id = {}", LOG_PREFIX, id);
+            return new UnifiedResponse(e.getCode(), e.getMessage());
+        }
+        return new UnifiedResponse();
+    }
+
+    /**
      * 删除用户
      *
      * @param id

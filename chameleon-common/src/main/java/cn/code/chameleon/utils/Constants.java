@@ -22,6 +22,11 @@ public class Constants {
     public static final String USER_TOKEN_KEY = "USER_TOKEN";
 
     /**
+     * token 过期时间key
+     */
+    public static final String SSO_TOKEN_EXPIRE_KEY = "SSO_TOKEN_EXPIRE";
+
+    /**
      * token 过期时间
      */
     public static final Integer SSO_TOKEN_EXPIRE = 1800;
