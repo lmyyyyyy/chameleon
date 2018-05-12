@@ -9,7 +9,7 @@ public class Constants {
     /**
      * 时间间隔key
      */
-    public static final String TIME_INTERVAL = "time-interval";
+    public static final String TIME_INTERVAL = "TIME_INTERVAL";
 
     /**
      * 时间间隔数
@@ -17,9 +17,14 @@ public class Constants {
     public static final Long TIME_INTERVAL_SECONDS = 120L;
 
     /**
-     * token key
+     * redis token key
      */
     public static final String USER_TOKEN_KEY = "USER_TOKEN";
+
+    /**
+     * token 过期时间key
+     */
+    public static final String SSO_TOKEN_EXPIRE_KEY = "SSO_TOKEN_EXPIRE";
 
     /**
      * token 过期时间
@@ -85,4 +90,15 @@ public class Constants {
      * 是否递归记录一个线程中的所有方法
      */
     public static final Boolean SERVICE_LOG_RECURSION_SWITCH = true;
+
+    /**
+     * 前端域名集合
+     */
+    public static final String FRONT_END_DOMAIN = "FRONT_END_DOMAIN";
+
+    /**
+     * cookie种在此域名下
+     */
+    public static final String BASE_DOMAIN = "BASE_DOMAIN";
+
 }

@@ -16,13 +16,18 @@ public enum ResultCodeEnum implements ResultCodeInterface {
     USER_ACCOUNT_PATTERN_ERROR(1005, "账号格式错误"),
     USER_ACCOUNT_HAS_EXISTED(1006, "账号已经存在"),
     USER_PASSWORD_MD5_FAILED(1007, "密码加密失败,请重试或更换密码"),
+    USER_NOT_EXIST(1008, "用户不存在"),
 
     ROLE_DATA_EMPTY(2001, "角色对象不能为空"),
     ROLE_NAME_EMPTY(2002, "角色名称不能为空"),
 
     FUNCTION_DATA_EMPTY(3001, "功能对象不能为空"),
     FUNCTION_NAME_EMPTY(3002, "功能名称不能为空"),
-    FUNCTION_CODE_EXIST(3003, "功能标识已被占用"),
+    FUNCTION_CODE_HAS_EXISTED(3003, "功能标识已被占用"),
+
+    GROUP_NAME_EMPTY(4001, "组名称不能为空"),
+    GROUP_NAME_HAS_EXISTED(4002, "组名称不能重复"),
+    GROUP_DATA_EMPTY(4003, "组对象不能为空"),
 
     NO_FIND_CURRENT_USER(9001, "未获取到当前用户,或当前用户未登录"),
     ACTION_CONTEXT(9002, "ActionContext对象为空"),

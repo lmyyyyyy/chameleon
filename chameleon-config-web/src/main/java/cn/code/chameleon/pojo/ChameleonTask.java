@@ -7,9 +7,13 @@ public class ChameleonTask {
 
     private Long templateId;
 
+    private Long groupId;
+
     private String jobName;
 
     private String jobGroup;
+
+    private String jobClassName;
 
     private String triggerName;
 
@@ -19,7 +23,13 @@ public class ChameleonTask {
 
     private Integer status;
 
-    private Byte needSync;
+    private Boolean needSync;
+
+    private Long repeatInterval;
+
+    private Long repeatCount;
+
+    private String timeZoneId;
 
     private String description;
 
@@ -31,16 +41,21 @@ public class ChameleonTask {
 
     private Boolean isDelete;
 
-    public ChameleonTask(Long id, Long templateId, String jobName, String jobGroup, String triggerName, String triggerGroup, String expression, Integer status, Byte needSync, String description, Long operatorId, Date createTime, Date updateTime, Boolean isDelete) {
+    public ChameleonTask(Long id, Long templateId, Long groupId, String jobName, String jobGroup, String jobClassName, String triggerName, String triggerGroup, String expression, Integer status, Boolean needSync, Long repeatInterval, Long repeatCount, String timeZoneId, String description, Long operatorId, Date createTime, Date updateTime, Boolean isDelete) {
         this.id = id;
         this.templateId = templateId;
+        this.groupId = groupId;
         this.jobName = jobName;
         this.jobGroup = jobGroup;
+        this.jobClassName = jobClassName;
         this.triggerName = triggerName;
         this.triggerGroup = triggerGroup;
         this.expression = expression;
         this.status = status;
         this.needSync = needSync;
+        this.repeatInterval = repeatInterval;
+        this.repeatCount = repeatCount;
+        this.timeZoneId = timeZoneId;
         this.description = description;
         this.operatorId = operatorId;
         this.createTime = createTime;
@@ -68,6 +83,14 @@ public class ChameleonTask {
         this.templateId = templateId;
     }
 
+    public Long getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
+    }
+
     public String getJobName() {
         return jobName;
     }
@@ -82,6 +105,14 @@ public class ChameleonTask {
 
     public void setJobGroup(String jobGroup) {
         this.jobGroup = jobGroup == null ? null : jobGroup.trim();
+    }
+
+    public String getJobClassName() {
+        return jobClassName;
+    }
+
+    public void setJobClassName(String jobClassName) {
+        this.jobClassName = jobClassName == null ? null : jobClassName.trim();
     }
 
     public String getTriggerName() {
@@ -116,12 +147,36 @@ public class ChameleonTask {
         this.status = status;
     }
 
-    public Byte getNeedSync() {
+    public Boolean getNeedSync() {
         return needSync;
     }
 
-    public void setNeedSync(Byte needSync) {
+    public void setNeedSync(Boolean needSync) {
         this.needSync = needSync;
+    }
+
+    public Long getRepeatInterval() {
+        return repeatInterval;
+    }
+
+    public void setRepeatInterval(Long repeatInterval) {
+        this.repeatInterval = repeatInterval;
+    }
+
+    public Long getRepeatCount() {
+        return repeatCount;
+    }
+
+    public void setRepeatCount(Long repeatCount) {
+        this.repeatCount = repeatCount;
+    }
+
+    public String getTimeZoneId() {
+        return timeZoneId;
+    }
+
+    public void setTimeZoneId(String timeZoneId) {
+        this.timeZoneId = timeZoneId == null ? null : timeZoneId.trim();
     }
 
     public String getDescription() {

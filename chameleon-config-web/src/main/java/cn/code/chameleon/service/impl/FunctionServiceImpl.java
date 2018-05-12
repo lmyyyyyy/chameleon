@@ -78,7 +78,7 @@ public class FunctionServiceImpl implements FunctionService {
             throw new ChameleonException(ResultCodeEnum.FUNCTION_NAME_EMPTY);
         }
         if (!checkFunctionCode(function.getCode())) {
-            throw new ChameleonException(ResultCodeEnum.FUNCTION_CODE_EXIST);
+            throw new ChameleonException(ResultCodeEnum.FUNCTION_CODE_HAS_EXISTED);
         }
         function.setCreateTime(new Date());
         function.setUpdateTime(new Date());

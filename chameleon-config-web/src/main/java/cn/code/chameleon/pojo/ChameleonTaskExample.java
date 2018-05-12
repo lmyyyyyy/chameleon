@@ -225,6 +225,66 @@ public class ChameleonTaskExample {
             return (Criteria) this;
         }
 
+        public Criteria andGroupIdIsNull() {
+            addCriterion("group_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIsNotNull() {
+            addCriterion("group_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdEqualTo(Long value) {
+            addCriterion("group_id =", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotEqualTo(Long value) {
+            addCriterion("group_id <>", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdGreaterThan(Long value) {
+            addCriterion("group_id >", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("group_id >=", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdLessThan(Long value) {
+            addCriterion("group_id <", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdLessThanOrEqualTo(Long value) {
+            addCriterion("group_id <=", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIn(List<Long> values) {
+            addCriterion("group_id in", values, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotIn(List<Long> values) {
+            addCriterion("group_id not in", values, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdBetween(Long value1, Long value2) {
+            addCriterion("group_id between", value1, value2, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotBetween(Long value1, Long value2) {
+            addCriterion("group_id not between", value1, value2, "groupId");
+            return (Criteria) this;
+        }
+
         public Criteria andJobNameIsNull() {
             addCriterion("job_name is null");
             return (Criteria) this;
@@ -362,6 +422,76 @@ public class ChameleonTaskExample {
 
         public Criteria andJobGroupNotBetween(String value1, String value2) {
             addCriterion("job_group not between", value1, value2, "jobGroup");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameIsNull() {
+            addCriterion("job_class_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameIsNotNull() {
+            addCriterion("job_class_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameEqualTo(String value) {
+            addCriterion("job_class_name =", value, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameNotEqualTo(String value) {
+            addCriterion("job_class_name <>", value, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameGreaterThan(String value) {
+            addCriterion("job_class_name >", value, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameGreaterThanOrEqualTo(String value) {
+            addCriterion("job_class_name >=", value, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameLessThan(String value) {
+            addCriterion("job_class_name <", value, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameLessThanOrEqualTo(String value) {
+            addCriterion("job_class_name <=", value, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameLike(String value) {
+            addCriterion("job_class_name like", value, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameNotLike(String value) {
+            addCriterion("job_class_name not like", value, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameIn(List<String> values) {
+            addCriterion("job_class_name in", values, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameNotIn(List<String> values) {
+            addCriterion("job_class_name not in", values, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameBetween(String value1, String value2) {
+            addCriterion("job_class_name between", value1, value2, "jobClassName");
+            return (Criteria) this;
+        }
+
+        public Criteria andJobClassNameNotBetween(String value1, String value2) {
+            addCriterion("job_class_name not between", value1, value2, "jobClassName");
             return (Criteria) this;
         }
 
@@ -645,53 +775,243 @@ public class ChameleonTaskExample {
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncEqualTo(Byte value) {
+        public Criteria andNeedSyncEqualTo(Boolean value) {
             addCriterion("need_sync =", value, "needSync");
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncNotEqualTo(Byte value) {
+        public Criteria andNeedSyncNotEqualTo(Boolean value) {
             addCriterion("need_sync <>", value, "needSync");
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncGreaterThan(Byte value) {
+        public Criteria andNeedSyncGreaterThan(Boolean value) {
             addCriterion("need_sync >", value, "needSync");
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncGreaterThanOrEqualTo(Byte value) {
+        public Criteria andNeedSyncGreaterThanOrEqualTo(Boolean value) {
             addCriterion("need_sync >=", value, "needSync");
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncLessThan(Byte value) {
+        public Criteria andNeedSyncLessThan(Boolean value) {
             addCriterion("need_sync <", value, "needSync");
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncLessThanOrEqualTo(Byte value) {
+        public Criteria andNeedSyncLessThanOrEqualTo(Boolean value) {
             addCriterion("need_sync <=", value, "needSync");
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncIn(List<Byte> values) {
+        public Criteria andNeedSyncIn(List<Boolean> values) {
             addCriterion("need_sync in", values, "needSync");
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncNotIn(List<Byte> values) {
+        public Criteria andNeedSyncNotIn(List<Boolean> values) {
             addCriterion("need_sync not in", values, "needSync");
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncBetween(Byte value1, Byte value2) {
+        public Criteria andNeedSyncBetween(Boolean value1, Boolean value2) {
             addCriterion("need_sync between", value1, value2, "needSync");
             return (Criteria) this;
         }
 
-        public Criteria andNeedSyncNotBetween(Byte value1, Byte value2) {
+        public Criteria andNeedSyncNotBetween(Boolean value1, Boolean value2) {
             addCriterion("need_sync not between", value1, value2, "needSync");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalIsNull() {
+            addCriterion("repeat_interval is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalIsNotNull() {
+            addCriterion("repeat_interval is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalEqualTo(Long value) {
+            addCriterion("repeat_interval =", value, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalNotEqualTo(Long value) {
+            addCriterion("repeat_interval <>", value, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalGreaterThan(Long value) {
+            addCriterion("repeat_interval >", value, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalGreaterThanOrEqualTo(Long value) {
+            addCriterion("repeat_interval >=", value, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalLessThan(Long value) {
+            addCriterion("repeat_interval <", value, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalLessThanOrEqualTo(Long value) {
+            addCriterion("repeat_interval <=", value, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalIn(List<Long> values) {
+            addCriterion("repeat_interval in", values, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalNotIn(List<Long> values) {
+            addCriterion("repeat_interval not in", values, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalBetween(Long value1, Long value2) {
+            addCriterion("repeat_interval between", value1, value2, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatIntervalNotBetween(Long value1, Long value2) {
+            addCriterion("repeat_interval not between", value1, value2, "repeatInterval");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountIsNull() {
+            addCriterion("repeat_count is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountIsNotNull() {
+            addCriterion("repeat_count is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountEqualTo(Long value) {
+            addCriterion("repeat_count =", value, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountNotEqualTo(Long value) {
+            addCriterion("repeat_count <>", value, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountGreaterThan(Long value) {
+            addCriterion("repeat_count >", value, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountGreaterThanOrEqualTo(Long value) {
+            addCriterion("repeat_count >=", value, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountLessThan(Long value) {
+            addCriterion("repeat_count <", value, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountLessThanOrEqualTo(Long value) {
+            addCriterion("repeat_count <=", value, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountIn(List<Long> values) {
+            addCriterion("repeat_count in", values, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountNotIn(List<Long> values) {
+            addCriterion("repeat_count not in", values, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountBetween(Long value1, Long value2) {
+            addCriterion("repeat_count between", value1, value2, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepeatCountNotBetween(Long value1, Long value2) {
+            addCriterion("repeat_count not between", value1, value2, "repeatCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdIsNull() {
+            addCriterion("time_zone_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdIsNotNull() {
+            addCriterion("time_zone_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdEqualTo(String value) {
+            addCriterion("time_zone_id =", value, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdNotEqualTo(String value) {
+            addCriterion("time_zone_id <>", value, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdGreaterThan(String value) {
+            addCriterion("time_zone_id >", value, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdGreaterThanOrEqualTo(String value) {
+            addCriterion("time_zone_id >=", value, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdLessThan(String value) {
+            addCriterion("time_zone_id <", value, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdLessThanOrEqualTo(String value) {
+            addCriterion("time_zone_id <=", value, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdLike(String value) {
+            addCriterion("time_zone_id like", value, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdNotLike(String value) {
+            addCriterion("time_zone_id not like", value, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdIn(List<String> values) {
+            addCriterion("time_zone_id in", values, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdNotIn(List<String> values) {
+            addCriterion("time_zone_id not in", values, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdBetween(String value1, String value2) {
+            addCriterion("time_zone_id between", value1, value2, "timeZoneId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeZoneIdNotBetween(String value1, String value2) {
+            addCriterion("time_zone_id not between", value1, value2, "timeZoneId");
             return (Criteria) this;
         }
 

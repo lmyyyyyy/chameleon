@@ -26,6 +26,8 @@ public interface UserService {
 
     void updatePassword(User user, String oldPassword, String newPassword) throws ChameleonException;
 
+    void updateUserEnableStatus(Long userId, Long operatorId) throws ChameleonException;
+
     void deleteUserById(Long id, Long operatorId) throws ChameleonException;
 
     User queryUserById(Long id) throws ChameleonException;

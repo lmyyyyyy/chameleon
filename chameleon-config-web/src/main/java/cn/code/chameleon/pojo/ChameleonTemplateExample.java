@@ -165,73 +165,73 @@ public class ChameleonTemplateExample {
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlIsNull() {
-            addCriterion("template_url is null");
+        public Criteria andDomainIsNull() {
+            addCriterion("domain is null");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlIsNotNull() {
-            addCriterion("template_url is not null");
+        public Criteria andDomainIsNotNull() {
+            addCriterion("domain is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlEqualTo(String value) {
-            addCriterion("template_url =", value, "templateUrl");
+        public Criteria andDomainEqualTo(String value) {
+            addCriterion("domain =", value, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlNotEqualTo(String value) {
-            addCriterion("template_url <>", value, "templateUrl");
+        public Criteria andDomainNotEqualTo(String value) {
+            addCriterion("domain <>", value, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlGreaterThan(String value) {
-            addCriterion("template_url >", value, "templateUrl");
+        public Criteria andDomainGreaterThan(String value) {
+            addCriterion("domain >", value, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlGreaterThanOrEqualTo(String value) {
-            addCriterion("template_url >=", value, "templateUrl");
+        public Criteria andDomainGreaterThanOrEqualTo(String value) {
+            addCriterion("domain >=", value, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlLessThan(String value) {
-            addCriterion("template_url <", value, "templateUrl");
+        public Criteria andDomainLessThan(String value) {
+            addCriterion("domain <", value, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlLessThanOrEqualTo(String value) {
-            addCriterion("template_url <=", value, "templateUrl");
+        public Criteria andDomainLessThanOrEqualTo(String value) {
+            addCriterion("domain <=", value, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlLike(String value) {
-            addCriterion("template_url like", value, "templateUrl");
+        public Criteria andDomainLike(String value) {
+            addCriterion("domain like", value, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlNotLike(String value) {
-            addCriterion("template_url not like", value, "templateUrl");
+        public Criteria andDomainNotLike(String value) {
+            addCriterion("domain not like", value, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlIn(List<String> values) {
-            addCriterion("template_url in", values, "templateUrl");
+        public Criteria andDomainIn(List<String> values) {
+            addCriterion("domain in", values, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlNotIn(List<String> values) {
-            addCriterion("template_url not in", values, "templateUrl");
+        public Criteria andDomainNotIn(List<String> values) {
+            addCriterion("domain not in", values, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlBetween(String value1, String value2) {
-            addCriterion("template_url between", value1, value2, "templateUrl");
+        public Criteria andDomainBetween(String value1, String value2) {
+            addCriterion("domain between", value1, value2, "domain");
             return (Criteria) this;
         }
 
-        public Criteria andTemplateUrlNotBetween(String value1, String value2) {
-            addCriterion("template_url not between", value1, value2, "templateUrl");
+        public Criteria andDomainNotBetween(String value1, String value2) {
+            addCriterion("domain not between", value1, value2, "domain");
             return (Criteria) this;
         }
 

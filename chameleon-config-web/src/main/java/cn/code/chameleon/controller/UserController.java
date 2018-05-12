@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  * @create 2018-05-07 下午5:33
  */
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
@@ -166,6 +166,28 @@ public class UserController {
             userService.updatePassword(user, oldPassword, newPassword);
         } catch (ChameleonException e) {
             LOGGER.error("{} 当前用户 {} 修改密码失败", LOG_PREFIX, user.getEmail(), e);
+            return new UnifiedResponse(e.getCode(), e.getMessage());
+        }
+        return new UnifiedResponse();
+    }
+
+    /**
+     * 启用或禁用用户
+     *
+     * @param id
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/{id}/status", method = RequestMethod.PUT)
+    @ApiOperation(value = "启用或禁用用户(刘明宇)", notes = "启用或禁用用户", response = UnifiedResponse.class)
+    public UnifiedResponse updateUserEnableStatus(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
+        Long operatorId = RequestUtil.getCurrentUserId();
+        LOGGER.info("{} operatorId = {} 启用／禁用 用户 id = {}", LOG_PREFIX, operatorId, id);
+        try {
+            userService.updateUserEnableStatus(id, operatorId);
+        } catch (ChameleonException e) {
+            LOGGER.error("{} 启用／禁用用户失败 id = {}", LOG_PREFIX, id);
             return new UnifiedResponse(e.getCode(), e.getMessage());
         }
         return new UnifiedResponse();

@@ -13,7 +13,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.ErrorPage;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -69,7 +68,7 @@ import static com.google.common.collect.Sets.newHashSet;
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "app")
 @MapperScan(basePackages = "cn.code.chameleon.mapper")
-@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service"})
+@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.registry"})
 @EntityScan(basePackages = "cn.code.chameleon.pojo")
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
@@ -81,6 +80,28 @@ public class Application extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+        System.out.println(
+                "           ┌─┐       ┌─┐\n" +
+                        "        ┌──┘ ┴───────┘ ┴──┐\n" +
+                        "        │                 │\n" +
+                        "        │       ───       │\n" +
+                        "        │  ─┬┘       └┬─  │\n" +
+                        "        │                 │\n" +
+                        "        │       ─┴─       │\n" +
+                        "        │                 │\n" +
+                        "        └───┐         ┌───┘\n" +
+                        "            │         │\n" +
+                        "            │         │\n" +
+                        "            │         │\n" +
+                        "            │         └──────────────┐\n" +
+                        "            │                        │\n" +
+                        "            │                        ├─┐\n" +
+                        "            │                        ┌─┘    \n" +
+                        "            │                        │\n" +
+                        "            └─┐  ┐  ┌───────┬──┐  ┌──┘         \n" +
+                        "              │ ─┤ ─┤       │ ─┤ ─┤         \n" +
+                        "              └──┴──┘       └──┴──┘ \n" +
+                        "                    神兽保佑                 ");
     }
 
     @Bean
