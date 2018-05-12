@@ -1,5 +1,6 @@
 package cn.code.chameleon.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,5 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/task")
+@Api(value = "爬虫任务模块", tags = "爬虫任务模块")
 public class ChameleonTaskController {
 }

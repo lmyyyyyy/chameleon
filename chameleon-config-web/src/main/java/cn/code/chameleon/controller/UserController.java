@@ -5,6 +5,7 @@ import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.pojo.User;
 import cn.code.chameleon.service.UserService;
 import cn.code.chameleon.utils.RequestUtil;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/api/user")
+@Api(value = "用户模块", tags = "用户模块")
 public class UserController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);

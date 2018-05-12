@@ -5,6 +5,7 @@ import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.pojo.Group;
 import cn.code.chameleon.service.GroupService;
 import cn.code.chameleon.utils.RequestUtil;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/api/group")
+@Api(value = "组模块", tags = "组模块")
 public class GroupController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FunctionController.class);
