@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sat May 12 00:37:51 CST 2018
+@default-meituan-dianping-http\://pixel.sankuai.com/repository/mtdp/.lastUpdated=1526056671469
+http\://pixel.sankuai.com/repository/mtdp/.error=Could not transfer artifact org.springframework\:spring-framework-bom\:pom\:4.3.6.RELEASE from/to meituan-dianping (http\://pixel.sankuai.com/repository/mtdp)\: Connect to pixel.sankuai.com\:80 [pixel.sankuai.com/125.211.213.131] failed\: Operation timed out (Connection timed out)
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1526056671879

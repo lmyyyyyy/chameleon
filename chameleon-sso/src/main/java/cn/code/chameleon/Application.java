@@ -13,7 +13,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.ErrorPage;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -83,26 +82,26 @@ public class Application extends WebMvcConfigurerAdapter {
         SpringApplication.run(Application.class, args);
         System.out.println(
                 "           ┌─┐       ┌─┐\n" +
-                "        ┌──┘ ┴───────┘ ┴──┐\n" +
-                "        │                 │\n" +
-                "        │       ───       │\n" +
-                "        │  ─┬┘       └┬─  │\n" +
-                "        │                 │\n" +
-                "        │       ─┴─       │\n" +
-                "        │                 │\n" +
-                "        └───┐         ┌───┘\n" +
-                "            │         │\n" +
-                "            │         │\n" +
-                "            │         │\n" +
-                "            │         └──────────────┐\n" +
-                "            │                        │\n" +
-                "            │                        ├─┐\n" +
-                "            │                        ┌─┘    \n" +
-                "            │                        │\n" +
-                "            └─┐  ┐  ┌───────┬──┐  ┌──┘         \n" +
-                "              │ ─┤ ─┤       │ ─┤ ─┤         \n" +
-                "              └──┴──┘       └──┴──┘ " +
-                "                    神兽保佑                 ");
+                        "        ┌──┘ ┴───────┘ ┴──┐\n" +
+                        "        │                 │\n" +
+                        "        │       ───       │\n" +
+                        "        │  ─┬┘       └┬─  │\n" +
+                        "        │                 │\n" +
+                        "        │       ─┴─       │\n" +
+                        "        │                 │\n" +
+                        "        └───┐         ┌───┘\n" +
+                        "            │         │\n" +
+                        "            │         │\n" +
+                        "            │         │\n" +
+                        "            │         └──────────────┐\n" +
+                        "            │                        │\n" +
+                        "            │                        ├─┐\n" +
+                        "            │                        ┌─┘    \n" +
+                        "            │                        │\n" +
+                        "            └─┐  ┐  ┌───────┬──┐  ┌──┘         \n" +
+                        "              │ ─┤ ─┤       │ ─┤ ─┤         \n" +
+                        "              └──┴──┘       └──┴──┘ \n" +
+                        "                    神兽保佑                 ");
     }
 
     @Bean

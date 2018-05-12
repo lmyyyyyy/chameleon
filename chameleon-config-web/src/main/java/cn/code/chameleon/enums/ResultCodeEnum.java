@@ -23,7 +23,11 @@ public enum ResultCodeEnum implements ResultCodeInterface {
 
     FUNCTION_DATA_EMPTY(3001, "功能对象不能为空"),
     FUNCTION_NAME_EMPTY(3002, "功能名称不能为空"),
-    FUNCTION_CODE_EXIST(3003, "功能标识已被占用"),
+    FUNCTION_CODE_HAS_EXISTED(3003, "功能标识已被占用"),
+
+    GROUP_NAME_EMPTY(4001, "组名称不能为空"),
+    GROUP_NAME_HAS_EXISTED(4002, "组名称不能重复"),
+    GROUP_DATA_EMPTY(4003, "组对象不能为空"),
 
     NO_FIND_CURRENT_USER(9001, "未获取到当前用户,或当前用户未登录"),
     ACTION_CONTEXT(9002, "ActionContext对象为空"),

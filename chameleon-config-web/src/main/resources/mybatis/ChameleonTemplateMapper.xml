@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="cn.code.chameleon.pojo.ChameleonTemplate" >
     <constructor >
       <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="template_url" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="domain" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="operator_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -15,7 +15,7 @@
   <resultMap id="ResultMapWithBLOBs" type="cn.code.chameleon.pojo.ChameleonTemplate" >
     <constructor >
       <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="template_url" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="domain" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="operator_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -83,7 +83,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, template_url, description, operator_id, create_time, update_time, is_delete
+    id, domain, description, operator_id, create_time, update_time, is_delete
   </sql>
   <sql id="Blob_Column_List" >
     template_config
@@ -137,10 +137,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.code.chameleon.pojo.ChameleonTemplate" >
-    insert into chameleon_template (id, template_url, description, 
+    insert into chameleon_template (id, domain, description, 
       operator_id, create_time, update_time, 
       is_delete, template_config)
-    values (#{id,jdbcType=BIGINT}, #{templateUrl,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{domain,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{operatorId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDelete,jdbcType=BIT}, #{templateConfig,jdbcType=LONGVARCHAR})
   </insert>
@@ -150,8 +150,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="templateUrl != null" >
-        template_url,
+      <if test="domain != null" >
+        domain,
       </if>
       <if test="description != null" >
         description,
@@ -176,8 +176,8 @@
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="templateUrl != null" >
-        #{templateUrl,jdbcType=VARCHAR},
+      <if test="domain != null" >
+        #{domain,jdbcType=VARCHAR},
       </if>
       <if test="description != null" >
         #{description,jdbcType=VARCHAR},
@@ -211,8 +211,8 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.templateUrl != null" >
-        template_url = #{record.templateUrl,jdbcType=VARCHAR},
+      <if test="record.domain != null" >
+        domain = #{record.domain,jdbcType=VARCHAR},
       </if>
       <if test="record.description != null" >
         description = #{record.description,jdbcType=VARCHAR},
@@ -240,7 +240,7 @@
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update chameleon_template
     set id = #{record.id,jdbcType=BIGINT},
-      template_url = #{record.templateUrl,jdbcType=VARCHAR},
+      domain = #{record.domain,jdbcType=VARCHAR},
       description = #{record.description,jdbcType=VARCHAR},
       operator_id = #{record.operatorId,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -254,7 +254,7 @@
   <update id="updateByExample" parameterType="map" >
     update chameleon_template
     set id = #{record.id,jdbcType=BIGINT},
-      template_url = #{record.templateUrl,jdbcType=VARCHAR},
+      domain = #{record.domain,jdbcType=VARCHAR},
       description = #{record.description,jdbcType=VARCHAR},
       operator_id = #{record.operatorId,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -267,8 +267,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.code.chameleon.pojo.ChameleonTemplate" >
     update chameleon_template
     <set >
-      <if test="templateUrl != null" >
-        template_url = #{templateUrl,jdbcType=VARCHAR},
+      <if test="domain != null" >
+        domain = #{domain,jdbcType=VARCHAR},
       </if>
       <if test="description != null" >
         description = #{description,jdbcType=VARCHAR},
@@ -293,7 +293,7 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.code.chameleon.pojo.ChameleonTemplate" >
     update chameleon_template
-    set template_url = #{templateUrl,jdbcType=VARCHAR},
+    set domain = #{domain,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       operator_id = #{operatorId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -304,7 +304,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.code.chameleon.pojo.ChameleonTemplate" >
     update chameleon_template
-    set template_url = #{templateUrl,jdbcType=VARCHAR},
+    set domain = #{domain,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       operator_id = #{operatorId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},

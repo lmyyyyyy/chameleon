@@ -37,3 +37,13 @@ spring:
   redis:
     host: localhost
     port: 6379
+  #data:
+  #  elasticsearch:
+  #    cluster-name: chameleon
+  #    cluster-nodes: 127.0.0.1:9300
+  #    repositories:
+  #      enable: true
+  #    properties:
+  #      path:
+  #        logs: ./elasticsearch/log
+  #        data: ./elasticsearch/data

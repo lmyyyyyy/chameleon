@@ -39,6 +39,15 @@ spring:
   session:
     store-type: redis
   redis:
-    host: localhost
+    host: localhostw
     port: 6379
-
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 127.0.0.1:9300
+      repositories:
+        enable: true
+      properties:
+        path:
+          logs: ./elasticsearch/log
+          data: ./elasticsearch/data

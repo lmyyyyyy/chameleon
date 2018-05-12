@@ -5,7 +5,7 @@ import java.util.Date;
 public class ChameleonTemplate {
     private Long id;
 
-    private String templateUrl;
+    private String domain;
 
     private String description;
 
@@ -19,9 +19,9 @@ public class ChameleonTemplate {
 
     private String templateConfig;
 
-    public ChameleonTemplate(Long id, String templateUrl, String description, Long operatorId, Date createTime, Date updateTime, Boolean isDelete, String templateConfig) {
+    public ChameleonTemplate(Long id, String domain, String description, Long operatorId, Date createTime, Date updateTime, Boolean isDelete, String templateConfig) {
         this.id = id;
-        this.templateUrl = templateUrl;
+        this.domain = domain;
         this.description = description;
         this.operatorId = operatorId;
         this.createTime = createTime;
@@ -42,12 +42,12 @@ public class ChameleonTemplate {
         this.id = id;
     }
 
-    public String getTemplateUrl() {
-        return templateUrl;
+    public String getDomain() {
+        return domain;
     }
 
-    public void setTemplateUrl(String templateUrl) {
-        this.templateUrl = templateUrl == null ? null : templateUrl.trim();
+    public void setDomain(String domain) {
+        this.domain = domain == null ? null : domain.trim();
     }
 
     public String getDescription() {

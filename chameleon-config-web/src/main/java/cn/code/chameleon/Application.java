@@ -5,6 +5,9 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import lombok.Setter;
 import org.mybatis.spring.annotation.MapperScan;
+import org.quartz.Scheduler;
+import org.quartz.ee.servlet.QuartzInitializerListener;
+import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -15,10 +18,12 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,10 +47,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.sql.DataSource;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Properties;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
@@ -63,7 +70,7 @@ import static com.google.common.collect.Sets.newHashSet;
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "app")
 @MapperScan({"cn.code.chameleon.mapper", "cn.code.chameleon.monitor.mapper"})
-@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.monitor"})
+@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.monitor", "cn.code.chameleon.quartz"})
 @EntityScan({"cn.code.chameleon.pojo", "cn.code.chameleon.monitor.pojo"})
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
@@ -206,6 +213,48 @@ public class Application extends WebMvcConfigurerAdapter {
                         .message("服务器端错误")
                         .responseModel(new ModelRef("Errors"))
                         .build());
+    }
+
+    @Bean(name="schedulerFactory")
+    public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
+        SchedulerFactoryBean factory = new SchedulerFactoryBean();
+        factory.setQuartzProperties(quartzProperties());
+        return factory;
+    }
+
+    /**
+     * 在quartz.properties中的属性被读取并注入后再初始化对象
+     *
+     * @return
+     * @throws IOException
+     */
+    @Bean
+    public Properties quartzProperties() throws IOException {
+        PropertiesFactoryBean propertiesFactoryBean = new PropertiesFactoryBean();
+        propertiesFactoryBean.setLocation(new ClassPathResource("config/quartz.properties"));
+        propertiesFactoryBean.afterPropertiesSet();
+        return propertiesFactoryBean.getObject();
+    }
+
+    /**
+     * quartz初始化监听器
+     *
+     * @return
+     */
+    @Bean
+    public QuartzInitializerListener executorListener() {
+        return new QuartzInitializerListener();
+    }
+
+    /**
+     * 通过SchedulerFactoryBean获取Scheduler的实例
+     *
+     * @return
+     * @throws IOException
+     */
+    @Bean(name="scheduler")
+    public Scheduler scheduler() throws IOException {
+        return schedulerFactoryBean().getScheduler();
     }
 
 }

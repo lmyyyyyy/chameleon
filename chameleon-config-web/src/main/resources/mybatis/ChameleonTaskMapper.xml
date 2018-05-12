@@ -5,13 +5,18 @@
     <constructor >
       <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="template_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="group_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="job_name" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="job_group" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="job_class_name" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="trigger_name" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="trigger_group" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="expression" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="need_sync" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="need_sync" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="repeat_interval" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="repeat_count" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="time_zone_id" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="operator_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -78,8 +83,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, template_id, job_name, job_group, trigger_name, trigger_group, expression, status, 
-    need_sync, description, operator_id, create_time, update_time, is_delete
+    id, template_id, group_id, job_name, job_group, job_class_name, trigger_name, trigger_group, 
+    expression, status, need_sync, repeat_interval, repeat_count, time_zone_id, description, 
+    operator_id, create_time, update_time, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.code.chameleon.pojo.ChameleonTaskExample" >
     select
@@ -112,16 +118,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.code.chameleon.pojo.ChameleonTask" >
-    insert into chameleon_task (id, template_id, job_name, 
-      job_group, trigger_name, trigger_group, 
-      expression, status, need_sync, 
-      description, operator_id, create_time, 
-      update_time, is_delete)
-    values (#{id,jdbcType=BIGINT}, #{templateId,jdbcType=BIGINT}, #{jobName,jdbcType=VARCHAR}, 
-      #{jobGroup,jdbcType=VARCHAR}, #{triggerName,jdbcType=VARCHAR}, #{triggerGroup,jdbcType=VARCHAR}, 
-      #{expression,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{needSync,jdbcType=TINYINT}, 
-      #{description,jdbcType=VARCHAR}, #{operatorId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT})
+    insert into chameleon_task (id, template_id, group_id, 
+      job_name, job_group, job_class_name, 
+      trigger_name, trigger_group, expression, 
+      status, need_sync, repeat_interval, 
+      repeat_count, time_zone_id, description, 
+      operator_id, create_time, update_time, 
+      is_delete)
+    values (#{id,jdbcType=BIGINT}, #{templateId,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, 
+      #{jobName,jdbcType=VARCHAR}, #{jobGroup,jdbcType=VARCHAR}, #{jobClassName,jdbcType=VARCHAR}, 
+      #{triggerName,jdbcType=VARCHAR}, #{triggerGroup,jdbcType=VARCHAR}, #{expression,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{needSync,jdbcType=BIT}, #{repeatInterval,jdbcType=BIGINT}, 
+      #{repeatCount,jdbcType=BIGINT}, #{timeZoneId,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{operatorId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="cn.code.chameleon.pojo.ChameleonTask" >
     insert into chameleon_task
@@ -132,11 +142,17 @@
       <if test="templateId != null" >
         template_id,
       </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
       <if test="jobName != null" >
         job_name,
       </if>
       <if test="jobGroup != null" >
         job_group,
+      </if>
+      <if test="jobClassName != null" >
+        job_class_name,
       </if>
       <if test="triggerName != null" >
         trigger_name,
@@ -152,6 +168,15 @@
       </if>
       <if test="needSync != null" >
         need_sync,
+      </if>
+      <if test="repeatInterval != null" >
+        repeat_interval,
+      </if>
+      <if test="repeatCount != null" >
+        repeat_count,
+      </if>
+      <if test="timeZoneId != null" >
+        time_zone_id,
       </if>
       <if test="description != null" >
         description,
@@ -176,11 +201,17 @@
       <if test="templateId != null" >
         #{templateId,jdbcType=BIGINT},
       </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=BIGINT},
+      </if>
       <if test="jobName != null" >
         #{jobName,jdbcType=VARCHAR},
       </if>
       <if test="jobGroup != null" >
         #{jobGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="jobClassName != null" >
+        #{jobClassName,jdbcType=VARCHAR},
       </if>
       <if test="triggerName != null" >
         #{triggerName,jdbcType=VARCHAR},
@@ -195,7 +226,16 @@
         #{status,jdbcType=INTEGER},
       </if>
       <if test="needSync != null" >
-        #{needSync,jdbcType=TINYINT},
+        #{needSync,jdbcType=BIT},
+      </if>
+      <if test="repeatInterval != null" >
+        #{repeatInterval,jdbcType=BIGINT},
+      </if>
+      <if test="repeatCount != null" >
+        #{repeatCount,jdbcType=BIGINT},
+      </if>
+      <if test="timeZoneId != null" >
+        #{timeZoneId,jdbcType=VARCHAR},
       </if>
       <if test="description != null" >
         #{description,jdbcType=VARCHAR},
@@ -229,11 +269,17 @@
       <if test="record.templateId != null" >
         template_id = #{record.templateId,jdbcType=BIGINT},
       </if>
+      <if test="record.groupId != null" >
+        group_id = #{record.groupId,jdbcType=BIGINT},
+      </if>
       <if test="record.jobName != null" >
         job_name = #{record.jobName,jdbcType=VARCHAR},
       </if>
       <if test="record.jobGroup != null" >
         job_group = #{record.jobGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobClassName != null" >
+        job_class_name = #{record.jobClassName,jdbcType=VARCHAR},
       </if>
       <if test="record.triggerName != null" >
         trigger_name = #{record.triggerName,jdbcType=VARCHAR},
@@ -248,7 +294,16 @@
         status = #{record.status,jdbcType=INTEGER},
       </if>
       <if test="record.needSync != null" >
-        need_sync = #{record.needSync,jdbcType=TINYINT},
+        need_sync = #{record.needSync,jdbcType=BIT},
+      </if>
+      <if test="record.repeatInterval != null" >
+        repeat_interval = #{record.repeatInterval,jdbcType=BIGINT},
+      </if>
+      <if test="record.repeatCount != null" >
+        repeat_count = #{record.repeatCount,jdbcType=BIGINT},
+      </if>
+      <if test="record.timeZoneId != null" >
+        time_zone_id = #{record.timeZoneId,jdbcType=VARCHAR},
       </if>
       <if test="record.description != null" >
         description = #{record.description,jdbcType=VARCHAR},
@@ -274,13 +329,18 @@
     update chameleon_task
     set id = #{record.id,jdbcType=BIGINT},
       template_id = #{record.templateId,jdbcType=BIGINT},
+      group_id = #{record.groupId,jdbcType=BIGINT},
       job_name = #{record.jobName,jdbcType=VARCHAR},
       job_group = #{record.jobGroup,jdbcType=VARCHAR},
+      job_class_name = #{record.jobClassName,jdbcType=VARCHAR},
       trigger_name = #{record.triggerName,jdbcType=VARCHAR},
       trigger_group = #{record.triggerGroup,jdbcType=VARCHAR},
       expression = #{record.expression,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=INTEGER},
-      need_sync = #{record.needSync,jdbcType=TINYINT},
+      need_sync = #{record.needSync,jdbcType=BIT},
+      repeat_interval = #{record.repeatInterval,jdbcType=BIGINT},
+      repeat_count = #{record.repeatCount,jdbcType=BIGINT},
+      time_zone_id = #{record.timeZoneId,jdbcType=VARCHAR},
       description = #{record.description,jdbcType=VARCHAR},
       operator_id = #{record.operatorId,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -296,11 +356,17 @@
       <if test="templateId != null" >
         template_id = #{templateId,jdbcType=BIGINT},
       </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=BIGINT},
+      </if>
       <if test="jobName != null" >
         job_name = #{jobName,jdbcType=VARCHAR},
       </if>
       <if test="jobGroup != null" >
         job_group = #{jobGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="jobClassName != null" >
+        job_class_name = #{jobClassName,jdbcType=VARCHAR},
       </if>
       <if test="triggerName != null" >
         trigger_name = #{triggerName,jdbcType=VARCHAR},
@@ -315,7 +381,16 @@
         status = #{status,jdbcType=INTEGER},
       </if>
       <if test="needSync != null" >
-        need_sync = #{needSync,jdbcType=TINYINT},
+        need_sync = #{needSync,jdbcType=BIT},
+      </if>
+      <if test="repeatInterval != null" >
+        repeat_interval = #{repeatInterval,jdbcType=BIGINT},
+      </if>
+      <if test="repeatCount != null" >
+        repeat_count = #{repeatCount,jdbcType=BIGINT},
+      </if>
+      <if test="timeZoneId != null" >
+        time_zone_id = #{timeZoneId,jdbcType=VARCHAR},
       </if>
       <if test="description != null" >
         description = #{description,jdbcType=VARCHAR},
@@ -338,13 +413,18 @@
   <update id="updateByPrimaryKey" parameterType="cn.code.chameleon.pojo.ChameleonTask" >
     update chameleon_task
     set template_id = #{templateId,jdbcType=BIGINT},
+      group_id = #{groupId,jdbcType=BIGINT},
       job_name = #{jobName,jdbcType=VARCHAR},
       job_group = #{jobGroup,jdbcType=VARCHAR},
+      job_class_name = #{jobClassName,jdbcType=VARCHAR},
       trigger_name = #{triggerName,jdbcType=VARCHAR},
       trigger_group = #{triggerGroup,jdbcType=VARCHAR},
       expression = #{expression,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
-      need_sync = #{needSync,jdbcType=TINYINT},
+      need_sync = #{needSync,jdbcType=BIT},
+      repeat_interval = #{repeatInterval,jdbcType=BIGINT},
+      repeat_count = #{repeatCount,jdbcType=BIGINT},
+      time_zone_id = #{timeZoneId,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       operator_id = #{operatorId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},

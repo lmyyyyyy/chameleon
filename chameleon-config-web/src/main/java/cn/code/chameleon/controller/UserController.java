@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  * @create 2018-05-07 下午5:33
  */
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
