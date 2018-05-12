@@ -20,11 +20,20 @@ public class SimplePageProcessor implements PageProcessor {
         this.urlPattern = "(" + urlPattern.replace(".", "\\.").replace("*", "[^\"'#]*") + ")";
     }
 
+    public SimplePageProcessor(String urlPattern, Site site) {
+        this.site = site;
+        this.urlPattern = urlPattern;
+    }
+
     @Override
     public void process(Page page) {
         List<String> requests = page.getHtml().links().regex(urlPattern).all();
         page.addTargetRequests(requests);
-        page.putField("title", page.getHtml().xpath("//title"));
+        String title = page.getHtml().xpath("//title").get();
+        if (title == null || "".equals(title)) {
+            page.setJump(true);
+        }
+        page.putField("title", title);
         page.putField("content", page.getHtml().smartContent());
         page.putField("html", page.getHtml().toString());
     }
@@ -32,5 +41,10 @@ public class SimplePageProcessor implements PageProcessor {
     @Override
     public Site getSite() {
         return site;
+    }
+
+    public SimplePageProcessor setSite(Site site) {
+        this.site = site;
+        return this;
     }
 }
