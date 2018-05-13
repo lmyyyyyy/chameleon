@@ -29,6 +29,18 @@ public enum ResultCodeEnum implements ResultCodeInterface {
     GROUP_NAME_HAS_EXISTED(4002, "组名称不能重复"),
     GROUP_DATA_EMPTY(4003, "组对象不能为空"),
 
+    TEMPLATE_DATA_EMPTY(5001, "爬虫模版对象不能为空"),
+    TEMPLATE_DOWNLOADER_NOT_EXIST(5002, "爬虫模版-下载器不存在"),
+    TEMPLATE_PIPELINE_NOT_EXIST(5003, "爬虫模版-管道不存在"),
+    TEMPLATE_SCHEDULER_NOT_EXIST(5004, "爬虫模版-调度器不存在"),
+    TEMPLATE_DUPLICATE_REMOVER_NOT_EXIST(5005, "爬虫模版-去重器不存在"),
+    TEMPLATE_START_URLS_EMPTY(5006, "爬虫模版-开始Url不能为空"),
+    TEMPLATE_TARGET_URLS_EMPTY(5007, "爬虫模版-目标Url不能为空"),
+    TEMPLATE_PATTERN_TYPE_NOT_EXIST(5008, "爬虫模版-解析格式类型不存在"),
+    TEMPLATE_TARGET_URL_PATTERN_EMPTY(5009, "爬虫模版-目标Url解析根式不能为空"),
+    TEMPLATE_COLLECTION_PATTERN_EMPTY(5010, "爬虫模版-集合解析格式不能为空"),
+    TEMPLATE_DYNAMIC_FIELD_EMPTY(5011, "爬虫模版-请设置爬取字段或选择智能爬取"),
+
     NO_FIND_CURRENT_USER(9001, "未获取到当前用户,或当前用户未登录"),
     ACTION_CONTEXT(9002, "ActionContext对象为空"),
     TOKEN_IS_OUT_TIME(9003, "会话超时"),
