@@ -33,4 +33,20 @@ public class ChameleonTaskServiceImpl implements ChameleonTaskService {
         criteria.andTemplateIdEqualTo(templateId);
         return chameleonTaskMapper.countByExample(example);
     }
+
+    /**
+     * 绑定了该组的任务数量
+     *
+     * @param groupId
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public int countTaskByGroupId(Long groupId) throws ChameleonException {
+        ChameleonTaskExample example = new ChameleonTaskExample();
+        ChameleonTaskExample.Criteria criteria = example.createCriteria();
+        criteria.andIsDeleteEqualTo(false);
+        criteria.andGroupIdEqualTo(groupId);
+        return chameleonTaskMapper.countByExample(example);
+    }
 }

@@ -9,4 +9,6 @@ import cn.code.chameleon.exception.ChameleonException;
 public interface ChameleonTaskService {
 
     int countTaskByTemplateId(Long templateId) throws ChameleonException;
+
+    int countTaskByGroupId(Long groupId) throws ChameleonException;
 }

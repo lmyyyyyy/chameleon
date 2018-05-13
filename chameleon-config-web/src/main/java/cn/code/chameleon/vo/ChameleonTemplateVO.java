@@ -16,7 +16,9 @@ public class ChameleonTemplateVO extends ChameleonTemplate implements Serializab
 
     private static final long serialVersionUID = 3391806288199579467L;
 
-    /** 引用了该模版的任务数 */
+    /**
+     * 引用了该模版的任务数
+     */
     private Integer taskCount;
 
     public ChameleonTemplateVO(ChameleonTemplate chameleonTemplate) {

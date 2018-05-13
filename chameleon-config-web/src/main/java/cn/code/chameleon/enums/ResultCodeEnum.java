@@ -28,6 +28,7 @@ public enum ResultCodeEnum implements ResultCodeInterface {
     GROUP_NAME_EMPTY(4001, "组名称不能为空"),
     GROUP_NAME_HAS_EXISTED(4002, "组名称不能重复"),
     GROUP_DATA_EMPTY(4003, "组对象不能为空"),
+    GROUP_HAS_BEEN_BIND(4004, "该组已被任务绑定"),
 
     TEMPLATE_DATA_EMPTY(5001, "爬虫模版对象不能为空"),
     TEMPLATE_DOWNLOADER_NOT_EXIST(5002, "爬虫模版-下载器不存在"),
@@ -40,6 +41,7 @@ public enum ResultCodeEnum implements ResultCodeInterface {
     TEMPLATE_TARGET_URL_PATTERN_EMPTY(5009, "爬虫模版-目标Url解析根式不能为空"),
     TEMPLATE_COLLECTION_PATTERN_EMPTY(5010, "爬虫模版-集合解析格式不能为空"),
     TEMPLATE_DYNAMIC_FIELD_EMPTY(5011, "爬虫模版-请设置爬取字段或选择智能爬取"),
+    TEMPLATE_HAS_BEEN_BIND(5022, "该模版已被任务绑定"),
 
     NO_FIND_CURRENT_USER(9001, "未获取到当前用户,或当前用户未登录"),
     ACTION_CONTEXT(9002, "ActionContext对象为空"),

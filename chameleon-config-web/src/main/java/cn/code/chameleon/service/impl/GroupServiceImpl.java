@@ -6,12 +6,16 @@ import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.mapper.GroupMapper;
 import cn.code.chameleon.pojo.Group;
 import cn.code.chameleon.pojo.GroupExample;
+import cn.code.chameleon.service.ChameleonTaskService;
 import cn.code.chameleon.service.GroupService;
+import cn.code.chameleon.vo.GroupVO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,6 +28,9 @@ public class GroupServiceImpl implements GroupService {
 
     @Autowired
     private GroupMapper groupMapper;
+
+    @Autowired
+    private ChameleonTaskService chameleonTaskService;
 
     /**
      * 检查组名称是否唯一 true:唯一; false:不唯一
@@ -95,6 +102,9 @@ public class GroupServiceImpl implements GroupService {
      */
     @Override
     public void deleteGroupById(Long id, Long operatorId) throws ChameleonException {
+        if (chameleonTaskService.countTaskByGroupId(id) > 0) {
+            throw new ChameleonException(ResultCodeEnum.GROUP_HAS_BEEN_BIND);
+        }
         Group group = new Group();
         group.setId(id);
         group.setIsDelete(true);
@@ -127,7 +137,7 @@ public class GroupServiceImpl implements GroupService {
      * @throws ChameleonException
      */
     @Override
-    public PageData<Group> pageGroups(String keyword, Integer page, Integer size, String orderField, String orderType) throws ChameleonException {
+    public PageData<GroupVO> pageGroups(String keyword, Integer page, Integer size, String orderField, String orderType) throws ChameleonException {
         if (page == null || page <= 0) {
             page = 1;
         }
@@ -150,6 +160,34 @@ public class GroupServiceImpl implements GroupService {
         example.setOrderByClause(orderField + " " + orderType);
         List<Group> groups = groupMapper.selectByExample(example);
         PageInfo<Group> pageInfo = new PageInfo<>(groups);
-        return new PageData<>(pageInfo.getTotal(), groups);
+        List<GroupVO> groupVOS = this.convertGroups2VOS(groups);
+        return new PageData<>(pageInfo.getTotal(), groupVOS);
+    }
+
+    private List<GroupVO> convertGroups2VOS(List<Group> groups) throws ChameleonException {
+        if (groups == null || groups.isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<GroupVO> vos = Lists.newArrayListWithCapacity(groups.size());
+        for (Group group : groups) {
+            if (group == null) {
+                continue;
+            }
+            GroupVO vo = this.convertGroup2VO(group);
+            if (vo == null) {
+                continue;
+            }
+            vos.add(vo);
+        }
+        return vos;
+    }
+
+    private GroupVO convertGroup2VO(Group group) throws ChameleonException {
+        if (group == null) {
+            return null;
+        }
+        GroupVO groupVO = new GroupVO(group);
+        groupVO.setTaskCount(chameleonTaskService.countTaskByGroupId(group.getId()));
+        return groupVO;
     }
 }

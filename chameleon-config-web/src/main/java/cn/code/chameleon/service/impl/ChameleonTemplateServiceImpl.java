@@ -104,6 +104,9 @@ public class ChameleonTemplateServiceImpl implements ChameleonTemplateService {
      */
     @Override
     public void deleteTemplateById(Long id, Long operatorId) throws ChameleonException {
+        if (chameleonTaskService.countTaskByTemplateId(id) > 0) {
+            throw new ChameleonException(ResultCodeEnum.TEMPLATE_HAS_BEEN_BIND);
+        }
         ChameleonTemplate template = new ChameleonTemplate();
         template.setId(id);
         template.setOperatorId(operatorId);

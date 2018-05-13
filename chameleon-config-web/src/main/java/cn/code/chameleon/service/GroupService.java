@@ -3,6 +3,7 @@ package cn.code.chameleon.service;
 import cn.code.chameleon.common.PageData;
 import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.pojo.Group;
+import cn.code.chameleon.vo.GroupVO;
 
 /**
  * @author liumingyu
@@ -20,5 +21,5 @@ public interface GroupService {
 
     Group queryGroupById(Long id) throws ChameleonException;
 
-    PageData<Group> pageGroups(String keyword, Integer page, Integer size, String orderField, String orderType) throws ChameleonException;
+    PageData<GroupVO> pageGroups(String keyword, Integer page, Integer size, String orderField, String orderType) throws ChameleonException;
 }
