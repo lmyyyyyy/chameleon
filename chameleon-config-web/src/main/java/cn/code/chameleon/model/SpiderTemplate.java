@@ -81,14 +81,17 @@ public class SpiderTemplate implements Serializable {
     /** 是否使用代理IP */
     private boolean isProxyIp = false;
 
+    /** 是否是Ajax渲染 */
+    private boolean isAjax = false;
+
     /** 设置这些格式的url跳过不解析 只支持正则 */
     private List<String> jumpUrls;
 
     /** 是否是集合的方式 */
     private boolean isCollection = false;
 
-    /** 集合元素解析格式 */
-    private String collectionPattern;
+    /** 集合类型字段 */
+    private CollectionField collectionField;
 
     /** 动态字段 */
     private List<DynamicField> dynamicFields = Lists.newArrayList();
@@ -111,9 +114,38 @@ public class SpiderTemplate implements Serializable {
 
     @Data
     @ToString
+    public class CollectionField implements Serializable {
+
+        private static final long serialVersionUID = 1417454705660349624L;
+
+        /** 集合解析格式类型 */
+        private int collectionType = 2;
+
+        /** 正则表达式 */
+        private String regex;
+
+        /** xpath表达式 */
+        private String xpath;
+
+        /** JsonPath表达式 */
+        private String jsonPath;
+
+        /** css表达式 */
+        private String css;
+
+        /** css选择的属性 */
+        private String property;
+
+    }
+
+    @Data
+    @ToString
     public class DynamicField implements Serializable {
 
         private static final long serialVersionUID = 3267092337192749814L;
+
+        /** 表达式类型 */
+        private int type = 2;
 
         /** 动态字段key */
         private String key;

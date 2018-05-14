@@ -43,6 +43,13 @@ public enum ResultCodeEnum implements ResultCodeInterface {
     TEMPLATE_DYNAMIC_FIELD_EMPTY(5011, "爬虫模版-请设置爬取字段或选择智能爬取"),
     TEMPLATE_HAS_BEEN_BIND(5022, "该模版已被任务绑定"),
 
+    TASK_IS_RUNNING(6001, "爬虫任务正在运行中..."),
+    TASK_TEMPLATE_EMPTY(6002, "爬虫任务模版不能为空"),
+    TASK_GROUP_EMPTY(6003, "爬虫任务组不能为空"),
+    TASK_DATA_EMPTY(6004, "爬虫任务对象不能为空"),
+
+    STATISTICS_DATA_EMPTY(7001, "爬虫统计对象不能为空"),
+
     NO_FIND_CURRENT_USER(9001, "未获取到当前用户,或当前用户未登录"),
     ACTION_CONTEXT(9002, "ActionContext对象为空"),
     TOKEN_IS_OUT_TIME(9003, "会话超时"),

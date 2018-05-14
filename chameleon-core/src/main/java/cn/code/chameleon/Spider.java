@@ -528,7 +528,7 @@ public class Spider implements Runnable, Task {
             this.value = value;
         }
 
-        int getValue() {
+        public int getValue() {
             return value;
         }
 

@@ -240,7 +240,9 @@ public class ChameleonTemplateServiceImpl implements ChameleonTemplateService {
             throw new ChameleonException(ResultCodeEnum.TEMPLATE_DUPLICATE_REMOVER_NOT_EXIST);
         }
         if (template.isCollection()) {
-            if (template.getCollectionPattern() == null || "".equals(template.getCollectionPattern())) {
+            SpiderTemplate.CollectionField field = template.getCollectionField();
+            PatternTypeEnum patternTypeEnum = PatternTypeEnum.getPatternTypeEnum(field.getCollectionType());
+            if (patternTypeEnum == null) {
                 throw new ChameleonException(ResultCodeEnum.TEMPLATE_COLLECTION_PATTERN_EMPTY);
             }
         }
