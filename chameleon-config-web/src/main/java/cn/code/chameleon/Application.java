@@ -3,6 +3,9 @@ package cn.code.chameleon;
 import cn.code.chameleon.interceptor.LoginInterceptor;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Setter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.quartz.Scheduler;
@@ -19,6 +22,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -70,7 +77,7 @@ import static com.google.common.collect.Sets.newHashSet;
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "app")
 @MapperScan({"cn.code.chameleon.mapper", "cn.code.chameleon.monitor.mapper"})
-@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.monitor", "cn.code.chameleon.quartz"})
+@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.monitor", "cn.code.chameleon.quartz", "cn.code.chameleon.model", "cn.code.chameleon.registry", "cn.code.chameleon.interceptor"})
 @EntityScan({"cn.code.chameleon.pojo", "cn.code.chameleon.monitor.pojo"})
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
@@ -116,6 +123,20 @@ public class Application extends WebMvcConfigurerAdapter {
     }
 
     @Bean
+    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
+        StringRedisTemplate template = new StringRedisTemplate(factory);
+        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        ObjectMapper om = new ObjectMapper();
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(om);
+        template.setHashValueSerializer(jackson2JsonRedisSerializer);
+        template.setValueSerializer(jackson2JsonRedisSerializer);
+        template.afterPropertiesSet();
+        return template;
+    }
+
+    @Bean
     @ConfigurationProperties("spring.datasource.druid")
     public DataSource dataSourceOne() {
         return DruidDataSourceBuilder.create().build();
@@ -136,11 +157,6 @@ public class Application extends WebMvcConfigurerAdapter {
         slr.setCookieMaxAge(3600);
         slr.setCookieName(LANGUAGE);
         return slr;
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/api/**");
     }
 
     @Override
@@ -255,6 +271,16 @@ public class Application extends WebMvcConfigurerAdapter {
     @Bean(name="scheduler")
     public Scheduler scheduler() throws IOException {
         return schedulerFactoryBean().getScheduler();
+    }
+
+    @Bean
+    public LoginInterceptor loginInterceptor() {
+        return new LoginInterceptor();
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(loginInterceptor()).addPathPatterns("/api/**");
     }
 
 }

@@ -6,11 +6,13 @@ import cn.code.chameleon.service.RedisClient;
 import cn.code.chameleon.utils.Constants;
 import cn.code.chameleon.utils.ConvertUtil;
 import cn.code.chameleon.utils.JsonUtils;
+import cn.code.chameleon.utils.RegexUtils;
 import cn.code.chameleon.utils.RequestUtil;
 import cn.code.chameleon.utils.UserContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,11 +20,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author liumingyu
  * @create 2018-05-10 下午3:40
  */
+@Component
 public class LoginInterceptor implements HandlerInterceptor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginInterceptor.class);
@@ -31,25 +35,38 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     public static final String UTF_8 = "UTF-8";
 
+    private boolean isAccess = false;
+
     @Autowired
-    private RedisClient redisClient;
+    RedisClient redisClient;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         timeLong.set(System.currentTimeMillis());
         String token = RequestUtil.getToken(request);
-        if (token == null) {
+        if (token == null || "".equals(token)) {
             LOGGER.warn("未获取到当前用户,或当前用户未登录");
             forbidden(response, HttpServletResponse.SC_UNAUTHORIZED, "未获取到当前用户,或当前用户未登录");
             return false;
         }
         String json = redisClient.get(Constants.USER_TOKEN_KEY + ":" + token);
-        if (json == null || json.isEmpty()) {
+        if (json == null || "".equals(json)) {
             LOGGER.warn("未获取到当前用户, 会话已失效");
             forbidden(response, HttpServletResponse.SC_UNAUTHORIZED, "未获取到当前用户, 会话已失效");
             return false;
         }
-        return isAccessAllowed(json, request, response, o);
+        if (UserContext.getCurrentUser() == null) {
+            User user = JsonUtils.jsonToPojo(json, User.class);
+            if (user == null) {
+                LOGGER.warn("未获取到当前用户, 会话已失效");
+                forbidden(response, HttpServletResponse.SC_UNAUTHORIZED, "未获取到当前用户, 会话已失效");
+                return false;
+            }
+            UserContext.setCurrentUser(ConvertUtil.converUser2DTO(user));
+        }
+        isAccess = isAccessAllowed(json, request, response, o);
+        expire(token);
+        return isAccess;
     }
 
     @Override
@@ -59,6 +76,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object o, Exception e) throws Exception {
+        isAccess = false;
         Long startTime = timeLong.get();
         if (startTime == null) {
             startTime = System.currentTimeMillis();
@@ -106,6 +124,27 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 更新过期时间
+     *
+     * @param token
+     */
+    private void expire(String token) {
+        if (isAccess) {
+            long sso_token_expire = Constants.SSO_TOKEN_EXPIRE;
+
+            String temp = redisClient.get(Constants.SSO_TOKEN_EXPIRE_KEY);
+            if (temp != null && !"".equals(temp)) {
+                if (RegexUtils.checkDigit(temp)) {
+                    sso_token_expire = Long.valueOf(temp);
+                }
+            }
+            redisClient.expire(Constants.USER_TOKEN_KEY + ":" + token,
+                    sso_token_expire,
+                    TimeUnit.SECONDS);
+        }
     }
 
     /**

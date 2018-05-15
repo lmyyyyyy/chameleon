@@ -4,6 +4,8 @@ import cn.code.chameleon.common.PageData;
 import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.pojo.ChameleonTask;
 
+import java.util.List;
+
 /**
  * @author liumingyu
  * @create 2018-05-07 下午5:16
@@ -25,4 +27,6 @@ public interface ChameleonTaskService {
     PageData<ChameleonTask> pageTasks(Long groupId, Long templateId, Integer status, Integer page, Integer size, String orderField, String orderType) throws ChameleonException;
 
     void validateTask(ChameleonTask task) throws ChameleonException;
+
+    List<ChameleonTask> queryTasks() throws ChameleonException;
 }

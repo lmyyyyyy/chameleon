@@ -41,9 +41,11 @@ public class CoresFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String origin = request.getHeader(ORIGIN);
-
+        if (origin == null || "".equals(origin)) {
+            origin = "http://localhost:8080/";
+        }
         List<Object> origins = redisClient.lrange(Constants.FRONT_END_DOMAIN, 0, -1);
-
+        System.out.println("origin : " + origin);
         if (null == origin || (!origin.contains("localhost") && !origins.contains(origin))) {
             LOGGER.warn("{} {}", MSG, origin);
             filterChain.doFilter(request, response);

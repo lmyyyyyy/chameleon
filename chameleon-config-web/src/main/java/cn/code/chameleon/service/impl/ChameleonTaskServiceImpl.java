@@ -200,4 +200,18 @@ public class ChameleonTaskServiceImpl implements ChameleonTaskService {
         task.setJobName(group.getName());
         task.setJobGroup(group.getName());
     }
+
+    /**
+     * 查询所有未被删除的任务
+     *
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public List<ChameleonTask> queryTasks() throws ChameleonException {
+        ChameleonTaskExample example = new ChameleonTaskExample();
+        ChameleonTaskExample.Criteria criteria = example.createCriteria();
+        criteria.andIsDeleteEqualTo(false);
+        return chameleonTaskMapper.selectByExample(example);
+    }
 }

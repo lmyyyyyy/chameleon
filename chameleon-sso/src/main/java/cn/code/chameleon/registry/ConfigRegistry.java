@@ -40,26 +40,6 @@ public class ConfigRegistry implements InitializingBean, BeanFactoryAware {
             redisClient.set(Constants.TIME_INTERVAL, String.valueOf(Constants.TIME_INTERVAL_SECONDS));
         }
 
-        String print_log_switch = redisClient.get(Constants.METHOD_LOG_PRINT_SWITCH_KEY);
-        if (print_log_switch == null || "".equals(print_log_switch)) {
-            redisClient.set(Constants.METHOD_LOG_PRINT_SWITCH_KEY, String.valueOf(Constants.METHOD_LOG_PRINT_SWITCH));
-        }
-
-        String record_sql_switch = redisClient.get(Constants.RECORD_SQL_SWITCH_KEY);
-        if (record_sql_switch == null || "".equals(record_sql_switch)) {
-            redisClient.set(Constants.RECORD_SQL_SWITCH_KEY, String.valueOf(Constants.RECORD_SQL_SWITCH));
-        }
-
-        String log_to_db_switch = redisClient.get(Constants.LOG_TO_DB_KEY);
-        if (log_to_db_switch == null || "".equals(log_to_db_switch)) {
-            redisClient.set(Constants.LOG_TO_DB_KEY, String.valueOf(Constants.LOG_TO_DB));
-        }
-
-        String mapper_to_db_switch = redisClient.get(Constants.MAPPER_LOG_SINGLE_TO_DB_KEY);
-        if (mapper_to_db_switch == null || "".equals(mapper_to_db_switch)) {
-            redisClient.set(Constants.MAPPER_LOG_SINGLE_TO_DB_KEY, String.valueOf(Constants.MAPPER_LOG_SINGLE_TO_DB));
-        }
-
         String sso_token_expire = redisClient.get(Constants.SSO_TOKEN_EXPIRE_KEY);
         if (sso_token_expire == null || "".equals(sso_token_expire)) {
             redisClient.set(Constants.SSO_TOKEN_EXPIRE_KEY, String.valueOf(Constants.SSO_TOKEN_EXPIRE));

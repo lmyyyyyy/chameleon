@@ -86,7 +86,7 @@ public class RequestUtil {
      */
     public static User getCurrentUser() throws ChameleonException {
         UserDTO currentUser = UserContext.getCurrentUser();
-        if (currentUser == null || currentUser.getStatus() == null) {
+        if (currentUser == null) {
             LOGGER.error("未获取到当前用户,或当前用户未登录");
             throw new ChameleonException(ResultCodeEnum.NO_FIND_CURRENT_USER);
         }
