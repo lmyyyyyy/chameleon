@@ -1,6 +1,7 @@
 package cn.code.chameleon.quartz;
 
 import cn.code.chameleon.exception.ChameleonException;
+import cn.code.chameleon.model.SpiderTemplate;
 import cn.code.chameleon.service.SpiderService;
 import cn.code.chameleon.utils.RequestUtil;
 import org.quartz.DisallowConcurrentExecution;
@@ -22,6 +23,13 @@ public class SpiderJob extends QuartzJobBean {
     private Long taskId;
 
     private SpiderService spiderService;
+
+    private SpiderTemplate spiderTemplate;
+
+    public SpiderJob setSpiderTemplate(SpiderTemplate spiderTemplate) {
+        this.spiderTemplate = spiderTemplate;
+        return this;
+    }
 
     public SpiderJob setTaskId(Long taskId) {
         this.taskId = taskId;

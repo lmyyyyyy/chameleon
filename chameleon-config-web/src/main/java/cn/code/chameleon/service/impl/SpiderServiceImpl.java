@@ -33,6 +33,8 @@ import cn.code.chameleon.spider.enums.SchedulerEnum;
 import cn.code.chameleon.spider.pipeline.ESPipeline;
 import cn.code.chameleon.spider.pipeline.RedisPipeline;
 import cn.code.chameleon.spider.processor.CommonPageProcessor;
+import cn.code.chameleon.spider.scheduler.RedisPriorityScheduler;
+import cn.code.chameleon.spider.scheduler.RedisScheduler;
 import cn.code.chameleon.utils.JsonUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.quartz.JobDetail;
@@ -218,6 +220,7 @@ public class SpiderServiceImpl implements SpiderService {
         Map<String, Object> data = new HashMap<>();
         data.put("spiderTemplate", spiderTemplate);
         data.put("spiderService", this);
+        data.put("taskId", taskId);
         quartzManager.addJob(task.getJobGroup() + "-" + task.getId(),
                 task.getJobGroup(),
                 String.valueOf(task.getRepeatInterval() + "-" + task.getId() + QUARTZ_TRIGGER_NAME_SUFFIX),
@@ -331,8 +334,10 @@ public class SpiderServiceImpl implements SpiderService {
                 spider.setScheduler(new FileCachQueueSchduler().setDuplicateRemover((DuplicateRemover) duplicateRemoverEnum.getObject()));
                 break;
             case REDIS_QUEUE:
+                spider.setScheduler(new RedisScheduler("localhost"));
                 break;
             case REDIS_PRIORITY_QUEUE:
+                spider.setScheduler(new RedisPriorityScheduler("localhost"));
                 break;
             default:
                 spider.setScheduler(new QueueScheduler().setDuplicateRemover((DuplicateRemover) duplicateRemoverEnum.getObject()));
@@ -374,7 +379,7 @@ public class SpiderServiceImpl implements SpiderService {
                     spider.addPipeline(new ESPipeline());
                     break;
                 case REDIS_PIPELINE:
-                    spider.addPipeline(new RedisPipeline());
+                    spider.addPipeline(new RedisPipeline("localhost"));
                     break;
                 default:
                     spider.addPipeline(new ESPipeline());

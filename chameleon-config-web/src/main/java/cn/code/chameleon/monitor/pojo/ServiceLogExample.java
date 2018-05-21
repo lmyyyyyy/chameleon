@@ -734,6 +734,21 @@ public class ServiceLogExample {
             addCriterion("parent_id not between", value1, value2, "parentId");
             return (Criteria) this;
         }
+
+        public Criteria andMethodParamLike(String value) {
+            addCriterion("method_param like", value, "methodParam");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorMessageLike(String value) {
+            addCriterion("error_message like", value, "errorMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andReturnValueLike(String value) {
+            addCriterion("return_value like", value, "returnValue");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -2,6 +2,8 @@ package cn.code.chameleon.spider.enums;
 
 import cn.code.chameleon.scheduler.component.BloomFilterDuplicateRemover;
 import cn.code.chameleon.scheduler.component.HashSetDuplicateRemover;
+import cn.code.chameleon.spider.scheduler.component.RedisBloomFilterRemover;
+import cn.code.chameleon.spider.scheduler.component.RedisDuplicateRemover;
 
 /**
  * URL去重枚举
@@ -13,8 +15,8 @@ public enum DuplicateRemoverEnum {
 
     HASH_SET(1, "哈希去重", new HashSetDuplicateRemover()),
     BLOOM_FILTER(2, "布隆过滤器去重", new BloomFilterDuplicateRemover(100000000)),
-    REDIS_SET(3, "Redis哈希去重", null),
-    REDIS_BLOOM_FILTER(4, "Redis布隆过滤器去重", null);
+    REDIS_SET(3, "Redis哈希去重", new RedisDuplicateRemover("localhost")),
+    REDIS_BLOOM_FILTER(4, "Redis布隆过滤器去重", new RedisBloomFilterRemover("localhost"));
 
     private Integer code;
 
