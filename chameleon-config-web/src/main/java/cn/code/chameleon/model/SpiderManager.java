@@ -1,9 +1,11 @@
 package cn.code.chameleon.model;
 
+import cn.code.chameleon.Spider;
 import cn.code.chameleon.spider.CommonSpider;
 import com.google.common.collect.Lists;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -35,5 +37,23 @@ public class SpiderManager {
             commonSpiders.add(commonSpider);
         }
         return commonSpiders;
+    }
+
+    public List<CommonSpider> getRunningSpider() {
+        List<CommonSpider> commonSpiders = new ArrayList<>();
+        for (CommonSpider commonSpider : commonSpiderMap.values()) {
+            if (commonSpider.getStatus().equals(Spider.Status.Running)) {
+                commonSpiders.add(commonSpider);
+            }
+        }
+        return commonSpiders;
+    }
+
+    public void remove(String key) {
+        commonSpiderMap.remove(key);
+    }
+
+    public void removeAll() {
+        commonSpiderMap.clear();
     }
 }

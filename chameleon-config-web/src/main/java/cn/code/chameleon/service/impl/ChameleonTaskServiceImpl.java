@@ -5,20 +5,30 @@ import cn.code.chameleon.common.PageData;
 import cn.code.chameleon.enums.ResultCodeEnum;
 import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.mapper.ChameleonTaskMapper;
+import cn.code.chameleon.model.SpiderManager;
+import cn.code.chameleon.model.TaskManager;
+import cn.code.chameleon.model.TaskStatisticsManager;
+import cn.code.chameleon.pojo.ChameleonStatistics;
 import cn.code.chameleon.pojo.ChameleonTask;
 import cn.code.chameleon.pojo.ChameleonTaskExample;
 import cn.code.chameleon.pojo.ChameleonTemplate;
 import cn.code.chameleon.pojo.Group;
+import cn.code.chameleon.service.ChameleonStatisticsService;
 import cn.code.chameleon.service.ChameleonTaskService;
 import cn.code.chameleon.service.ChameleonTemplateService;
 import cn.code.chameleon.service.GroupService;
+import cn.code.chameleon.spider.CommonSpider;
+import cn.code.chameleon.vo.SpiderVO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author liumingyu
@@ -34,7 +44,19 @@ public class ChameleonTaskServiceImpl implements ChameleonTaskService {
     private ChameleonTemplateService chameleonTemplateService;
 
     @Autowired
+    private ChameleonStatisticsService chameleonStatisticsService;
+
+    @Autowired
     private GroupService groupService;
+
+    @Autowired
+    private TaskManager taskManager;
+
+    @Autowired
+    private SpiderManager spiderManager;
+
+    @Autowired
+    private TaskStatisticsManager taskStatisticsManager;
 
     /**
      * 绑定了该模版的任务数量
@@ -84,6 +106,13 @@ public class ChameleonTaskServiceImpl implements ChameleonTaskService {
         task.setUpdateTime(new Date());
         task.setOperatorId(operatorId);
         chameleonTaskMapper.insert(task);
+        taskManager.put(task.getJobGroup() + "-" + task.getId(), task);
+
+        //创建爬虫统计
+        ChameleonStatistics statistics = new ChameleonStatistics();
+        statistics.setTaskId(task.getId());
+        chameleonStatisticsService.saveStatistic(statistics, operatorId);
+        taskStatisticsManager.put(task.getId(), statistics);
     }
 
     /**
@@ -94,11 +123,29 @@ public class ChameleonTaskServiceImpl implements ChameleonTaskService {
      * @throws ChameleonException
      */
     @Override
-    public void udpateTask(ChameleonTask task, Long operatorId) throws ChameleonException {
+    public void updateTask(ChameleonTask task, Long operatorId) throws ChameleonException {
         validateTask(task);
         task.setUpdateTime(new Date());
         task.setOperatorId(operatorId);
         chameleonTaskMapper.updateByPrimaryKey(task);
+    }
+
+    /**
+     * 更新任务状态
+     *
+     * @param taskId
+     * @param status
+     * @param operatorId
+     * @throws ChameleonException
+     */
+    @Override
+    public void updateTaskStatus(Long taskId, Integer status, Long operatorId) throws ChameleonException {
+        ChameleonTask task = new ChameleonTask();
+        task.setId(taskId);
+        task.setStatus(status);
+        task.setUpdateTime(new Date());
+        task.setOperatorId(operatorId);
+        chameleonTaskMapper.updateByPrimaryKeySelective(task);
     }
 
     /**
@@ -171,6 +218,71 @@ public class ChameleonTaskServiceImpl implements ChameleonTaskService {
     }
 
     /**
+     * 分页查询爬虫列表
+     *
+     * @param groupId
+     * @param templateId
+     * @param status
+     * @param page
+     * @param size
+     * @param orderField
+     * @param orderType
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public PageData<SpiderVO> pageSpiders(Long groupId, Long templateId, Integer status, Integer page, Integer size, String orderField, String orderType) throws ChameleonException {
+        PageData<ChameleonTask> pageData = this.pageTasks(groupId, templateId, status, page, size, orderField, orderType);
+        if (pageData.getTotalCount() == 0 || pageData.getItems().isEmpty()) {
+            return new PageData<>(0, new ArrayList<>());
+        }
+        List<ChameleonTask> tasks = pageData.getItems();
+        List<SpiderVO> spiderVOS = convertTasks2SpiderVOS(tasks);
+        return new PageData<>(pageData.getTotalCount(), spiderVOS);
+    }
+
+    private List<SpiderVO> convertTasks2SpiderVOS(List<ChameleonTask> tasks) throws ChameleonException {
+        if (tasks == null || tasks.isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<SpiderVO> spiderVOS = Lists.newArrayListWithCapacity(tasks.size());
+        for (ChameleonTask task : tasks) {
+            if (task == null) {
+                continue;
+            }
+            SpiderVO spiderVO = convertTask2SpiderVO(task);
+            if (spiderVO == null) {
+                continue;
+            }
+            spiderVOS.add(spiderVO);
+        }
+        return spiderVOS;
+    }
+
+    private SpiderVO convertTask2SpiderVO(ChameleonTask task) throws ChameleonException {
+        if (task == null) {
+            return null;
+        }
+        SpiderVO spiderVO = new SpiderVO();
+        spiderVO.setGroupId(task.getGroupId());
+        spiderVO.setTaskId(task.getId());
+        spiderVO.setTemplateId(task.getTemplateId());
+        spiderVO.setUuid(task.getJobGroup() + "-" + task.getId());
+        ChameleonTemplate template = chameleonTemplateService.queryTemplateById(task.getTemplateId());
+        if (template != null) {
+            spiderVO.setDomain(template.getDomain());
+        }
+        CommonSpider commonSpider = spiderManager.getSpiderById(spiderVO.getUuid());
+        if (commonSpider != null) {
+            spiderVO.setPageCount(commonSpider.getPageCount());
+            spiderVO.setStartTime(commonSpider.getStartTime());
+            spiderVO.setStatus(commonSpider.getStatus().getValue());
+            spiderVO.setTreadAlive(commonSpider.getThreadAlive());
+        }
+        return spiderVO;
+    }
+
+    /**
      * 验证爬虫任务信息
      *
      * @param task
@@ -214,4 +326,23 @@ public class ChameleonTaskServiceImpl implements ChameleonTaskService {
         criteria.andIsDeleteEqualTo(false);
         return chameleonTaskMapper.selectByExample(example);
     }
+
+    /**
+     * 根据组ID查询任务ID
+     *
+     * @param groupId
+     * @return
+     * @throws ChameleonException
+     */
+    @Override
+    public List<Long> queryTaskIdsByGroupId(Long groupId) throws ChameleonException {
+        ChameleonTaskExample example = new ChameleonTaskExample();
+        ChameleonTaskExample.Criteria criteria = example.createCriteria();
+        criteria.andIsDeleteEqualTo(false);
+        criteria.andGroupIdEqualTo(groupId);
+        List<ChameleonTask> tasks = chameleonTaskMapper.selectByExample(example);
+        List<Long> taskIds = tasks.stream().map(task -> task.getId()).collect(Collectors.toList());
+        return taskIds;
+    }
+
 }

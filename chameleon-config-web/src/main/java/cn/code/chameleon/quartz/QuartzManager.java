@@ -2,6 +2,7 @@ package cn.code.chameleon.quartz;
 
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.tuple.Pair;
+import org.quartz.CronScheduleBuilder;
 import org.quartz.Job;
 import org.quartz.JobBuilder;
 import org.quartz.JobDataMap;
@@ -40,19 +41,31 @@ public class QuartzManager {
      * @Description: 添加一个定时任务
      * @Title: QuartzManager.java
      */
-    public Pair<TriggerKey, JobKey> addJob(String jobName, String jobGroupName, String triggerName, String triggerGroupName, Class<? extends Job> jobClass, Map<String, Object> data, int hours) {
+    public Pair<TriggerKey, JobKey> addJob(String jobName, String jobGroupName, String triggerName, String triggerGroupName, Class<? extends Job> jobClass, Map<String, Object> data, int hours, String cronExpression) {
         try {
             JobDetail jobDetail = JobBuilder.newJob()
                     .ofType(jobClass)
                     .usingJobData(new JobDataMap(data))
                     // 任务名，任务组，任务执行类
                     .withIdentity(jobName, jobGroupName).build();
-            // 触发器
-            Trigger trigger = TriggerBuilder.newTrigger()
-                    .forJob(jobName, jobGroupName)
-                    .withIdentity(triggerName, triggerGroupName)
-                    .withSchedule(SimpleScheduleBuilder.repeatHourlyForever(hours))
-                    .build();// 触发器名,触发器组
+            CronScheduleBuilder scheduleBuilder = null;
+            Trigger trigger;
+            if (cronExpression != null && !"".equals(cronExpression)) {
+                scheduleBuilder = CronScheduleBuilder.cronSchedule(cronExpression);
+                //按新的cronExpression表达式构建一个新的trigger
+                trigger = TriggerBuilder.newTrigger()
+                        .forJob(jobName, jobGroupName)
+                        .withIdentity(triggerName, triggerGroupName)
+                        .withSchedule(scheduleBuilder)
+                        .build();
+            } else {
+                // 触发器
+                trigger = TriggerBuilder.newTrigger()
+                        .forJob(jobName, jobGroupName)
+                        .withIdentity(triggerName, triggerGroupName)
+                        .withSchedule(SimpleScheduleBuilder.repeatHourlyForever(hours))
+                        .build();
+            }
             // 启动
             if (!scheduler.isShutdown()) {
                 scheduler.start();
@@ -98,6 +111,33 @@ public class QuartzManager {
             scheduler.deleteJob(jobKey);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 暂停一个job
+     *
+     * @param jobKey
+     * @throws SchedulerException
+     */
+    public void pauseJob(JobKey jobKey) {
+        try {
+            scheduler.pauseJob(jobKey);
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 恢复一个job
+     *
+     * @param jobKey
+     */
+    public void resumeJob(JobKey jobKey) {
+        try {
+            scheduler.resumeJob(jobKey);
+        } catch (SchedulerException e) {
+            e.printStackTrace();
         }
     }
 

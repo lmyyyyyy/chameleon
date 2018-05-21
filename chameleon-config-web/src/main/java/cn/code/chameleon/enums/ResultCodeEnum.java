@@ -47,6 +47,7 @@ public enum ResultCodeEnum implements ResultCodeInterface {
     TASK_TEMPLATE_EMPTY(6002, "爬虫任务模版不能为空"),
     TASK_GROUP_EMPTY(6003, "爬虫任务组不能为空"),
     TASK_DATA_EMPTY(6004, "爬虫任务对象不能为空"),
+    TASK_NOT_FOUNDED(6005, "爬虫任务没有找到"),
 
     STATISTICS_DATA_EMPTY(7001, "爬虫统计对象不能为空"),
 

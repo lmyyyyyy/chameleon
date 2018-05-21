@@ -57,4 +57,20 @@ public class TaskManager {
         }
         return tasks;
     }
+
+    public void remove(String uuid) {
+        taskMap.remove(uuid);
+    }
+
+    public void removeAll() {
+        taskMap.clear();
+    }
+
+    public void stop(String uuid) {
+        taskMap.get(uuid).setStatus(Spider.Status.Stopped.getValue());
+    }
+
+    public void pause(String uuid) {
+        taskMap.get(uuid).setStatus(Spider.Status.Pausing.getValue());
+    }
 }

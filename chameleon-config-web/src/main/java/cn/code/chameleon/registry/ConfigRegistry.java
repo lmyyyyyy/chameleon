@@ -1,7 +1,10 @@
 package cn.code.chameleon.registry;
 
 import cn.code.chameleon.model.TaskManager;
+import cn.code.chameleon.model.TaskStatisticsManager;
+import cn.code.chameleon.pojo.ChameleonStatistics;
 import cn.code.chameleon.pojo.ChameleonTask;
+import cn.code.chameleon.service.ChameleonStatisticsService;
 import cn.code.chameleon.service.ChameleonTaskService;
 import cn.code.chameleon.service.RedisClient;
 import cn.code.chameleon.utils.Constants;
@@ -36,7 +39,13 @@ public class ConfigRegistry implements InitializingBean, BeanFactoryAware {
     private ChameleonTaskService chameleonTaskService;
 
     @Autowired
+    private ChameleonStatisticsService chameleonStatisticsService;
+
+    @Autowired
     private TaskManager taskManager;
+
+    @Autowired
+    private TaskStatisticsManager taskStatisticsManager;
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
@@ -77,6 +86,10 @@ public class ConfigRegistry implements InitializingBean, BeanFactoryAware {
             taskManager.putList(tasks);
         }
 
+        List<ChameleonStatistics> statistics = chameleonStatisticsService.queryStatistics(null);
+        if (statistics != null && !statistics.isEmpty()) {
+            taskStatisticsManager.putList(statistics);
+        }
         LOGGER.info("{} 检查注册所有配置项成功!", LOG_PREFIX);
     }
 }
