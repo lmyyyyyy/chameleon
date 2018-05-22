@@ -26,6 +26,10 @@ public class RedisPriorityScheduler extends RedisScheduler {
 
     private static final String MINUS_PRIORITY_SUFFIX = "-minus";
 
+    public RedisPriorityScheduler() {
+        super("localhost");
+    }
+
     public RedisPriorityScheduler(String host) {
         super(host);
     }

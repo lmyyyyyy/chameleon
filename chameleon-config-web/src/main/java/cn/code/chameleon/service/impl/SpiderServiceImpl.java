@@ -6,6 +6,7 @@ import cn.code.chameleon.downloader.PhantomJSDownloader;
 import cn.code.chameleon.downloader.SeleniumDownloader;
 import cn.code.chameleon.enums.ResultCodeEnum;
 import cn.code.chameleon.exception.ChameleonException;
+import cn.code.chameleon.model.ESClient;
 import cn.code.chameleon.model.SpiderManager;
 import cn.code.chameleon.model.SpiderTemplate;
 import cn.code.chameleon.model.TaskManager;
@@ -334,10 +335,10 @@ public class SpiderServiceImpl implements SpiderService {
                 spider.setScheduler(new FileCachQueueSchduler().setDuplicateRemover((DuplicateRemover) duplicateRemoverEnum.getObject()));
                 break;
             case REDIS_QUEUE:
-                spider.setScheduler(new RedisScheduler("localhost"));
+                spider.setScheduler(new RedisScheduler().setDuplicateRemover((DuplicateRemover) duplicateRemoverEnum.getObject()));
                 break;
             case REDIS_PRIORITY_QUEUE:
-                spider.setScheduler(new RedisPriorityScheduler("localhost"));
+                spider.setScheduler(new RedisPriorityScheduler().setDuplicateRemover((DuplicateRemover) duplicateRemoverEnum.getObject()));
                 break;
             default:
                 spider.setScheduler(new QueueScheduler().setDuplicateRemover((DuplicateRemover) duplicateRemoverEnum.getObject()));
@@ -376,13 +377,13 @@ public class SpiderServiceImpl implements SpiderService {
                     spider.addPipeline(new FilePipeline());
                     break;
                 case ES_PIPELINE:
-                    spider.addPipeline(new ESPipeline());
+                    spider.addPipeline(new ESPipeline(new ESClient()));
                     break;
                 case REDIS_PIPELINE:
-                    spider.addPipeline(new RedisPipeline("localhost"));
+                    spider.addPipeline(new RedisPipeline());
                     break;
                 default:
-                    spider.addPipeline(new ESPipeline());
+                    spider.addPipeline(new ESPipeline(new ESClient()));
                     break;
             }
         }

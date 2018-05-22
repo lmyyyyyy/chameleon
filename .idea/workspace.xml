@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/../spider/src/main/java/com/gs/spider/dao/ESClient.java" description="public boolean checkCommonsIndex() {&#10;        retur..." line="49" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c0f3b205-ed16-48b0-b5a5-29c19caa7b79" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/MonitorController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisPriorityScheduler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisScheduler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/component/RedisBloomFilterRemover.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/component/RedisDuplicateRemover.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/vo/MapperLogVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/vo/ServiceLogVO.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/config/QuartzConfigration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/factory/JobFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/factory/QuartzJobFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/factory/QuartzJobFactoryDisallowConcurrentExecution.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/utils/QuartzManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/utils/TaskUtils.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/model/ESClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chameleon-config-web/src/test/java/Test.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/MapperLogExample.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/MapperLogExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/ServiceLogExample.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/ServiceLogExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/service/RunMethodLogService.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/service/RunMethodLogService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/service/impl/RunMethodLogServiceImpl.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/service/impl/RunMethodLogServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/SpiderJob.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/SpiderJob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/SpiderServiceImpl.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/SpiderServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/enums/DuplicateRemoverEnum.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/enums/DuplicateRemoverEnum.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/ESPipeline.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/ESPipeline.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/RedisPipeline.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/RedisPipeline.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisPriorityScheduler.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisPriorityScheduler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisScheduler.java" afterPath="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisScheduler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -70,13 +58,24 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/Application.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="82" column="40" lean-forward="false" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -114,8 +113,12 @@
       <find>onSucc</find>
       <find>addUrl</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/chameleon-core</dir>
+      <dir>$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -129,13 +132,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/ChameleonTemplateServiceImpl.java" />
-        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/model/SpiderTemplate.java" />
-        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/ESPipeline.java" />
-        <option value="$PROJECT_DIR$/chameleon-simple/src/main/java/cn/code/chameleon/example/IP66PageProcessor.java" />
         <option value="$PROJECT_DIR$/chameleon-common/src/main/java/cn/code/chameleon/utils/Constants.java" />
         <option value="$PROJECT_DIR$/chameleon-sso/src/main/java/cn/code/chameleon/registry/ConfigRegistry.java" />
-        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/interceptor/CoresFilter.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/Application.java" />
         <option value="$PROJECT_DIR$/chameleon-sso/src/main/java/cn/code/chameleon/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/interceptor/LoginInterceptor.java" />
@@ -164,15 +162,11 @@
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/utils/RequestUtil.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/SpiderController.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/SpiderJob.java" />
-        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisPriorityScheduler.java" />
-        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisScheduler.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/pom.xml" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/component/RedisBloomFilterRemover.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/component/RedisDuplicateRemover.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/enums/DuplicateRemoverEnum.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/SpiderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/RedisPipeline.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/vo/ServiceLogVO.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/vo/MapperLogVO.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/ServiceLogExample.java" />
@@ -180,6 +174,15 @@
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/service/RunMethodLogService.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/service/impl/RunMethodLogServiceImpl.java" />
         <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/MonitorController.java" />
+        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/interceptor/CoresFilter.java" />
+        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/mapper/ResultsRepository.java" />
+        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/ESPipeline.java" />
+        <option value="$PROJECT_DIR$/chameleon-config-web/src/test/java/Test.java" />
+        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/model/ESClient.java" />
+        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/RedisPipeline.java" />
+        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisScheduler.java" />
+        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisPriorityScheduler.java" />
+        <option value="$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/SpiderServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -302,10 +305,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -316,6 +315,51 @@
             <path>
               <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
               <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
               <item name="chameleon-config-web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -356,7 +400,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="chameleon" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
@@ -366,7 +410,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="chameleon" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
@@ -376,18 +420,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="chameleon" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
-              <item name="pojo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
-              <item name="chameleon-config-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -398,7 +430,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="chameleon" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -408,13 +439,141 @@
               <item name="chameleon-config-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-config-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-config-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="chameleon" type="462c0819:PsiDirectoryNode" />
-              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="processor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-sso" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-sso" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-sso" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-sso" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon-sso" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chameleon" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.elasticsearch:elasticsearch:2.4.4" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.elasticsearch:elasticsearch:2.4.4" type="70bed36:NamedLibraryElementNode" />
+              <item name="elasticsearch-2.4.4.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.elasticsearch:elasticsearch:2.4.4" type="70bed36:NamedLibraryElementNode" />
+              <item name="elasticsearch-2.4.4.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.elasticsearch:elasticsearch:2.4.4" type="70bed36:NamedLibraryElementNode" />
+              <item name="elasticsearch-2.4.4.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="elasticsearch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.elasticsearch:elasticsearch:2.4.4" type="70bed36:NamedLibraryElementNode" />
+              <item name="elasticsearch-2.4.4.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="elasticsearch" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chameleon" type="b2602c69:ProjectViewProjectNode" />
@@ -438,6 +597,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -513,19 +676,14 @@
       <module name="chameleon-sso" />
       <envs />
     </configuration>
-    <configuration name="RedisClientTest.setTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cn.code.chameleon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="chameleon-sso" />
+    <configuration name="Test.testFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="chameleon-config-web" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="cn.code.chameleon" />
-      <option name="MAIN_CLASS_NAME" value="cn.code.chameleon.RedisClientTest" />
-      <option name="METHOD_NAME" value="setTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <option name="METHOD_NAME" value="testFilter" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -538,19 +696,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="SendEmailTest.sendAttachmentsMail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cn.code.chameleon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="chameleon-sso" />
+    <configuration name="Test.testGroupBy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="chameleon-config-web" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="cn.code.chameleon" />
-      <option name="MAIN_CLASS_NAME" value="cn.code.chameleon.SendEmailTest" />
-      <option name="METHOD_NAME" value="sendAttachmentsMail" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <option name="METHOD_NAME" value="testGroupBy" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -563,19 +716,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="SendEmailTest.sendEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cn.code.chameleon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="chameleon-sso" />
+    <configuration name="Test.testMultiGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="chameleon-config-web" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="cn.code.chameleon" />
-      <option name="MAIN_CLASS_NAME" value="cn.code.chameleon.SendEmailTest" />
-      <option name="METHOD_NAME" value="sendEmail" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <option name="METHOD_NAME" value="testMultiGet" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -588,24 +736,25 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="ZhihuPageProcessor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cn.code.chameleon.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="cn.code.chameleon.example.ZhihuPageProcessor" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <configuration name="Test.testScrolls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="chameleon-config-web" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <option name="METHOD_NAME" value="testScrolls" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="chameleon-simple" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -702,19 +851,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.RedisClientTest.setTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.SendEmailTest.sendAttachmentsMail" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.SendEmailTest.sendEmail" />
-      <item index="4" class="java.lang.String" itemvalue="Spring Boot.Application (1)" />
-      <item index="5" class="java.lang.String" itemvalue="Application.ZhihuPageProcessor" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.Test.testScrolls" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.Test.testGroupBy" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.Test.testFilter" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.Test.testMultiGet" />
+      <item index="5" class="java.lang.String" itemvalue="Spring Boot.Application (1)" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ZhihuPageProcessor" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.SendEmailTest.sendEmail" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.SendEmailTest.sendAttachmentsMail" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.RedisClientTest.setTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Test.testMultiGet" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.Test.testFilter" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.Test.testGroupBy" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.Test.testScrolls" />
       </list>
     </recent_temporary>
   </component>
@@ -790,47 +939,49 @@
       <workItem from="1526524572312" duration="3297000" />
       <workItem from="1526609287777" duration="12396000" />
       <workItem from="1526702012220" duration="15534000" />
-      <workItem from="1526790842121" duration="39993000" />
+      <workItem from="1526790842121" duration="40740000" />
+      <workItem from="1526952943241" duration="21229000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SendEmailTest_sendAttachmentsMail - 2018.05.09 at 13h 16m 03s.xml">
-      <configuration name="SendEmailTest.sendAttachmentsMail" configurationId="JUnit" />
+    <history-entry file="Test_testFilter - 2018.05.22 at 17h 43m 51s.xml">
+      <configuration name="Test.testFilter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SendEmailTest_sendAttachmentsMail - 2018.05.09 at 13h 17m 20s.xml">
-      <configuration name="SendEmailTest.sendAttachmentsMail" configurationId="JUnit" />
+    <history-entry file="Test_testFilter - 2018.05.22 at 17h 44m 46s.xml">
+      <configuration name="Test.testFilter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SendEmailTest_sendAttachmentsMail - 2018.05.09 at 13h 19m 55s.xml">
-      <configuration name="SendEmailTest.sendAttachmentsMail" configurationId="JUnit" />
+    <history-entry file="Test_testFilter - 2018.05.22 at 17h 45m 50s.xml">
+      <configuration name="Test.testFilter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SendEmailTest_sendAttachmentsMail - 2018.05.09 at 13h 24m 21s.xml">
-      <configuration name="SendEmailTest.sendAttachmentsMail" configurationId="JUnit" />
+    <history-entry file="Test_testFilter - 2018.05.22 at 17h 46m 09s.xml">
+      <configuration name="Test.testFilter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SendEmailTest_sendAttachmentsMail - 2018.05.09 at 13h 33m 35s.xml">
-      <configuration name="SendEmailTest.sendAttachmentsMail" configurationId="JUnit" />
+    <history-entry file="Test_testFilter - 2018.05.22 at 17h 46m 59s.xml">
+      <configuration name="Test.testFilter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SendEmailTest_sendAttachmentsMail - 2018.05.09 at 13h 36m 53s.xml">
-      <configuration name="SendEmailTest.sendAttachmentsMail" configurationId="JUnit" />
+    <history-entry file="Test_testFilter - 2018.05.22 at 17h 47m 17s.xml">
+      <configuration name="Test.testFilter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SendEmailTest_sendAttachmentsMail - 2018.05.09 at 13h 38m 21s.xml">
-      <configuration name="SendEmailTest.sendAttachmentsMail" configurationId="JUnit" />
+    <history-entry file="Test_testFilter - 2018.05.22 at 17h 49m 02s.xml">
+      <configuration name="Test.testFilter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SendEmailTest_sendAttachmentsMail - 2018.05.09 at 13h 42m 34s.xml">
-      <configuration name="SendEmailTest.sendAttachmentsMail" configurationId="JUnit" />
+    <history-entry file="Test_testFilter - 2018.05.22 at 17h 50m 35s.xml">
+      <configuration name="Test.testFilter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SendEmailTest_sendAttachmentsMail - 2018.05.09 at 13h 45m 35s.xml">
-      <configuration name="SendEmailTest.sendAttachmentsMail" configurationId="JUnit" />
+    <history-entry file="Test_testFilter - 2018.05.22 at 17h 51m 17s.xml">
+      <configuration name="Test.testFilter" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SendEmailTest_sendEmail - 2018.05.09 at 13h 53m 16s.xml">
-      <configuration name="SendEmailTest.sendEmail" configurationId="JUnit" />
+    <history-entry file="Test_testMultiGet - 2018.05.22 at 17h 54m 20s.xml">
+      <configuration name="Test.testMultiGet" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="777700000" />
+    <option name="totallyTimeSpent" value="799676000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1393" height="848" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.5029762" order="7" side_tool="true" content_ui="tabs" />
@@ -848,14 +999,15 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.625498" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42098275" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.49702382" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2450037" sideWeight="0.4674635" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.49702382" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24870466" sideWeight="0.4674635" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2738712" sideWeight="0.5325365" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -865,7 +1017,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32836932" sideWeight="0.5082645" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -889,13 +1040,13 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34130147" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756326" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42098275" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32836932" sideWeight="0.5082645" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.49702382" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2450037" sideWeight="0.4674635" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.49702382" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24870466" sideWeight="0.4674635" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -938,7 +1089,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="86" />
+      <option name="time" value="87" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -947,60 +1098,130 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/scheduler/QueueScheduler.java">
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/interceptor/LoginInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="85">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/interceptor/CoresFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/QuartzManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1722">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/FunctionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/springframework/data/spring-data-elasticsearch/2.1.0.RELEASE/spring-data-elasticsearch-2.1.0.RELEASE.jar!/org/springframework/data/elasticsearch/repository/ElasticsearchRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/common/settings/Settings.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="70" column="19" lean-forward="false" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/node/NodeBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="38" column="49" lean-forward="true" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="38" column="10" lean-forward="true" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/common/inject/Injector.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/common/transport/InetSocketTransportAddress.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
           <folding>
-            <element signature="e#492#493#0" expanded="false" />
-            <element signature="e#530#531#0" expanded="false" />
-            <element signature="e#582#583#0" expanded="false" />
-            <element signature="e#620#621#0" expanded="false" />
-            <element signature="e#802#803#0" expanded="false" />
-            <element signature="e#840#841#0" expanded="false" />
+            <element signature="e#1109#1110#0" expanded="true" />
+            <element signature="e#1167#1168#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/scheduler/component/HashSetDuplicateRemover.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/src.zip!/java/net/InetAddress.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
-          <folding>
-            <element signature="e#530#531#0" expanded="false" />
-            <element signature="e#579#580#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="280">
+          <caret line="1073" column="30" lean-forward="false" selection-start-line="1073" selection-start-column="30" selection-end-line="1073" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/scheduler/component/DuplicateRemover.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/client/transport/TransportClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="46" column="45" lean-forward="false" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-core/src/test/java/cn/code/chameleon/SpiderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/scheduler/component/BloomFilterDuplicateRemover.java">
+    <entry file="file://$PROJECT_DIR$/chameleon-core/src/test/java/cn/code/chameleon/processor/SimplePageProcessTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="152">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/scheduler/DuplicateRemoveScheduler.java">
+    <entry file="file://$PROJECT_DIR$/chameleon-sso/src/test/java/cn/code/chameleon/RedisClientTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+        <state relative-caret-position="247">
+          <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/pom.xml">
+    <entry file="file://$PROJECT_DIR$/chameleon-sso/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="220" column="20" lean-forward="true" selection-start-line="220" selection-start-column="20" selection-end-line="220" selection-end-column="20" />
+        <state relative-caret-position="-1446">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1008,117 +1229,61 @@
         <state />
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/Client.java">
+    <entry file="file://$PROJECT_DIR$/chameleon-sso/src/test/java/cn/code/chameleon/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="669" column="14" lean-forward="false" selection-start-line="669" selection-start-column="14" selection-end-line="669" selection-end-column="14" />
+        <state relative-caret-position="107">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/Jedis.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/action/get/GetResponse.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="2559" column="38" lean-forward="true" selection-start-line="2559" selection-start-column="38" selection-end-line="2559" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisPriorityScheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        <state relative-caret-position="141">
+          <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#829#830#0" expanded="false" />
-            <element signature="e#856#857#0" expanded="false" />
+            <element signature="e#1810#1811#0" expanded="true" />
+            <element signature="e#1864#1865#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/component/RedisDuplicateRemover.java">
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/mapper/ResultsRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+        <state relative-caret-position="95">
+          <caret line="5" column="49" lean-forward="false" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/index/query/QueryBuilders.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#719#720#0" expanded="false" />
+            <element signature="e#2099#2100#0" expanded="true" />
+            <element signature="e#2155#2156#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/enums/DuplicateRemoverEnum.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/search/sort/SortParseElement.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-          <folding>
-            <element signature="e#1003#1004#0" expanded="false" />
-            <element signature="e#1030#1031#0" expanded="false" />
-            <element signature="e#1266#1267#0" expanded="false" />
-            <element signature="e#1295#1296#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/quartz/SpiderJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="51" column="42" lean-forward="true" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
+        <state relative-caret-position="119">
+          <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/FunctionController.java">
+    <entry file="file://$PROJECT_DIR$/data/elasticsearch/nodes/0/_state/global-10.st">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-919">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        <state relative-caret-position="19">
+          <caret line="1" column="35" lean-forward="false" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/ChameleonTemplateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/ChameleonTaskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/ChameleonStatisticsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/component/RedisBloomFilterRemover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="54" lean-forward="false" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/resources/config/quartz.properties">
+    <entry file="file://$PROJECT_DIR$/data/elasticsearch/nodes/0/node.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1126,274 +1291,258 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/resources/config/application.properties">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/action/search/SearchRequestBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        <state relative-caret-position="152">
+          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/Application.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/action/search/SearchType.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="100" column="32" lean-forward="true" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+        <state relative-caret-position="9">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-sso/src/main/resources/application.yml">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/action/search/SearchResponse.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/CommonSpider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/pipeline/ResultsPipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        <state relative-caret-position="140">
+          <caret line="52" column="18" lean-forward="false" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
           <folding>
-            <element signature="e#411#412#0" expanded="false" />
-            <element signature="e#443#444#0" expanded="false" />
+            <element signature="e#2104#2105#0" expanded="true" />
+            <element signature="e#2155#2156#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/pipeline/CollectorPipeline.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/search/SearchHits.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="202">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/pipeline/ConsolePipeline.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/search/SearchHit.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="-436">
+          <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/src.zip!/java/util/Map.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/action/index/IndexRequestBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="395" column="10" lean-forward="false" selection-start-line="395" selection-start-column="10" selection-end-line="395" selection-end-column="10" />
+        <state relative-caret-position="-914">
+          <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/carrier/Results.java">
+    <entry file="file://$PROJECT_DIR$/chameleon-common/src/main/java/cn/code/chameleon/utils/EncryptUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="142">
+          <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/JedisPoolConfig.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/action/index/IndexResponse.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/JedisPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/pipeline/Pipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisScheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="46" column="19" lean-forward="false" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#1091#1092#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/interceptor/CoresFilter.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/common/xcontent/XContentBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="54" column="60" lean-forward="false" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
+        <state relative-caret-position="133">
+          <caret line="134" column="27" lean-forward="false" selection-start-line="134" selection-start-column="27" selection-end-line="134" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/interceptor/LoginInterceptor.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/common/xcontent/XContentFactory.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        <state relative-caret-position="131">
+          <caret line="26" column="34" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/interceptor/DisposableInterceptor.java">
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/action/delete/DeleteRequest.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        <state relative-caret-position="69">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/action/delete/DeleteResponse.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="46" column="19" lean-forward="false" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+          <folding>
+            <element signature="e#1085#1086#0" expanded="true" />
+            <element signature="e#1118#1119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/client/Client.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/client/support/AbstractClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="419" column="5" lean-forward="true" selection-start-line="419" selection-start-column="5" selection-end-line="419" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/action/ActionFuture.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/org/elasticsearch/elasticsearch/2.4.4/elasticsearch-2.4.4.jar!/org/elasticsearch/index/query/QueryBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/test/java/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="184" column="31" lean-forward="false" selection-start-line="184" selection-start-column="31" selection-end-line="184" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3532#3548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/downloader/PhantomJSDownloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="43" column="11" lean-forward="false" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/downloader/SeleniumDownloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="42" column="11" lean-forward="false" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisPriorityScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/service/impl/SpiderServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="165" column="16" lean-forward="false" selection-start-line="165" selection-start-column="16" selection-end-line="165" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/JedisCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="96" column="22" lean-forward="false" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+        <state relative-caret-position="3146">
+          <caret line="340" column="137" lean-forward="false" selection-start-line="340" selection-start-column="137" selection-end-line="340" selection-end-column="137" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/RedisPipeline.java">
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/model/SpiderTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding>
-            <element signature="e#488#489#0" expanded="false" />
-            <element signature="e#552#553#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/ServiceLogWithBLOBs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/vo/ServiceLogVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-881">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/ServiceLogExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="332" column="24" lean-forward="false" selection-start-line="332" selection-start-column="24" selection-end-line="332" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/RoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/controller/MonitorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="26" lean-forward="true" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/service/impl/RunMethodLogServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="74" column="40" lean-forward="true" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/ServiceLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/service/RunMethodLogService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state relative-caret-position="-3">
+          <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/ESPipeline.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="156">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding>
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/MapperLogExample.java">
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/model/ESClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="672" column="43" lean-forward="false" selection-start-line="672" selection-start-column="24" selection-end-line="672" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/MapperLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/vo/MapperLogVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-410">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="-557">
+          <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/monitor/pojo/MapperLogWithBLOBs.java">
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/scheduler/RedisScheduler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="144">
+          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="25" />
+          <folding>
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+            <element signature="e#1029#1030#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/spider/pipeline/RedisPipeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="24" />
+          <folding>
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#615#616#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-core/src/main/java/cn/code/chameleon/carrier/Results.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chameleon-config-web/src/main/java/cn/code/chameleon/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="82" column="40" lean-forward="false" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
           <folding />
         </state>
       </provider>

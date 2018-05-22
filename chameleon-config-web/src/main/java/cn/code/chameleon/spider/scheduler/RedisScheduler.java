@@ -26,6 +26,10 @@ public class RedisScheduler extends DuplicateRemoveScheduler implements Monitora
 
     private static final String ITEM_PREFIX = "item-";
 
+    public RedisScheduler() {
+        this("localhost");
+    }
+
     public RedisScheduler(String host) {
         this(new JedisPool(new JedisPoolConfig(), host));
     }

@@ -18,6 +18,10 @@ public class RedisPipeline implements Pipeline {
 
     protected JedisPool pool;
 
+    public RedisPipeline() {
+        this("localhost");
+    }
+
     public RedisPipeline(String host) {
         this(new JedisPool(new JedisPoolConfig(), host));
     }
