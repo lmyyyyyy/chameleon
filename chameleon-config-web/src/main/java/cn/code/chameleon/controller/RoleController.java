@@ -7,6 +7,7 @@ import cn.code.chameleon.service.FunctionService;
 import cn.code.chameleon.service.RoleService;
 import cn.code.chameleon.service.UserService;
 import cn.code.chameleon.utils.RequestUtil;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/api/role")
+@Api(value = "角色模块", tags = "角色模块")
 public class RoleController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RoleController.class);

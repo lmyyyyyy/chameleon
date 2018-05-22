@@ -520,7 +520,7 @@ public class Spider implements Runnable, Task {
     }
 
     public enum Status {
-        Init(0), Running(1), Stopped(2);
+        Init(0), Running(1), Stopped(2), Pausing(3);
 
         private int value;
 
@@ -528,7 +528,7 @@ public class Spider implements Runnable, Task {
             this.value = value;
         }
 
-        int getValue() {
+        public int getValue() {
             return value;
         }
 

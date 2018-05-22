@@ -107,6 +107,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.code.chameleon.pojo.ChameleonStatistics" >
+    <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into chameleon_statistics (id, task_id, crawl_count, 
       stop_count, error_count, run_hours, 
       create_time, update_time, is_delete

@@ -7,7 +7,7 @@ package cn.code.chameleon.utils;
 public class Constants {
 
     /**
-     * 时间间隔key
+     * 验证码可再次发送时间间隔key
      */
     public static final String TIME_INTERVAL = "TIME_INTERVAL";
 

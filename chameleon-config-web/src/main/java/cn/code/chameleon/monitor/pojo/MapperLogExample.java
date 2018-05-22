@@ -654,6 +654,26 @@ public class MapperLogExample {
             addCriterion("time_cost not between", value1, value2, "timeCost");
             return (Criteria) this;
         }
+
+        public Criteria andMethodNameLike(String value) {
+            addCriterion("method_name like", value, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodParamLike(String value) {
+            addCriterion("method_param like", value, "methodParam");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorMessageLike(String value) {
+            addCriterion("error_message like", value, "errorMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqlStatementLike(String value) {
+            addCriterion("sql_statement like", value, "sqlStatement");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

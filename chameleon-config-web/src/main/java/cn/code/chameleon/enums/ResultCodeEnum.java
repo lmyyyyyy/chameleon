@@ -28,6 +28,28 @@ public enum ResultCodeEnum implements ResultCodeInterface {
     GROUP_NAME_EMPTY(4001, "组名称不能为空"),
     GROUP_NAME_HAS_EXISTED(4002, "组名称不能重复"),
     GROUP_DATA_EMPTY(4003, "组对象不能为空"),
+    GROUP_HAS_BEEN_BIND(4004, "该组已被任务绑定"),
+
+    TEMPLATE_DATA_EMPTY(5001, "爬虫模版对象不能为空"),
+    TEMPLATE_DOWNLOADER_NOT_EXIST(5002, "爬虫模版-下载器不存在"),
+    TEMPLATE_PIPELINE_NOT_EXIST(5003, "爬虫模版-管道不存在"),
+    TEMPLATE_SCHEDULER_NOT_EXIST(5004, "爬虫模版-调度器不存在"),
+    TEMPLATE_DUPLICATE_REMOVER_NOT_EXIST(5005, "爬虫模版-去重器不存在"),
+    TEMPLATE_START_URLS_EMPTY(5006, "爬虫模版-开始Url不能为空"),
+    TEMPLATE_TARGET_URLS_EMPTY(5007, "爬虫模版-目标Url不能为空"),
+    TEMPLATE_PATTERN_TYPE_NOT_EXIST(5008, "爬虫模版-解析格式类型不存在"),
+    TEMPLATE_TARGET_URL_PATTERN_EMPTY(5009, "爬虫模版-目标Url解析根式不能为空"),
+    TEMPLATE_COLLECTION_PATTERN_EMPTY(5010, "爬虫模版-集合解析格式不能为空"),
+    TEMPLATE_DYNAMIC_FIELD_EMPTY(5011, "爬虫模版-请设置爬取字段或选择智能爬取"),
+    TEMPLATE_HAS_BEEN_BIND(5022, "该模版已被任务绑定"),
+
+    TASK_IS_RUNNING(6001, "爬虫任务正在运行中..."),
+    TASK_TEMPLATE_EMPTY(6002, "爬虫任务模版不能为空"),
+    TASK_GROUP_EMPTY(6003, "爬虫任务组不能为空"),
+    TASK_DATA_EMPTY(6004, "爬虫任务对象不能为空"),
+    TASK_NOT_FOUNDED(6005, "爬虫任务没有找到"),
+
+    STATISTICS_DATA_EMPTY(7001, "爬虫统计对象不能为空"),
 
     NO_FIND_CURRENT_USER(9001, "未获取到当前用户,或当前用户未登录"),
     ACTION_CONTEXT(9002, "ActionContext对象为空"),
