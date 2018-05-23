@@ -42,6 +42,10 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
+        // 所有预检请求放行,不走sso
+        if ("OPTIONS".equals(request.getMethod())) {
+            return true;
+        }
         timeLong.set(System.currentTimeMillis());
         String token = RequestUtil.getToken(request);
         if (token == null || "".equals(token)) {
