@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/api/function")
 @Api(value = "功能模块", tags = "功能模块")
-public class FunctionController {
+public class FunctionController extends BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FunctionController.class);
 
@@ -105,7 +105,7 @@ public class FunctionController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "根据功能ID删除功能(刘明宇)", notes = "根据功能ID删除功能", response = UnifiedResponse.class)
     public UnifiedResponse deleteFunction(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
         Long operatorId = RequestUtil.getCurrentUserId();
@@ -126,7 +126,7 @@ public class FunctionController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}/roles", method = RequestMethod.DELETE)
     @ApiOperation(value = "根据功能ID删除所有角色绑定关系(刘明宇)", notes = "根据功能ID删除所有角色绑定关系", response = UnifiedResponse.class)
     public UnifiedResponse deleteRoleRelationFunctionByFunctionId(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
         Long operatorId = RequestUtil.getCurrentUserId();

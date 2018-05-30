@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @RestController
 @RequestMapping(value = "/index")
-public class UserController {
+public class UserController extends BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 

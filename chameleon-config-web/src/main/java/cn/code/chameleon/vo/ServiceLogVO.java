@@ -91,6 +91,8 @@ public class ServiceLogVO implements Serializable {
 
     private Long endCost;
 
+    public ServiceLogVO() {}
+
     public ServiceLogVO(ServiceLogWithBLOBs serviceLogWithBLOBs) {
         this.id = serviceLogWithBLOBs.getId();
         this.className = serviceLogWithBLOBs.getClassName();

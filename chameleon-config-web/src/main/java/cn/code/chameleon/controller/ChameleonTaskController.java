@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/api/task")
 @Api(value = "爬虫任务模块", tags = "爬虫任务模块")
-public class ChameleonTaskController {
+public class ChameleonTaskController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ChameleonTaskController.class);
 
     private static final String LOG_PREFIX = "[爬虫任务模块] ";

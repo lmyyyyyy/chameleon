@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/api/role")
 @Api(value = "角色模块", tags = "角色模块")
-public class RoleController {
+public class RoleController extends BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RoleController.class);
 
@@ -97,7 +97,7 @@ public class RoleController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}/function/{fid}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/function/{fid}", method = RequestMethod.POST)
     @ApiOperation(value = "根据角色ID和功能ID保存绑定关系(刘明宇)", notes = "根据角色ID和功能ID保存绑定关系", response = UnifiedResponse.class)
     public UnifiedResponse saveRoleRelationFunction(@PathVariable("id") Long id, @PathVariable("fid") Long fid, HttpServletRequest request) throws Exception {
         Long operatorId = RequestUtil.getCurrentUserId();
@@ -256,7 +256,7 @@ public class RoleController {
     @ApiOperation(value = "根据角色ID查询角色(刘明宇)", notes = "根据角色ID查询角色", response = UnifiedResponse.class)
     public UnifiedResponse queryRoleById(@PathVariable("id") Long id) throws Exception {
         LOGGER.info("{} 根据角色ID = {} 查询角色", LOG_PREFIX, id);
-        return new UnifiedResponse(userService.queryUserById(id));
+        return new UnifiedResponse(roleService.queryRoleById(id));
     }
 
     /**

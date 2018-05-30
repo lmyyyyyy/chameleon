@@ -79,7 +79,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from function
+    from chameleon.function
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -90,21 +90,21 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from function
+    from chameleon.function
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from function
+    delete from chameleon.function
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="cn.code.chameleon.pojo.FunctionExample" >
-    delete from function
+    delete from chameleon.function
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="cn.code.chameleon.pojo.Function" >
-    insert into function (id, code, description, 
+    insert into chameleon.function (id, code, description,
       create_time, update_time, is_delete, 
       extend_field)
     values (#{id,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
@@ -112,7 +112,7 @@
       #{extendField,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.code.chameleon.pojo.Function" >
-    insert into function
+    insert into chameleon.function
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -161,13 +161,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="cn.code.chameleon.pojo.FunctionExample" resultType="java.lang.Integer" >
-    select count(*) from function
+    select count(*) from chameleon.function
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update function
+    update chameleon.function
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
@@ -196,7 +196,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update function
+    update chameleon.function
     set id = #{record.id,jdbcType=BIGINT},
       code = #{record.code,jdbcType=VARCHAR},
       description = #{record.description,jdbcType=VARCHAR},
@@ -209,7 +209,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="cn.code.chameleon.pojo.Function" >
-    update function
+    update chameleon.function
     <set >
       <if test="code != null" >
         code = #{code,jdbcType=VARCHAR},
@@ -233,7 +233,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.code.chameleon.pojo.Function" >
-    update function
+    update chameleon.function
     set code = #{code,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},

@@ -68,7 +68,7 @@ import static com.google.common.collect.Sets.newHashSet;
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "app")
 @MapperScan(basePackages = "cn.code.chameleon.mapper")
-@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.registry"})
+@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.registry", "cn.code.chameleon.interceptor"})
 @EntityScan(basePackages = "cn.code.chameleon.pojo")
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {

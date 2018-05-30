@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/api/template")
 @Api(value = "爬虫模版模块", tags = "爬虫模版模块")
-public class ChameleonTemplateController {
+public class ChameleonTemplateController extends BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ChameleonTemplateController.class);
 

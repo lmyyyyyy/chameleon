@@ -67,6 +67,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean checkAccount(String account) throws ChameleonException {
+        if (!RegexUtils.checkEmail(account)) {
+            throw new ChameleonException(ResultCodeEnum.USER_ACCOUNT_PATTERN_ERROR);
+        }
         if (account == null || "".equals(account)) {
             throw new ChameleonException(ResultCodeEnum.USER_ACCOUNT_PATTERN_ERROR);
         }
@@ -150,6 +153,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void generateVerifyCode(String account) throws ChameleonException {
+        if (!RegexUtils.checkEmail(account)) {
+            throw new ChameleonException(ResultCodeEnum.USER_ACCOUNT_PATTERN_ERROR);
+        }
         String code = RandomUtil.generateVerifyCode(new Random().nextInt(2) + 4).toLowerCase();
         String temp = redisClient.get(Constants.TIME_INTERVAL);
         long seconds = Constants.TIME_INTERVAL_SECONDS;

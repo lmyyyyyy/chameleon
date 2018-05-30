@@ -54,6 +54,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         }
         String json = redisClient.get(Constants.USER_TOKEN_KEY + ":" + token);
+        System.out.println("json : " + json);
         if (json == null || "".equals(json)) {
             LOGGER.warn("未获取到当前用户, 会话已失效");
             forbidden(response, HttpServletResponse.SC_UNAUTHORIZED, "未获取到当前用户, 会话已失效");

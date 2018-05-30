@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>Register</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+<!--必要样式-->
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<!--[if IE]>
+<script src="js/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+		<div class="container demo-1">
+			<div class="content">
+				<div id="large-header" class="large-header">
+					<canvas id="demo-canvas"></canvas>
+					<div class="logo_box">
+						<h3>注册</h3>
+						<form action="#" name="f" method="post">
+							<div class="input_outer">
+								<span class="u_user"></span>
+								<input name="email" id="email" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入账户">
+							</div>
+							<div class="input_outer">
+								<span class="us_uer"></span>
+								<input name="password" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
+							</div>
+							<div class="input_outer">
+								<span class="u_user"></span>
+								<input name="name" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入姓名">
+							</div>
+							<div class="input_outer">
+								<span class="us_uer"></span>
+								<input name="code" class="text" style="width:150px;color: #FFFFFF !important" type="text" placeholder="请输入验证码">
+								<span  id="code"><a class="" href="javascript:;" style="font-size: 16px;color: #FFFFFF"  onclick="test()">获取验证码</a></span>
+							</div>
+							<div class="mb2"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">注册</a></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div><!-- /container -->
+		<script src="js/TweenLite.min.js"></script>
+		<script src="js/EasePack.min.js"></script>
+		<script src="js/rAF.js"></script>
+		<script src="js/demo-1.js"></script>
+		<div style="text-align:center;">
+</div>
+	</body>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    function test() {
+        /*var email = document.getElementById("email");
+        alert("email: " + email.value);*/
+        $.ajax({
+            type:"POST",  //请求方式
+            url:"http://localhost:8090/index/code?email=" + this.email.value,  //请求路径：页面/方法名字
+            data: null,     //参数
+            dataType:"text",
+            contentType:"application/json; charset=utf-8",
+            beforeSend:function(XMLHttpRequest){
+                $("#code").text("120");
+            },
+            success:function(data){  //成功
+				var result = jQuery.parseJSON(data);
+				if (result.status == 0) {
+                    alert("status : " + result.status)
+				} else {
+
+				}
+                alert("result : " + result);
+
+            },
+            error:function(obj, msg, e){   //异常
+                alert("OH,NO");
+            }
+        });
+        alert('hello world');
+    }
+</script>
+</html>

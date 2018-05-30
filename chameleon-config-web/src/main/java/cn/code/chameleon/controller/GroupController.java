@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/api/group")
 @Api(value = "组模块", tags = "组模块")
-public class GroupController {
+public class GroupController extends BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FunctionController.class);
 

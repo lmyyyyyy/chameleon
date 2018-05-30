@@ -25,7 +25,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/spider")
 @Api(value = "爬虫模块", tags = "爬虫模块")
-public class SpiderController {
+public class SpiderController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(SpiderController.class);
 
     private static final String LOG_PREFIX = "[爬虫模块] ";

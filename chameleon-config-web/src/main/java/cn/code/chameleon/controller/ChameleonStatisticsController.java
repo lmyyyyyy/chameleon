@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/statistics")
 @Api(value = "任务统计模块", tags = "任务统计模块")
-public class ChameleonStatisticsController {
+public class ChameleonStatisticsController extends BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ChameleonStatisticsController.class);
 

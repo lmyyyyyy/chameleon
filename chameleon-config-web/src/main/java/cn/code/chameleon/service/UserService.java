@@ -5,6 +5,7 @@ import cn.code.chameleon.exception.ChameleonException;
 import cn.code.chameleon.pojo.Function;
 import cn.code.chameleon.pojo.Role;
 import cn.code.chameleon.pojo.User;
+import cn.code.chameleon.vo.UserVO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -31,6 +32,8 @@ public interface UserService {
     void deleteUserById(Long id, Long operatorId) throws ChameleonException;
 
     User queryUserById(Long id) throws ChameleonException;
+
+    UserVO queryDetailUserById(Long id) throws ChameleonException;
 
     PageData<User> pageUsers(String keyword, Integer page, Integer size, String orderField, String orderType) throws ChameleonException;
 

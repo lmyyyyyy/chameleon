@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/api/user")
 @Api(value = "用户模块", tags = "用户模块")
-public class UserController {
+public class UserController extends BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
@@ -228,6 +228,21 @@ public class UserController {
     public UnifiedResponse queryUserById(@PathVariable("id") Long id) throws Exception {
         LOGGER.info("{} 根据用户ID = {} 查询用户信息", LOG_PREFIX, id);
         return new UnifiedResponse(userService.queryUserById(id));
+    }
+
+    /**
+     * 查询当前用户信息
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/me", method = RequestMethod.GET)
+    @ApiOperation(value = "查询当前用户信息(刘明宇)", notes = "查询当前用户信息", response = UnifiedResponse.class)
+    public UnifiedResponse queryMe(HttpServletRequest request) throws Exception {
+        Long operatorId = RequestUtil.getCurrentUserId();
+        LOGGER.info("{} 当前用户operatorId = {} 查询用户信息", LOG_PREFIX, operatorId);
+        return new UnifiedResponse(userService.queryDetailUserById(operatorId));
     }
 
     /**

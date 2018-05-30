@@ -90,6 +90,8 @@ public class MapperLogVO implements Serializable {
 
     private Long endCost;
 
+    public MapperLogVO() {}
+
     public MapperLogVO(MapperLogWithBLOBs mapperLogWithBLOBs) {
         this.id = mapperLogWithBLOBs.getId();
         this.serivceLogId = mapperLogWithBLOBs.getSerivceLogId();

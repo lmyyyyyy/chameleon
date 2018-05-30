@@ -21,6 +21,7 @@ import cn.code.chameleon.utils.EncryptUtil;
 import cn.code.chameleon.utils.JsonUtils;
 import cn.code.chameleon.utils.RequestUtil;
 import cn.code.chameleon.utils.UserContext;
+import cn.code.chameleon.vo.UserVO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
@@ -233,6 +234,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User queryUserById(Long id) throws ChameleonException {
         return userMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public UserVO queryDetailUserById(Long id) throws ChameleonException {
+        User user = userMapper.selectByPrimaryKey(id);
+        return converUser2VO(user);
     }
 
     /**
@@ -592,5 +599,15 @@ public class UserServiceImpl implements UserService {
         }
         List<String> functionCodes = functions.stream().map(function -> function.getCode()).collect(Collectors.toList());
         return functionCodes;
+    }
+
+    private UserVO converUser2VO(User user) throws ChameleonException {
+        if (user == null) {
+            return null;
+        }
+        UserVO userVO = new UserVO(user);
+        List<String> codes = this.queryFunctionCodesByUserId(user.getId());
+        userVO.setCodes(codes);
+        return userVO;
     }
 }

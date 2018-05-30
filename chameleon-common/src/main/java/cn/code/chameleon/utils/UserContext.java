@@ -8,7 +8,7 @@ import cn.code.chameleon.dto.UserDTO;
  */
 public class UserContext {
 
-    private static ThreadLocal<UserDTO> currentUser = new ThreadLocal<>();
+    private static ThreadLocal<UserDTO> currentUser = new InheritableThreadLocal<>();
 
     public static UserDTO getCurrentUser() {
         UserDTO userDTO = currentUser.get();
