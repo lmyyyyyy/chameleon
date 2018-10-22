@@ -3,9 +3,14 @@ package cn.code.chameleon.example;
 import cn.code.chameleon.Spider;
 import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Site;
+import cn.code.chameleon.pipeline.ConsolePipeline;
+import cn.code.chameleon.pipeline.FilePipeline;
 import cn.code.chameleon.processor.PageProcessor;
+import cn.code.chameleon.scheduler.FileCachQueueSchduler;
 
 /**
+ * 牛客爬虫
+ *
  * @author liumingyu
  * @create 2018-04-25 下午8:19
  */
@@ -58,6 +63,6 @@ public class NiukePageProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new NiukePageProcessor()).addUrls("https://www.nowcoder.com/discuss").thread(5).run();
+        Spider.create(new NiukePageProcessor()).addUrls("https://www.nowcoder.com/discuss").addPipeline(new ConsolePipeline()).addPipeline(new FilePipeline()).setScheduler(new FileCachQueueSchduler()).thread(5).run();
     }
 }

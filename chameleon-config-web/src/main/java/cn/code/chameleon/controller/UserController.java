@@ -1,3 +1,4 @@
+/*
 package cn.code.chameleon.controller;
 
 import cn.code.chameleon.common.UnifiedResponse;
@@ -19,10 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+*/
 /**
  * @author liumingyu
  * @create 2018-05-07 下午5:33
- */
+ *//*
+
 @RestController
 @RequestMapping("/api/user")
 @Api(value = "用户模块", tags = "用户模块")
@@ -35,7 +38,8 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    /**
+    */
+/**
      * 分页查询用户列表
      *
      * @param keyword
@@ -45,7 +49,8 @@ public class UserController extends BaseController {
      * @param orderType
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ApiOperation(value = "分页查询用户列表(刘明宇)", notes = "分页查询用户列表", response = UnifiedResponse.class)
     public UnifiedResponse pageUsers(@RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
@@ -57,7 +62,8 @@ public class UserController extends BaseController {
         return new UnifiedResponse(userService.pageUsers(keyword, page, size, orderField, orderType));
     }
 
-    /**
+    */
+/**
      * 根据用户ID分页查询与之绑定的角色列表
      *
      * @param id
@@ -65,7 +71,8 @@ public class UserController extends BaseController {
      * @param size
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}/roles", method = RequestMethod.GET)
     @ApiOperation(value = "根据用户ID分页查询与之绑定的角色列表(刘明宇)", notes = "根据用户ID分页查询与之绑定的角色列表", response = UnifiedResponse.class)
     public UnifiedResponse pageRolesByUserId(@PathVariable("id") Long id,
@@ -75,13 +82,15 @@ public class UserController extends BaseController {
         return new UnifiedResponse(userService.pageRolesByUserId(id, page, size));
     }
 
-    /**
+    */
+/**
      * 验证账号有效性 true:可用; false:不可用
      *
      * @param email
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     @ApiOperation(value = "验证账号有效性(刘明宇)", notes = "验证账号有效性", response = UnifiedResponse.class)
     public UnifiedResponse checkAccount(@RequestParam("email") String email) throws Exception {
@@ -89,13 +98,15 @@ public class UserController extends BaseController {
         return new UnifiedResponse(userService.checkAccount(email));
     }
 
-    /**
+    */
+/**
      * 检查当前账号的旧密码是否匹配
      *
      * @param password
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/password", method = RequestMethod.GET)
     @ApiOperation(value = "检查当前账号的旧密码是否匹配(刘明宇)", notes = "检查当前账号的旧密码是否匹配", response = UnifiedResponse.class)
     public UnifiedResponse checkAccountAndPassword(@RequestParam("password") String password) throws Exception {
@@ -104,14 +115,16 @@ public class UserController extends BaseController {
         return new UnifiedResponse(userService.checkAccountAndPassword(account, password));
     }
 
-    /**
+    */
+/**
      * 创建用户
      *
      * @param user
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "创建用户(刘明宇)", notes = "创建用户", response = UnifiedResponse.class)
     public UnifiedResponse saveUser(@RequestBody User user, HttpServletRequest request) throws Exception {
@@ -126,14 +139,16 @@ public class UserController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 更新用户
      *
      * @param user
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ApiOperation(value = "更新用户(刘明宇)", notes = "更新用户", response = UnifiedResponse.class)
     public UnifiedResponse updateUser(@RequestBody User user, HttpServletRequest request) throws Exception {
@@ -148,7 +163,8 @@ public class UserController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 当前用户修改密码
      *
      * @param oldPassword
@@ -156,7 +172,8 @@ public class UserController extends BaseController {
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/password", method = RequestMethod.PUT)
     @ApiOperation(value = "当前用户修改密码(刘明宇)", notes = "当前用户修改密码", response = UnifiedResponse.class)
     public UnifiedResponse updatePassword(@RequestParam("oldPassword") String oldPassword,
@@ -173,14 +190,16 @@ public class UserController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 启用或禁用用户
      *
      * @param id
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}/status", method = RequestMethod.PUT)
     @ApiOperation(value = "启用或禁用用户(刘明宇)", notes = "启用或禁用用户", response = UnifiedResponse.class)
     public UnifiedResponse updateUserEnableStatus(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
@@ -195,13 +214,15 @@ public class UserController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 删除用户
      *
      * @param id
      * @param request
      * @return
-     */
+     *//*
+
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除用户(刘明宇)", notes = "删除用户", response = UnifiedResponse.class)
     public UnifiedResponse deleteUserById(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
@@ -216,13 +237,15 @@ public class UserController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 根据用户ID查询用户信息
      *
      * @param id
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "根据用户ID查询用户信息(刘明宇)", notes = "根据用户ID查询用户信息", response = UnifiedResponse.class)
     public UnifiedResponse queryUserById(@PathVariable("id") Long id) throws Exception {
@@ -230,13 +253,15 @@ public class UserController extends BaseController {
         return new UnifiedResponse(userService.queryUserById(id));
     }
 
-    /**
+    */
+/**
      * 查询当前用户信息
      *
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/me", method = RequestMethod.GET)
     @ApiOperation(value = "查询当前用户信息(刘明宇)", notes = "查询当前用户信息", response = UnifiedResponse.class)
     public UnifiedResponse queryMe(HttpServletRequest request) throws Exception {
@@ -245,13 +270,15 @@ public class UserController extends BaseController {
         return new UnifiedResponse(userService.queryDetailUserById(operatorId));
     }
 
-    /**
+    */
+/**
      * 用户注销
      *
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/logout", method = RequestMethod.PUT)
     @ApiOperation(value = "用户注销(刘明宇)", notes = "用户注销", response = UnifiedResponse.class)
     public UnifiedResponse logout(HttpServletRequest request) throws Exception {
@@ -265,14 +292,16 @@ public class UserController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 根据用户ID删除与之绑定的角色
      *
      * @param id
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}/roles", method = RequestMethod.DELETE)
     @ApiOperation(value = "根据用户ID删除与之绑定的角色(刘明宇)", notes = "根据用户ID删除与之绑定的角色", response = UnifiedResponse.class)
     public UnifiedResponse deleteRolesByUserId(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
@@ -287,13 +316,15 @@ public class UserController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 根据用户ID查询功能列表
      *
      * @param id
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}/functions", method = RequestMethod.GET)
     @ApiOperation(value = "根据用户ID查询功能列表(刘明宇)", notes = "根据用户ID查询功能列表", response = UnifiedResponse.class)
     public UnifiedResponse queryFunctionsByUserId(@PathVariable("id") Long id) throws Exception {
@@ -301,13 +332,15 @@ public class UserController extends BaseController {
         return new UnifiedResponse(userService.queryFunctionsByUserId(id));
     }
 
-    /**
+    */
+/**
      * 根据用户ID查询功能码列表
      *
      * @param id
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}/function/codes", method = RequestMethod.GET)
     @ApiOperation(value = "根据用户ID查询功能码列表(刘明宇)", notes = "根据用户ID查询功能码列表", response = UnifiedResponse.class)
     public UnifiedResponse queryFunctionCodesByUserId(@PathVariable("id") Long id) throws Exception {
@@ -315,3 +348,4 @@ public class UserController extends BaseController {
         return new UnifiedResponse(userService.queryFunctionCodesByUserId(id));
     }
 }
+*/

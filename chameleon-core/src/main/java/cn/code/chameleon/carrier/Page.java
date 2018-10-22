@@ -145,7 +145,6 @@ public class Page implements Serializable {
 
     public void addTargetRequests(List<String> requests) {
         for (String s : requests) {
-            System.out.println("添加Url: " + s);
             if (StringUtils.isBlank(s) || s.equals("#") || s.startsWith("javascript:")) {
                 continue;
             }

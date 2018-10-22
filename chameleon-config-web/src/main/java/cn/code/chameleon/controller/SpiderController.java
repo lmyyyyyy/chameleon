@@ -1,3 +1,4 @@
+/*
 package cn.code.chameleon.controller;
 
 import cn.code.chameleon.common.UnifiedResponse;
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+*/
 /**
  * @author liumingyu
  * @create 2018-05-20 下午5:15
- */
+ *//*
+
 @RestController
 @RequestMapping("/api/spider")
 @Api(value = "爬虫模块", tags = "爬虫模块")
@@ -33,14 +36,16 @@ public class SpiderController extends BaseController {
     @Autowired
     private SpiderService spiderService;
 
-    /**
+    */
+/**
      * 启动爬虫
      *
      * @param taskId
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{taskId}", method = RequestMethod.POST)
     @ApiOperation(value = "启动爬虫(刘明宇)", notes = "启动爬虫", response = UnifiedResponse.class)
     public UnifiedResponse start(@PathVariable("taskId") Long taskId, HttpServletRequest request) throws Exception {
@@ -55,14 +60,16 @@ public class SpiderController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 启动爬虫列表
      *
      * @param taskIds
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "启动爬虫列表(刘明宇)", notes = "启动爬虫列表", response = UnifiedResponse.class)
     public UnifiedResponse start(@RequestBody List<Long> taskIds, HttpServletRequest request) throws Exception {
@@ -77,14 +84,16 @@ public class SpiderController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 启动该组下所有爬虫
      *
      * @param groupId
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{groupId}", method = RequestMethod.POST)
     @ApiOperation(value = "启动该组下所有爬虫(刘明宇)", notes = "启动该组下所有爬虫", response = UnifiedResponse.class)
     public UnifiedResponse startByGroupId(@PathVariable("groupId") Long groupId, HttpServletRequest request) throws Exception {
@@ -99,14 +108,16 @@ public class SpiderController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 关闭爬虫
      *
      * @param taskId
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{taskId}", method = RequestMethod.PUT)
     @ApiOperation(value = "关闭爬虫(刘明宇)", notes = "关闭爬虫", response = UnifiedResponse.class)
     public UnifiedResponse stop(@PathVariable("taskId") Long taskId, HttpServletRequest request) throws Exception {
@@ -121,13 +132,15 @@ public class SpiderController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 关闭所有爬虫
      *
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ApiOperation(value = "关闭所有爬虫(刘明宇)", notes = "关闭所有爬虫", response = UnifiedResponse.class)
     public UnifiedResponse stopAll(HttpServletRequest request) throws Exception {
@@ -142,14 +155,16 @@ public class SpiderController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 删除爬虫
      *
      * @param taskId
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{taskId}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除爬虫(刘明宇)", notes = "删除爬虫", response = UnifiedResponse.class)
     public UnifiedResponse delete(@PathVariable("taskId") Long taskId, HttpServletRequest request) throws Exception {
@@ -164,13 +179,15 @@ public class SpiderController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 删除所有爬虫
      *
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除所有爬虫(刘明宇)", notes = "删除所有爬虫", response = UnifiedResponse.class)
     public UnifiedResponse deleteAll(HttpServletRequest request) throws Exception {
@@ -185,14 +202,16 @@ public class SpiderController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 恢复任务
      *
      * @param taskId
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/resume/{taskId}", method = RequestMethod.PUT)
     @ApiOperation(value = "恢复任务(刘明宇)", notes = "恢复任务", response = UnifiedResponse.class)
     public UnifiedResponse resumeJob(@PathVariable("taskId") Long taskId, HttpServletRequest request) throws Exception {
@@ -207,3 +226,4 @@ public class SpiderController extends BaseController {
         return new UnifiedResponse();
     }
 }
+*/

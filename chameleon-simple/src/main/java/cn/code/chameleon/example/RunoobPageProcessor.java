@@ -3,6 +3,7 @@ package cn.code.chameleon.example;
 import cn.code.chameleon.Spider;
 import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Site;
+import cn.code.chameleon.pipeline.ConsolePipeline;
 import cn.code.chameleon.pipeline.FilePipeline;
 import cn.code.chameleon.processor.PageProcessor;
 
@@ -51,6 +52,6 @@ public class RunoobPageProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new RunoobPageProcessor()).addPipeline(new FilePipeline()).addUrls("http://www.runoob.com/").thread(5).run();
+        Spider.create(new RunoobPageProcessor()).addPipeline(new ConsolePipeline()).addPipeline(new FilePipeline()).addUrls("http://www.runoob.com/").thread(5).run();
     }
 }

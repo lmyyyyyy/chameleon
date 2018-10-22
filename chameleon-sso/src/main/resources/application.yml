@@ -22,7 +22,7 @@ spring:
   mail:
     host: smtp.qq.com
     username: 532033837@qq.com
-    password: hivogcacqorocaje
+    password: ******  #自己邮箱的授权码
     properties:
       mail:
         smtp:

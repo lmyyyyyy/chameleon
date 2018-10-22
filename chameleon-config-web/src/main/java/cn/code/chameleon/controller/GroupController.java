@@ -1,3 +1,4 @@
+/*
 package cn.code.chameleon.controller;
 
 import cn.code.chameleon.common.UnifiedResponse;
@@ -19,10 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+*/
 /**
  * @author liumingyu
  * @create 2018-05-11 下午8:58
- */
+ *//*
+
 @RestController
 @RequestMapping("/api/group")
 @Api(value = "组模块", tags = "组模块")
@@ -35,7 +38,8 @@ public class GroupController extends BaseController {
     @Autowired
     private GroupService groupService;
 
-    /**
+    */
+/**
      * 分页查询组列表
      *
      * @param keyword
@@ -45,7 +49,8 @@ public class GroupController extends BaseController {
      * @param orderType
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ApiOperation(value = "分页查询组列表(刘明宇)", notes = "分页查询组列表", response = UnifiedResponse.class)
     public UnifiedResponse pageGroups(@RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
@@ -57,14 +62,16 @@ public class GroupController extends BaseController {
         return new UnifiedResponse(groupService.pageGroups(keyword, page, size, orderField, orderType));
     }
 
-    /**
+    */
+/**
      * 创建组
      *
      * @param group
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "创建组(刘明宇)", notes = "创建组", response = UnifiedResponse.class)
     public UnifiedResponse saveGroup(@RequestBody Group group, HttpServletRequest request) throws Exception {
@@ -79,14 +86,16 @@ public class GroupController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 更新组
      *
      * @param group
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ApiOperation(value = "更新组(刘明宇)", notes = "更新组", response = UnifiedResponse.class)
     public UnifiedResponse updateGroup(@RequestBody Group group, HttpServletRequest request) throws Exception {
@@ -101,14 +110,16 @@ public class GroupController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 根据ID删除组
      *
      * @param id
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "根据ID删除组(刘明宇)", notes = "根据ID删除组", response = UnifiedResponse.class)
     public UnifiedResponse deleteGroupById(@PathVariable("id") Long id, HttpServletRequest request) throws Exception {
@@ -123,13 +134,15 @@ public class GroupController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 根据ID查询组信息
      *
      * @param id
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "根据ID查询组信息(刘明宇)", notes = "根据ID查询组信息", response = UnifiedResponse.class)
     public UnifiedResponse queryGroupById(@PathVariable("id") Long id) throws Exception {
@@ -137,3 +150,4 @@ public class GroupController extends BaseController {
         return new UnifiedResponse(groupService.queryGroupById(id));
     }
 }
+*/

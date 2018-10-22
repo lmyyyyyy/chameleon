@@ -8,7 +8,6 @@ import cn.code.chameleon.entity.AnswerInfo;
 import cn.code.chameleon.pipeline.ConsolePipeline;
 import cn.code.chameleon.pipeline.FilePipeline;
 import cn.code.chameleon.processor.PageProcessor;
-import cn.code.chameleon.scheduler.FileCachQueueSchduler;
 import cn.code.chameleon.selector.Html;
 
 import java.util.ArrayList;
@@ -28,9 +27,13 @@ public class ZhihuPageProcessor implements PageProcessor {
             page.setJump(true);
         }
         page.addTargetRequests(page.getHtml().links().regex("/question/[\\d]+").all());
-        page.putField("questionTitle", page.getHtml().xpath("//h1[@class='QuestionHeader-title']/text()"));
+        String questionTitle = page.getHtml().xpath("//h1[@class='QuestionHeader-title']/text()").get();
+        if (questionTitle == null || "".equals(questionTitle)) {
+            page.setJump(true);
+        }
+        page.putField("questionTitle", questionTitle);
         page.putField("questionAboutCount", page.getHtml().xpath("//strong[@class='NumberBoard-itemValue']/text()"));
-        page.putField("questionViewCount", page.getHtml().xpath("//*[@id='root']/div/main/div/div[1]/div[2]/div[1]/div[2]/div/div/div/div[2]/div/strong/text()"));
+        //page.putField("questionViewCount", page.getHtml().xpath("//*[@id='root']/div/main/div/div[1]/div[2]/div[1]/div[2]/div/div/div/div/div/strong"));
         page.putField("questionAnswerCount", page.getHtml().xpath("//h4[@class='List-headerText']/span/text()"));
         page.putField("questionContent", page.getHtml().xpath("//div[@class='QuestionHeader-detail']/div/div/span[@class='RichText']/tidyText()"));
         List<String> temps;
@@ -67,6 +70,6 @@ public class ZhihuPageProcessor implements PageProcessor {
         PhantomJSDownloader phantomDownloader =
                 new PhantomJSDownloader("/Users/liumingyu/data/chameleon/phantomjs-2.1.1-macosx/bin/phantomjs"
                         , "/Users/liumingyu/data/chameleon/crawl.js").setRetryTimes(3);
-        Spider.create(new ZhihuPageProcessor()).setDownload(phantomDownloader).addPipeline(new ConsolePipeline()).addPipeline(new FilePipeline()).setScheduler(new FileCachQueueSchduler()).addUrls("https://www.zhihu.com/question/264395357").thread(5).run();
+        Spider.create(new ZhihuPageProcessor()).setDownload(phantomDownloader).addPipeline(new ConsolePipeline()).addPipeline(new FilePipeline()).addUrls("https://www.zhihu.com/question/264395357").thread(5).run();
     }
 }

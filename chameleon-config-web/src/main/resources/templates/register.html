@@ -6,7 +6,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>INSPINIA | Register</title>
+    <title>Chameleon | Register</title>
 
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
     <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet"/>
@@ -21,29 +21,33 @@
     <div class="middle-box text-center loginscreen   animated fadeInDown">
         <div>
             <div>
-                <h2 class="logo-name">MX</h2>
+                <h2 class="logo-name">CN</h2>
             </div>
-            <h3>Register to MOXI</h3>
+            <h3>Register to Chameleon</h3>
             <p>Create account to see it in action.</p>
-            <form class="m-t" role="form" action="login.html">
+            <form class="m-t" role="form" action="">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name" required=""/>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" required=""/>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email" required=""/>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="" onblur="checkAccount()"/>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required=""/>
+                    <input type="password" minlength="6" maxlength="18" id="password" name="password" class="form-control" placeholder="Password" required=""/>
+                </div>
+                <div class="form-group">
+                    <input type="button" style="background-color: #0e9aef" id="button-code" onclick="getCode()" class="btn btn-primary block full-width m-b" value="获取验证码"/>
+                    <input type="text" id="code" name="code" minlength="4" maxlength="6" class="form-control" placeholder="Code" required=""/>
                 </div>
                 <div class="form-group">
                         <div class="checkbox i-checks"><label> <input type="checkbox"/><i></i> Agree the terms and policy </label></div>
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+                <button type="submit" onclick="registerUser()" class="btn btn-primary block full-width m-b">Register</button>
 
                 <p class="text-muted text-center"><small>Already have an account?</small></p>
                 <a class="btn btn-sm btn-white btn-block" th:href="login" href="login.html">Login</a>
             </form>
-            <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
+            <p class="m-t"> <small>LIUMINGYU &copy; 2018</small> </p>
         </div>
     </div>
 
@@ -53,12 +57,104 @@
     <!-- iCheck -->
     <script src="js/plugins/iCheck/icheck.min.js"></script>
     <script>
+        var canLogin = false;
+        var InterValObj; //timer变量，控制时间
+        var count = 60; //间隔函数，1秒执行
+        var curCount;//当前剩余秒数
         $(document).ready(function(){
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
             });
         });
+        function checkAccount() {
+            var email = $('#email').val();
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8090/index/account?email=" + email,
+                success: function (data) {
+                    if (data.status == 0) {
+                        if (data.data) {
+                            alert("该邮箱可用～")
+                        } else {
+                            alert("该邮箱已被注册～")
+                        }
+                    } else {
+                        alert(data.message);
+                    }
+                },
+                error: function (data) {
+                    alert(data.message);
+                }
+            });
+        }
+        function getCode() {
+            var email = $('#email').val();
+            if(email=="")
+            {
+                alert("邮箱不能为空");
+                return false;
+            }
+            if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/))
+            {
+                alert("格式不正确！请重新输入");
+                $("#email1").focus();
+            }
+            curCount = count;
+            $("#button-code").attr("disabled", "true");
+            $("#button-code").val("请在" + curCount + "秒内输入验证码");
+            InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8090/index/code?email=" + email,
+                success: function (data) {
+                    if (data.status == 0) {
+
+                    } else {
+                        alert(data.message);
+                    }
+                },
+                error: function (data) {
+                    alert(data.message);
+                }
+            });
+        }
+        function SetRemainTime() {
+            if (curCount == 0) {
+                window.clearInterval(InterValObj);//停止计时器
+                $("#button-code").removeAttr("disabled");//启用按钮
+                $("#button-code").val("重新发送验证码");
+            }
+            else {
+                curCount--;
+                $("#button-code").val("请在" + curCount + "秒内输入验证码");
+            }
+        }
+        function registerUser() {
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var password = $('#password').val();
+            var code =$('#code').val();
+            var user = {"name":name, "email":email, "password":password};
+            $.ajax({
+                data: JSON.stringify(user),
+                type: "POST",
+                url: "http://localhost:8090/index/user?code=" + code,
+                contentType: "application/json;charset=UTF-8",
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status == 0) {
+                        alert("注册成功!");
+                        window.location.href=("/login");
+                    } else {
+                        alert(data.message);
+                    }
+                },
+                error: function (data) {
+                    alert(data.message);
+                }
+            });
+        }
     </script>
 </body>
 

@@ -1,3 +1,4 @@
+/*
 package cn.code.chameleon.controller;
 
 import cn.code.chameleon.common.UnifiedResponse;
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+*/
 /**
  * @author liumingyu
  * @create 2018-05-07 下午5:35
- */
+ *//*
+
 @RestController
 @RequestMapping("/api/task")
 @Api(value = "爬虫任务模块", tags = "爬虫任务模块")
@@ -33,7 +36,8 @@ public class ChameleonTaskController extends BaseController {
     @Autowired
     private ChameleonTaskService chameleonTaskService;
 
-    /**
+    */
+/**
      * 分页查询爬虫列表
      *
      * @param groupId
@@ -45,7 +49,8 @@ public class ChameleonTaskController extends BaseController {
      * @param orderTyep
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ApiOperation(value = "分页查询爬虫列表(刘明宇)", notes = "分页查询爬虫列表", response = UnifiedResponse.class)
     public UnifiedResponse pageTasks(@RequestParam(value = "groupId", required = false, defaultValue = "-1") Long groupId,
@@ -59,14 +64,16 @@ public class ChameleonTaskController extends BaseController {
         return new UnifiedResponse(chameleonTaskService.pageSpiders(groupId, templateId, status, page, size, orderField, orderTyep));
     }
 
-    /**
+    */
+/**
      * 创建爬虫任务
      *
      * @param task
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "创建爬虫任务(刘明宇)", notes = "创建爬虫任务", response = UnifiedResponse.class)
     public UnifiedResponse saveTask(@RequestBody ChameleonTask task, HttpServletRequest request) throws Exception {
@@ -81,14 +88,16 @@ public class ChameleonTaskController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 更新爬虫任务
      *
      * @param task
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ApiOperation(value = "更新爬虫任务(刘明宇)", notes = "更新爬虫任务", response = UnifiedResponse.class)
     public UnifiedResponse updateTask(@RequestBody ChameleonTask task, HttpServletRequest request) throws Exception {
@@ -104,3 +113,4 @@ public class ChameleonTaskController extends BaseController {
     }
 
 }
+*/

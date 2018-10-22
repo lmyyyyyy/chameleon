@@ -26,8 +26,8 @@ public class ESPipeline implements Pipeline {
         if (esClient == null) {
             esClient = new ESClient();
         }
-        esClient.save(task.getSite().getDomain(),
-                task.getUUID(),
+        esClient.save(task.getUUID(),
+                task.getSite().getDomain(),
                 results.getRequest().getUrl(),
                 results.getAll());
     }

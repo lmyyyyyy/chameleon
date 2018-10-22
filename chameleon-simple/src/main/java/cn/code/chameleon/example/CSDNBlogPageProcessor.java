@@ -3,9 +3,9 @@ package cn.code.chameleon.example;
 import cn.code.chameleon.Spider;
 import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Site;
+import cn.code.chameleon.pipeline.ConsolePipeline;
 import cn.code.chameleon.pipeline.FilePipeline;
 import cn.code.chameleon.processor.PageProcessor;
-import cn.code.chameleon.scheduler.FileCachQueueSchduler;
 
 /**
  * @author liumingyu
@@ -57,6 +57,6 @@ public class CSDNBlogPageProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new CSDNBlogPageProcessor()).addPipeline(new FilePipeline()).setScheduler(new FileCachQueueSchduler()).addUrls("https://blog.csdn.net/").thread(5).run();
+        Spider.create(new CSDNBlogPageProcessor()).addPipeline(new ConsolePipeline()).addPipeline(new FilePipeline()).addUrls("https://blog.csdn.net/").thread(5).run();
     }
 }

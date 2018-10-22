@@ -6,7 +6,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>INSPINIA | Login</title>
+<title>Chameleon | Login</title>
 
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
 <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet" />
@@ -24,21 +24,21 @@
 	<div class="middle-box text-center loginscreen animated fadeInDown">
 		<div>
 			<div>
-				<h2 class="logo-name">MX</h2>
+				<h2 class="logo-name">CN</h2>
 			</div>
-			<h3>Welcome to MOXI</h3>
+			<h3>Welcome to Chameleon</h3>
 			<p>
 				我有故事，你有酒吗？
 			</p>
 			<p>Login in. To see it in action.</p>
-			<form class="m-t" role="form" action="login" method="post">
+			<form class="m-t" role="form">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="userName" name="userName" required="" />
+					<input type="email" id="email" class="form-control" placeholder="email" name="email" required="" />
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="password" name="password" required="" />
+					<input type="password" id="password" class="form-control" placeholder="password" name="password" required="" />
 				</div>
-				<button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+				<button type="button" onclick="login()" class="btn btn-primary block full-width m-b">Login</button>
 				<a th:href="@{register}" href="#"><small>Forgot password?</small></a>
 				<p class="text-muted text-center">
 					<small>Do not have an account?</small>
@@ -46,13 +46,14 @@
 				<a class="btn btn-sm btn-white btn-block" th:href="@{register}" href="register.html">Create an account</a>
 			</form>
 			<p class="m-t">
-				<small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
+				<small>LIUMINGYU &copy; 2018</small>
 			</p>
 		</div>
 	</div>
 
 	<!-- Mainly scripts -->
 	<script th:src="@{/js/jquery-2.1.1.js}"></script>
+	<script th:src="@{/js/jquery.cookie.js}"></script>
 	<script th:src="@{/js/bootstrap.min.js}"></script>
 	<!-- Sweet alert -->
     <script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
@@ -68,7 +69,29 @@
 		      	});
 			}
 		});
-
+        function login() {
+            var email = $('#email').val();
+            var password = $('#password').val();
+            var user = {"email":email, "password":password};
+            $.ajax({
+                data: JSON.stringify(user),
+                type: "POST",
+                url: "http://localhost:8090/index/login",
+                contentType: "application/json;charset=UTF-8",
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status === 0) {
+                        $.cookie('CHAMELEON_TOKEN', data.data);
+                        window.location.href=("http://localhost:8080/dashboard");
+                    } else {
+                        alert(data.message);
+                    }
+                },
+                error: function (data) {
+                    alert(data.message);
+                }
+            });
+        }
 	</script>
 </body>
 

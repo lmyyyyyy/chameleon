@@ -1,3 +1,4 @@
+/*
 package cn.code.chameleon.controller;
 
 import cn.code.chameleon.common.UnifiedResponse;
@@ -8,10 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 
+*/
 /**
  * @author liumingyu
  * @create 2017-11-28 上午10:24
- */
+ *//*
+
 @RestController
 public class BaseController {
     private static Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
@@ -25,4 +28,4 @@ public class BaseController {
             return new UnifiedResponse(ResultCodeEnum.FAILED.getCode(), ResultCodeEnum.FAILED.getMsg());
         }
     }
-}
+}*/

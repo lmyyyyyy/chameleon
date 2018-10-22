@@ -1,3 +1,4 @@
+/*
 package cn.code.chameleon.controller;
 
 import cn.code.chameleon.common.UnifiedResponse;
@@ -19,10 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+*/
 /**
  * @author liumingyu
  * @create 2018-05-13 下午8:13
- */
+ *//*
+
 @RestController
 @RequestMapping("/api/template")
 @Api(value = "爬虫模版模块", tags = "爬虫模版模块")
@@ -35,7 +38,8 @@ public class ChameleonTemplateController extends BaseController {
     @Autowired
     private ChameleonTemplateService chameleonTemplateService;
 
-    /**
+    */
+/**
      * 分页查询模版列表
      *
      * @param keyword
@@ -45,7 +49,8 @@ public class ChameleonTemplateController extends BaseController {
      * @param orderType
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ApiOperation(value = "分页查询模版列表(刘明宇)", notes = "分页查询模版列表", response = UnifiedResponse.class)
     public UnifiedResponse pageTemplates(@RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
@@ -57,14 +62,16 @@ public class ChameleonTemplateController extends BaseController {
         return new UnifiedResponse(chameleonTemplateService.pageTemplates(keyword, page, size, orderField, orderType));
     }
 
-    /**
+    */
+/**
      * 创建模版
      *
      * @param template
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "创建模版(刘明宇)", notes = "创建模版", response = UnifiedResponse.class)
     public UnifiedResponse saveTemplate(@RequestBody ChameleonTemplate template, HttpServletRequest request) throws Exception {
@@ -79,14 +86,16 @@ public class ChameleonTemplateController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 更新模版
      *
      * @param template
      * @param request
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ApiOperation(value = "更新模版(刘明宇)", notes = "更新模版", response = UnifiedResponse.class)
     public UnifiedResponse updateTemplate(@RequestBody ChameleonTemplate template, HttpServletRequest request) throws Exception {
@@ -101,13 +110,15 @@ public class ChameleonTemplateController extends BaseController {
         return new UnifiedResponse();
     }
 
-    /**
+    */
+/**
      * 根据模版ID查询模版信息
      *
      * @param id
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "根据模版ID查询模版信息(刘明宇)", notes = "根据模版ID查询模版信息", response = UnifiedResponse.class)
     public UnifiedResponse queryTemplateById(@PathVariable("id") Long id) throws Exception {
@@ -115,13 +126,15 @@ public class ChameleonTemplateController extends BaseController {
         return new UnifiedResponse(chameleonTemplateService.queryTemplateById(id));
     }
 
-    /**
+    */
+/**
      * 根据模版ID查询爬虫模版信息
      *
      * @param id
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/spider/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "根据模版ID查询爬虫模版信息(刘明宇)", notes = "根据模版ID查询爬虫模版信息", response = UnifiedResponse.class)
     public UnifiedResponse querySpiderTemplateById(@PathVariable("id") Long id) throws Exception {
@@ -129,3 +142,4 @@ public class ChameleonTemplateController extends BaseController {
         return new UnifiedResponse(chameleonTemplateService.querySpiderTemplateById(id));
     }
 }
+*/

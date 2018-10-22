@@ -21,7 +21,6 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.core.Ordered;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -36,10 +35,10 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -79,7 +78,7 @@ import static com.google.common.collect.Sets.newHashSet;
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "app")
 @MapperScan({"cn.code.chameleon.mapper", "cn.code.chameleon.monitor.mapper"})
-@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.monitor", "cn.code.chameleon.quartz", "cn.code.chameleon.model", "cn.code.chameleon.registry", "cn.code.chameleon.interceptor"})
+@ComponentScan({"cn.code.chameleon.controller", "cn.code.chameleon.service", "cn.code.chameleon.monitor", "cn.code.chameleon.quartz", "cn.code.chameleon.model", "cn.code.chameleon.registry", "cn.code.chameleon.interceptor", "cn.code.chameleon.action"})
 @EntityScan({"cn.code.chameleon.pojo", "cn.code.chameleon.monitor.pojo"})
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
@@ -122,6 +121,13 @@ public class Application extends WebMvcConfigurerAdapter {
             ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/static/500.html");
             configurableEmbeddedServletContainer.addErrorPages(error401Page, error404Page, error500Page);
         };
+    }
+
+    @Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+
+        configurer.favorPathExtension(false);
+
     }
 
     @Bean

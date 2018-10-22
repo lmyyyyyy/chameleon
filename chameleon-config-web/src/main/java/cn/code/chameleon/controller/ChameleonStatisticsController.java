@@ -1,3 +1,4 @@
+/*
 package cn.code.chameleon.controller;
 
 import cn.code.chameleon.common.UnifiedResponse;
@@ -13,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+*/
 /**
  * @author liumingyu
  * @create 2018-05-20 下午5:12
- */
+ *//*
+
 @RestController
 @RequestMapping("/api/statistics")
 @Api(value = "任务统计模块", tags = "任务统计模块")
@@ -29,7 +32,8 @@ public class ChameleonStatisticsController extends BaseController {
     @Autowired
     private ChameleonStatisticsService chameleonStatisticsService;
 
-    /**
+    */
+/**
      * 分页查询任务统计
      *
      * @param taskId
@@ -39,7 +43,8 @@ public class ChameleonStatisticsController extends BaseController {
      * @param orderType
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ApiOperation(value = "分页查询任务统计(刘明宇)", notes = "分页查询任务统计", response = UnifiedResponse.class)
     public UnifiedResponse pageStatistics(@RequestParam(value = "taskId", required = false, defaultValue = "-1") Long taskId,
@@ -51,13 +56,15 @@ public class ChameleonStatisticsController extends BaseController {
         return new UnifiedResponse(chameleonStatisticsService.pageStatistics(taskId, page, size, orderField, orderType));
     }
 
-    /**
+    */
+/**
      * 根据任务统计ID查询统计信息
      *
      * @param id
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "根据任务统计ID查询统计信息(刘明宇)", notes = "根据任务统计ID查询统计信息", response = UnifiedResponse.class)
     public UnifiedResponse queryStatisticsById(@PathVariable("id") Long id) throws Exception {
@@ -66,3 +73,4 @@ public class ChameleonStatisticsController extends BaseController {
     }
 
 }
+*/

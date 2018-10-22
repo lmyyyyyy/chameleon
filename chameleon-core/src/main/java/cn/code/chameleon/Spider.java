@@ -93,7 +93,7 @@ public class Spider implements Runnable, Task {
 
     private List<SpiderListener> spiderListeners;
 
-    private RobotsServer robotsServer = new RobotsServer();
+    private RobotsServer robotsServer;
 
     public Spider(PageProcessor pageProcessor) {
         this.pageProcessor = pageProcessor;
@@ -125,6 +125,9 @@ public class Spider implements Runnable, Task {
             }
             startRequests.clear();
         }
+        if (robotsServer == null) {
+            robotsServer = new RobotsServer();
+        }
         startTime = new Date();
     }
 
@@ -144,6 +147,11 @@ public class Spider implements Runnable, Task {
 
     public Spider startRequests(List<Request> requests) {
         this.startRequests = requests;
+        return this;
+    }
+
+    public Spider setExecutorService(ExecutorService executorService) {
+        this.executorService = executorService;
         return this;
     }
 
@@ -230,7 +238,6 @@ public class Spider implements Runnable, Task {
         checkIfRunning();
         this.threadNum = threadNum;
         if (threadNum < 0) {
-
             throw new IllegalArgumentException("The number of threads can not be negative");
         }
         this.executorService = executorService;

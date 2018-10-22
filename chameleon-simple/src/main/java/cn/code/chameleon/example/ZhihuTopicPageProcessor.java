@@ -3,6 +3,7 @@ package cn.code.chameleon.example;
 import cn.code.chameleon.Spider;
 import cn.code.chameleon.carrier.Page;
 import cn.code.chameleon.carrier.Site;
+import cn.code.chameleon.pipeline.ConsolePipeline;
 import cn.code.chameleon.pipeline.FilePipeline;
 import cn.code.chameleon.processor.PageProcessor;
 import cn.code.chameleon.scheduler.FileCachQueueSchduler;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public class ZhihuTopicPageProcessor implements PageProcessor {
 
-    private Site site = Site.init().setTimeOut(10000).setSleepTime(3000).setCycleRetryTimes(3);
+    private Site site = Site.init().setTimeOut(10000).setSleepTime(3000).setCycleRetryTimes(3).setDomain("zhuanlan.zhihu.com");
 
     @Override
     public void process(Page page) {
@@ -42,7 +43,7 @@ public class ZhihuTopicPageProcessor implements PageProcessor {
         page.putField("title", page.getHtml().xpath("//h1[@class='Post-Title']/text()"));
         page.putField("author", page.getHtml().xpath("//div[@class='AuthorInfo-head']/span/div/div/a/text()"));
         page.putField("voteCount", page.getHtml().xpath("//span[@class='Voters']/button/text()"));
-        page.putField("commentCount", page.getHtml().xpath("//div[@class='ContentItem-actions']/button[2]/text()"));
+        page.putField("commentCount", page.getHtml().xpath("//div[@class='ContentItem-actions']/button[1]/text()"));
         List<String> temps;
         temps = page.getHtml().xpath("//div[@class='Popover']/div/text()").all();
         List<String> popovers = new ArrayList<>();
@@ -62,6 +63,6 @@ public class ZhihuTopicPageProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new ZhihuTopicPageProcessor()).addPipeline(new FilePipeline()).setScheduler(new FileCachQueueSchduler()).addUrls("https://www.zhihu.com/topics").thread(5).run();
+        Spider.create(new ZhihuTopicPageProcessor()).addPipeline(new ConsolePipeline()).addPipeline(new FilePipeline()).setScheduler(new FileCachQueueSchduler()).addUrls("https://www.zhihu.com/topics").thread(5).run();
     }
 }

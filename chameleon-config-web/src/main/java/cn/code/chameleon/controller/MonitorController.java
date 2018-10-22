@@ -1,3 +1,4 @@
+/*
 package cn.code.chameleon.controller;
 
 import cn.code.chameleon.common.UnifiedResponse;
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+*/
 /**
  * @author liumingyu
  * @create 2018-05-21 下午9:08
- */
+ *//*
+
 @RestController
 @RequestMapping("/api/monitor")
 @Api(value = "监控模块", tags = "监控模块")
@@ -32,7 +35,8 @@ public class MonitorController extends BaseController {
     @Autowired
     private RunMethodLogService runMethodLogService;
 
-    /**
+    */
+/**
      * 分页查询Service日志
      *
      * @param issueBody
@@ -42,7 +46,8 @@ public class MonitorController extends BaseController {
      * @param orderType
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/service", method = RequestMethod.GET)
     @ApiOperation(value = "分页查询Service日志(刘明宇)", notes = "分页查询Service日志", response = UnifiedResponse.class)
     public UnifiedResponse pageServiceLogs(@RequestParam(value = "issueBody", required = false, defaultValue = "") String issueBody,
@@ -60,7 +65,8 @@ public class MonitorController extends BaseController {
         return new UnifiedResponse(runMethodLogService.pageServiceLogs(serviceLogVO, page, size, orderField, orderType));
     }
 
-    /**
+    */
+/**
      * 分页查询Mapper日志
      *
      * @param issueBody
@@ -70,7 +76,8 @@ public class MonitorController extends BaseController {
      * @param orderType
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/mapper", method = RequestMethod.GET)
     @ApiOperation(value = "分页查询Mapper日志(刘明宇)", notes = "分页查询Mapper日志", response = UnifiedResponse.class)
     public UnifiedResponse pageMapperLogs(@RequestParam(value = "issueBody", required = false, defaultValue = "") String issueBody,
@@ -88,13 +95,15 @@ public class MonitorController extends BaseController {
         return new UnifiedResponse(runMethodLogService.pageMapperLogs(mapperLogVO, page, size, orderField, orderType));
     }
 
-    /**
+    */
+/**
      * 根据ID查询Service日志
      *
      * @param id
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/service/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "根据ID查询Service日志(刘明宇)", notes = "根据ID查询Service日志", response = UnifiedResponse.class)
     public UnifiedResponse queryServiceLogById(@PathVariable("id") Long id) throws Exception {
@@ -102,13 +111,15 @@ public class MonitorController extends BaseController {
         return new UnifiedResponse(runMethodLogService.queryServiceLogById(id));
     }
 
-    /**
+    */
+/**
      * 根据ID查询Mapper日志
      *
      * @param id
      * @return
      * @throws Exception
-     */
+     *//*
+
     @RequestMapping(value = "/mapper/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "根据ID查询Mapper日志(刘明宇)", notes = "根据ID查询Mapper日志", response = UnifiedResponse.class)
     public UnifiedResponse queryMapperLogById(@PathVariable("id") Long id) throws Exception {
@@ -116,3 +127,4 @@ public class MonitorController extends BaseController {
         return new UnifiedResponse(runMethodLogService.queryMapperLogById(id));
     }
 }
+*/
